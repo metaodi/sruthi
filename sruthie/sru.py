@@ -2,9 +2,9 @@
 
 from . import client
 
-def search(url, query):
+def searchretrieve(url, query):
     c = client.Client(url)
-    return c.search(query)
+    return c.searchretrieve(query)
 
 def explain(url):
     c = client.Client(url)
