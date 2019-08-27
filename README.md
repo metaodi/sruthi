@@ -12,7 +12,7 @@
 ```python
 import sruthie
 
-records = sruthie.search('https://suche.staatsarchiv.djiktzh.ch/SRU/', query='Zurich')
+records = sruthie.searchretrieve('https://suche.staatsarchiv.djiktzh.ch/SRU/', query='Zurich')
 
 for record in records:
     # print fields from schema
@@ -27,7 +27,7 @@ for record in records:
 import sruthie
 
 # note: records is an iterator
-records = sruthie.search('https://suche.staatsarchiv.djiktzh.ch/SRU/', query='Human')
+records = sruthie.searchretrieve'https://suche.staatsarchiv.djiktzh.ch/SRU/', query='Human')
 print(records.cql)
 print(records.sru_version)
 print(records.schema)
