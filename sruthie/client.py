@@ -5,6 +5,15 @@ from . import errors
 from defusedxml.ElementTree import parse
 
 class Client:
+    OPERATIONS = {
+        'searchretrieve': {
+            'response': 'searchRetrieveResponse'
+        },
+        'explain': {
+            'response': 'sru:eplainResponse',
+        },
+    }
+
     def __init__(self, url=None):
         self.session = requests.Session()
         self.url = url
@@ -35,8 +44,26 @@ class Client:
             'query': query,
         }
         content = self._get_content(self.url, params)
-        xml = parse(content)
+        # try/except for XML parsing error
+        try:
+            xml = parse(content)
+        except Exception as e:
+            raise errors.SruError("Error while parsing XML: %s" % e)
+
+        self._check_errors(xml, 'searchretriee')
+
         return xml
+
+    def _check_errors(xml, operation):
+        config = self.OPERATIONS[operation]
+        if not xml.find('./%s' % config['response']):
+            raise errors.ServerIncompatibleError('Server response did not contain a searchRetrieveResponse tag')
+
+        diagnostics = xml.find('/searchRetrieveResponse/diagnostics/diagnostic')
+        if diagnostics:
+           error_msg = " ".join([d.find(detail).text for d in diagnostics])
+           raise errors.SruError(error_msg)
+
     
     def explain(self):
         params = {

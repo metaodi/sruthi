@@ -8,3 +8,8 @@ class ServerIncompatibleError(SruthieError):
     The error raised from sru.search/sru.explain when the server doesn't behave
     like a SRU endpoint.
     """
+
+class SruError(SruthieError):
+    """
+    The error raised from sru.search/sru.explain when the SRU response contains an error
+    """
