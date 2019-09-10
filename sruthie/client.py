@@ -2,12 +2,14 @@
 
 import requests
 from . import errors
-from defusedxml.ElementTree import parse
+from . import xmlparse
+from . import metadata
 
 class Client:
+    sru = '{http://www.loc.gov/zing/srw/}'
     OPERATIONS = {
         'searchretrieve': {
-            'response': 'searchRetrieveResponse'
+            'response': '%ssearchRetrieveResponse' % sru,
         },
         'explain': {
             'response': 'sru:eplainResponse',
