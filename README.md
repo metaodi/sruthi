@@ -30,12 +30,11 @@ import sruthie
 records = sruthie.searchretrieve'https://suche.staatsarchiv.djiktzh.ch/SRU/', query='Human')
 print(records.cql)
 print(records.sru_version)
-print(records.schema)
 print(records.count)
 
 for record in records:
     print(record)
-    print(record.schema)
+    print(record['schema'])
 ```
 
 ```python
