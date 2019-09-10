@@ -21,8 +21,8 @@ except (IOError, OSError, ImportError):
     description = 'SRU client for Python'
 
 setup(
-    name='sruthie',
-    packages=['sruthie'],
+    name='sruthi',
+    packages=['sruthi'],
     version=version,
     install_requires=['requests'],
     description='SRU client for Python',
@@ -31,8 +31,8 @@ setup(
     author_email='odi@metaodi.ch',
     maintainer='Stefan Oderbolz',
     maintainer_email='odi@metaodi.ch',
-    url='https://github.com/metaodi/sruthie',
-    download_url='https://github.com/metaodi/sruthie/archive/v%s.zip' % version,
+    url='https://github.com/metaodi/sruthi',
+    download_url='https://github.com/metaodi/sruthi/archive/v%s.zip' % version,
     keywords=['sru', 'search', 'retrieve', 'archive', 'library'],
     license='GPLv3',
     classifiers=[

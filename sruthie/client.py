@@ -29,9 +29,9 @@ class Client:
             )
             res.raise_for_status()
         except requests.exceptions.HTTPError as e:
-            raise errors.SruthieError("HTTP error: %s" % e)
+            raise errors.SruthiError("HTTP error: %s" % e)
         except requests.exceptions.RequestException as e:
-            raise errors.SruthieError("Request error: %s" % e)
+            raise errors.SruthiError("Request error: %s" % e)
 
         return xmlparse.parse(res.content)
 

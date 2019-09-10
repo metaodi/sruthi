@@ -1,4 +1,4 @@
-# sruthie
+# sruthi
 
 **sru**thie is a client for python to make [SRU requests (Search/Retrieve via URL)](http://www.loc.gov/standards/sru/).
 
@@ -10,9 +10,9 @@
 ## Usage
 
 ```python
-import sruthie
+import sruthi
 
-records = sruthie.searchretrieve('https://suche.staatsarchiv.djiktzh.ch/SRU/', query='Zurich')
+records = sruthi.searchretrieve('https://suche.staatsarchiv.djiktzh.ch/SRU/', query='Zurich')
 
 for record in records:
     # print fields from schema
@@ -24,10 +24,10 @@ for record in records:
 
 ```python
 # you can get more information at each step
-import sruthie
+import sruthi
 
 # note: records is an iterator
-records = sruthie.searchretrieve'https://suche.staatsarchiv.djiktzh.ch/SRU/', query='Human')
+records = sruthi.searchretrieve'https://suche.staatsarchiv.djiktzh.ch/SRU/', query='Human')
 print(records.cql)
 print(records.sru_version)
 print(records.count)
@@ -38,9 +38,9 @@ for record in records:
 ```
 
 ```python
-import sruthie
+import sruthi
 
-info = sruthie.explain('https://suche.staatsarchiv.djiktzh.ch/SRU/')
+info = sruthi.explain('https://suche.staatsarchiv.djiktzh.ch/SRU/')
 print(info.server)
 print(info.database)
 print(info.index)
@@ -51,7 +51,9 @@ print(info.schema)
 
 ## Schemas
 
-Currently the following schemas are supported by sruthie. Altough 
+sruthi does not make any assumptions about the record data schema.
+The data is provided as-is (as a flattend dict).
+sruthi has been tested with the following schemas:
 
 * [Dublin Core Record Schema](http://www.loc.gov/standards/sru/recordSchemas/dc-schema.html) (dc)
 * [MARCXML: The MARC 21 XML Schema](http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd) (marcxml)
