@@ -30,40 +30,30 @@ class Client:
             raise errors.SruthieError("HTTP error: %s" % e)
         except requests.exceptions.RequestException as e:
             raise errors.SruthieError("Request error: %s" % e)
-        return self._parse_xml(res.content)
 
-    def _parse_xml(self, content):
-        # handle exceptions and check if an error occued (diagnostic, Unsupported version etc.)
-        xml = parse(content)
-        return xml
-        
+        return xmlparse.parse(res.content)
+
     def searchretrieve(self, query):
         params = {
             'operation': 'searchretrieve',
             'version': '1.2',
             'query': query,
         }
-        content = self._get_content(self.url, params)
-        # try/except for XML parsing error
-        try:
-            xml = parse(content)
-        except Exception as e:
-            raise errors.SruError("Error while parsing XML: %s" % e)
+        xml = self._get_content(self.url, params)
+        self._check_errors(xml, 'searchretrieve')
 
-        self._check_errors(xml, 'searchretriee')
+        records = metadata.extract_records(xml)
+        return records
 
-        return xml
-
-    def _check_errors(xml, operation):
+    def _check_errors(self, xml, operation):
         config = self.OPERATIONS[operation]
-        if not xml.find('./%s' % config['response']):
+        if not xml.tag == config['response']:
             raise errors.ServerIncompatibleError('Server response did not contain a searchRetrieveResponse tag')
 
-        diagnostics = xml.find('/searchRetrieveResponse/diagnostics/diagnostic')
+        diagnostics = xmlparse.find(xml, '%sdiagnostics/%sdiagnostic' % (self.sru, self.sru))
         if diagnostics:
            error_msg = " ".join([d.find(detail).text for d in diagnostics])
            raise errors.SruError(error_msg)
-
     
     def explain(self):
         params = {
