@@ -4,7 +4,7 @@ from collections import defaultdict
 import re
 from . import xmlparse
 
-class SruMetadata(object):
+class SruData(object):
     def __init__(self, records=[], sru_version=None, count=0):
         self.records = records
         self.sru_version = sru_version
@@ -12,7 +12,7 @@ class SruMetadata(object):
     
     def __repr__(self):
         return (
-            'SruMetadata('
+            'SruData('
             'sru_version=%r,'
             'count=%r,'
             'records=%r)'
@@ -22,19 +22,19 @@ class SruMetadata(object):
                self.records
             )
 
-    def __len__(self):
-        return len(self.records)
-
     def __length_hint__(self):
         return self.count
 
+    def __len__(self):
+        return len(self.records)
+
     def __iter__(self):
+        # use while loop since self.records could grow while iterating
         i = 0  
         while i < len(self.records):  
             yield self.records[i]
             i += 1  
-            # TODO: check if is near the end and load more records
-        return iter(self.records)
+            # TODO: check if is near the end and load more records (lazy loading)
 
     def __getitem__(self, key):
         return self.records[key]
@@ -46,10 +46,7 @@ class SruMetadata(object):
 def extract_records(xml):
     records = []
 
-    sru_version = xmlparse.find(xml, './sru:version').text
-    count = xmlparse.find(xml, './sru:numberOfRecords').text
     xml_recs = xmlparse.findall(xml, './sru:records/sru:record')
-
     for xml_rec in xml_recs:
         record = defaultdict()
         record['schema'] = xmlparse.find(xml_rec, './sru:recordSchema').text
@@ -69,16 +66,7 @@ def extract_records(xml):
 
         record = dict(record)
         records.append(record)
-
-        from pprint import pprint
-        pprint(record)
-
-    metadata = SruMetadata(
-        records=records,
-        sru_version=sru_version,
-        count=count
-    )
-    return metadata
+    return records
 
 
 def tag_data(record, elem):

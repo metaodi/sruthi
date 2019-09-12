@@ -16,10 +16,11 @@ class Client:
         },
     }
 
-    def __init__(self, url=None):
+    def __init__(self, url=None, page_size=100):
         self.session = requests.Session()
         self.url = url
         # get explain here to get supported version?
+        # get number_of_records from explain as well
 
     def _get_content(self, url, params):
         try:
@@ -36,16 +37,40 @@ class Client:
         return xmlparse.parse(res.content)
 
     def searchretrieve(self, query):
-        params = {
-            'operation': 'searchretrieve',
-            'version': '1.2',
-            'query': query,
-        }
-        xml = self._get_content(self.url, params)
-        self._check_errors(xml, 'searchretrieve')
+        start_record = 1
+        records = []
 
-        records = metadata.extract_records(xml)
-        return records
+        count = 0
+        sru_version = '1.2'
+
+        while True:
+            params = {
+                'operation': 'searchretrieve',
+                'version': '1.2',
+                'query': query,
+                'startRecord': start_record
+            }
+            xml = self._get_content(self.url, params)
+            self._check_errors(xml, 'searchretrieve')
+
+            if start_record == 1:
+                sru_version = xmlparse.find(xml, './sru:version').text
+                count = int(xmlparse.find(xml, './sru:numberOfRecords').text)
+
+            records.extend(metadata.extract_records(xml))
+
+            next_start_record = xmlparse.find(xml, './sru:nextRecordPosition').text
+            if next_start_record:
+                start_record = int(next_start_record)
+            else:
+                break
+
+        data = metadata.SruData(
+            records=records,
+            sru_version=sru_version,
+            count=count
+        )
+        return data
 
     def _check_errors(self, xml, operation):
         config = self.OPERATIONS[operation]
