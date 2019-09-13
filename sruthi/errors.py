@@ -13,3 +13,8 @@ class SruError(SruthiError):
     """
     The error raised from sru.search/sru.explain when the SRU response contains an error
     """
+
+class NoMoreRecordsError(SruthiError):
+    """
+    This error is raised if all records have been loaded (or no records are present)
+    """
