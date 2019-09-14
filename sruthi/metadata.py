@@ -3,12 +3,14 @@
 from collections import defaultdict
 import re
 from . import xmlparse
+from . import errors
 
 class SruData(object):
-    def __init__(self, records=[], sru_version=None, count=0):
+    def __init__(self, records=[], sru_version=None, count=0, data_loader=None):
         self.records = records
         self.sru_version = sru_version
         self.count = count
+        self._data_loader = data_loader
     
     def __repr__(self):
         return (
@@ -25,22 +27,23 @@ class SruData(object):
     def __length_hint__(self):
         return self.count
 
-    def __len__(self):
-        return len(self.records)
-
     def __iter__(self):
         # use while loop since self.records could grow while iterating
-        i = 0  
-        while i < len(self.records):  
+        i = 0 
+        while True:
+            # load new data when near end
+            if i == len(self.records):
+                try:
+                    result = self._data_loader()
+                    print(result)
+                    self.records.extend(result['records'])
+                except errors.NoMoreRecordsError:
+                    break
             yield self.records[i]
             i += 1  
-            # TODO: check if is near the end and load more records (lazy loading)
 
     def __getitem__(self, key):
         return self.records[key]
-
-    def add_records(self, new_records):
-        self.record.extend(new_records)
 
 
 def extract_records(xml):
