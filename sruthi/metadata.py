@@ -34,16 +34,32 @@ class SruData(object):
             # load new data when near end
             if i == len(self.records):
                 try:
-                    result = self._data_loader()
-                    print(result)
-                    self.records.extend(result['records'])
+                    self._load_new_data()
                 except errors.NoMoreRecordsError:
                     break
             yield self.records[i]
             i += 1  
 
     def __getitem__(self, key):
+        if not isinstance(key, int):
+            raise KeyError("Key must be an integer")
+        if key >= self.count:
+            raise KeyError("Key is out of range")
+
+        while key not in self.records:
+            try:
+                self._load_new_data()
+            except errors.NoMoreRecordsError:
+                if key not in self.records:
+                    print(len(self.records))
+                    raise KeyError("Key not found")
+
         return self.records[key]
+
+    def _load_new_data(self):
+        result = self._data_loader()
+        print(result)
+        self.records.extend(result['records'])
 
 
 def extract_records(xml):
