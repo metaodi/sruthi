@@ -41,24 +41,37 @@ class SruData(object):
             i += 1  
 
     def __getitem__(self, key):
+        if isinstance(key, slice):
+            limit = max(key.start or 0, key.stop or self.count)
+            while limit > len(self.records):
+                try:
+                    self._load_new_data()
+                except errors.NoMoreRecordsError:
+                    pass
+            return [self.records[k] for k in range(*key.indices(len(self.records)))]
         if not isinstance(key, int):
-            raise KeyError("Key must be an integer")
+            raise IndexError("Index must be an integer")
         if key >= self.count:
-            raise KeyError("Key is out of range")
-
-        while key not in self.records:
-            try:
-                self._load_new_data()
-            except errors.NoMoreRecordsError:
-                if key not in self.records:
-                    print(len(self.records))
-                    raise KeyError("Key not found")
+            raise IndexError("Index %s is out of range" % key)
+        if key < 0:
+            # load all data
+            while True:
+                try:
+                    self._load_new_data()
+                except errors.NoMoreRecordsError:
+                    break
+        else:
+            while key >= len(self.records):
+                try:
+                    self._load_new_data()
+                except errors.NoMoreRecordsError:
+                    if key >= len(self.records):
+                        raise IndexError("Index %s not found" % key)
 
         return self.records[key]
 
     def _load_new_data(self):
         result = self._data_loader()
-        print(result)
         self.records.extend(result['records'])
 
 
