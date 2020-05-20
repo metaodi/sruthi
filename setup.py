@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 from codecs import open
-from setuptools import setup
+from setuptools import setup, find_packages
 import re
 
-with open('sruthie/__init__.py', 'r') as fd:
+with open('sruthi/__init__.py', 'r') as fd:
     version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]',
                         fd.read(), re.MULTILINE).group(1)
 
@@ -22,7 +22,7 @@ except (IOError, OSError, ImportError):
 
 setup(
     name='sruthi',
-    packages=['sruthi'],
+    packages=find_packages(),
     version=version,
     install_requires=['requests'],
     description='SRU client for Python',

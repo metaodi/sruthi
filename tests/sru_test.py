@@ -1,5 +1,5 @@
 import mock
-from sruthi_tests import SruthiTestCase
+from sruthi_test import SruthiTestCase
 import sruthi
 
 
@@ -11,11 +11,11 @@ class TestSruthiClient(SruthiTestCase):
         self._session_mock(session_mock)
 
         r = sruthi.searchretrieve('http://test.com/sru/', 'Test-Query')
-        self.assertEquals(r.count, 12)
-        self.assertEquals(len(r.records), 12)
+        self.assertEqual(r.count, 12)
+        self.assertEqual(len(r.records), 12)
 
         print(r[0])
-        self.assertEquals(
+        self.assertEqual(
             r[0],
             {
                 'reference': 'VII.335.:2.34.8.',
