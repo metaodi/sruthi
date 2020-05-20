@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 from codecs import open
-from setuptools import setup
+from setuptools import setup, find_packages
 import re
 
-with open('sruthie/__init__.py', 'r') as fd:
+with open('sruthi/__init__.py', 'r') as fd:
     version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]',
                         fd.read(), re.MULTILINE).group(1)
 
@@ -22,7 +22,7 @@ except (IOError, OSError, ImportError):
 
 setup(
     name='sruthi',
-    packages=['sruthi'],
+    packages=find_packages(),
     version=version,
     install_requires=['requests'],
     description='SRU client for Python',
@@ -36,17 +36,12 @@ setup(
     keywords=['sru', 'search', 'retrieve', 'archive', 'library'],
     license='GPLv3',
     classifiers=[
-        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
+        'License :: OSI Approved :: MIT License',
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Libraries',
         'Development Status :: 4 - Beta',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
     ],
 )

@@ -64,7 +64,6 @@ class SruDataLoader(object):
             raise errors.NoMoreRecordsError()
         self.params['startRecord'] = self.next_start_record
         xml = self._get_content(self.url, self.params)
-        print(xml)
         self._check_errors(xml)
 
         sru_version = xmlparse.find(xml, './sru:version').text

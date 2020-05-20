@@ -1,6 +1,6 @@
 # sruthi
 
-**sru**thie is a client for python to make [SRU requests (Search/Retrieve via URL)](http://www.loc.gov/standards/sru/).
+**sru**thi is a client for python to make [SRU requests (Search/Retrieve via URL)](http://www.loc.gov/standards/sru/).
 
 ## Contents
 
