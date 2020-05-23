@@ -24,6 +24,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install -r test-requirements.txt
+        pip install -e .
 
     - run: flake8 . --count --show-source --statistics
     - run: pytest
