@@ -8,6 +8,7 @@ namespaces = {
     'ap': 'http://www.archivportal.ch/srw/extension/',
 }
 
+
 class XMLNone(object):
     def __nonzero__(self):
         return False

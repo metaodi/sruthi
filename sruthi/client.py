@@ -5,6 +5,7 @@ from . import errors
 from . import xmlparse
 from . import metadata
 
+
 class Client(object):
     def __init__(self, url=None, page_size=100):
         self.session = requests.Session()
@@ -34,7 +35,6 @@ class Client(object):
         params = {
             'operation': 'explain',
             'version': '1.2',
-            'query': query,
         }
         content = self._get_content(self.url, params)
         return content
@@ -101,9 +101,14 @@ class SruDataLoader(object):
     def _check_errors(self, xml):
         config = self.OPERATIONS[self.operation]
         if not xml.tag == config['response']:
-            raise errors.ServerIncompatibleError('Server response did not contain a searchRetrieveResponse tag')
+            raise errors.ServerIncompatibleError(
+                'Server response did not contain a searchRetrieveResponse tag'
+            )
 
-        diagnostics = xmlparse.find(xml, '%sdiagnostics/%sdiagnostic' % (self.sru, self.sru))
+        diagnostics = xmlparse.find(
+            xml,
+            f'{self.sru}diagnostics/{self.sru}diagnostic'
+        )
         if diagnostics:
-           error_msg = " ".join([d.find(detail).text for d in diagnostics])
-           raise errors.SruError(error_msg)
+            error_msg = " ".join([d.find('detail').text for d in diagnostics])
+            raise errors.SruError(error_msg)

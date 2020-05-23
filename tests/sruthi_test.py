@@ -20,5 +20,4 @@ class SruthiTestCase(unittest.TestCase):
             filename
         )
         with open(path) as file:
-            session_mock.return_value.get.return_value = mock.MagicMock(content=file.read())
-
+            session_mock.return_value.get.return_value = mock.MagicMock(content=file.read())  # noqa

@@ -18,8 +18,16 @@ class TestSruthiClient(SruthiTestCase):
         for rec in r:
             self.assertIsInstance(rec, dict)
             self.assertEqual(rec['schema'], 'isad')
-        
-        session_mock.return_value.get.assert_any_call('http://test.com/sru', params={'startRecord': 1, 'query': 'Test-Query', 'operation': 'searchretrieve', 'version': '1.2'})
+
+        session_mock.return_value.get.assert_any_call(
+            'http://test.com/sru',
+            params={
+                'startRecord': 1,
+                'query': 'Test-Query',
+                'operation': 'searchretrieve',
+                'version': '1.2'
+            }
+        )
 
 # add test for getitem with slices etc.
 # print("-3")
