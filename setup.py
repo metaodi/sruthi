@@ -34,7 +34,7 @@ setup(
     url='https://github.com/metaodi/sruthi',
     download_url='https://github.com/metaodi/sruthi/archive/v%s.zip' % version,
     keywords=['sru', 'search', 'retrieve', 'archive', 'library'],
-    license='GPLv3',
+    license='MIT',
     classifiers=[
         'License :: OSI Approved :: MIT License',
         'Intended Audience :: Developers',
@@ -44,4 +44,5 @@ setup(
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
     ],
+    python_requires='>=3.6'
 )
