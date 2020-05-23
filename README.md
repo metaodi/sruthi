@@ -2,10 +2,19 @@
 
 **sru**thi is a client for python to make [SRU requests (Search/Retrieve via URL)](http://www.loc.gov/standards/sru/).
 
-## Contents
+## Table of Contents
 
+* [Installation](#installation)
 * [Usage](#usage)
 * [Schemas](#schemas)
+
+## Installation
+
+[sruthi is available on PyPI](https://pypi.org/project/sruthi/), so to install it simply use:
+
+```
+$ pip install sruthi
+```
 
 ## Usage
 
