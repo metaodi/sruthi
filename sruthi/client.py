@@ -37,6 +37,7 @@ class DataLoader(object):
         self.url = url
         self.params = params
         self.response = None
+        self.xmlparser = xmlparse.XMLParser()
 
     def load(self, **kwargs):
         self.params.update(kwargs)
@@ -56,11 +57,11 @@ class DataLoader(object):
         except requests.exceptions.RequestException as e:
             raise errors.SruthiError("Request error: %s" % e)
 
-        return xmlparse.parse(res.content)
+        return self.xmlparser.parse(res.content)
 
     def _check_errors(self, xml):
         sru = '{http://www.loc.gov/zing/srw/}'
-        diagnostics = xmlparse.find(
+        diagnostics = self.xmlparser.find(
             xml,
             f'{sru}diagnostics/{sru}diagnostic'
         )

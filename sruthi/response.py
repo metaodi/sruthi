@@ -2,23 +2,40 @@
 
 from collections import defaultdict
 import re
+import warnings
 from . import xmlparse
 from . import errors
 
 class Response(object):
     def __init__(self, data_loader):
         self.data_loader = data_loader
+        self.xmlparser = xmlparse.XMLParser()
         self.records = []
         xml = self.data_loader.load()
         self._parse_content(xml)
+
+    def maybe_int(self, s):
+        try:
+            return int(s)
+        except (ValueError, TypeError):
+            return s
 
     def _check_response_tag(self, xml, tag):
         sru = '{http://www.loc.gov/zing/srw/}'
         response = f"{sru}{tag}"
         if not xml.tag == response:
-            raise errors.ServerIncompatibleError(
-                f"Server response did not contain a {response} tag"
-            )
+            # fix namespace for servers that provide the wrong namespace URI
+            main_ns = self.xmlparser.namespace(xml)
+            if 'www.loc.gov/zing/srw' in main_ns:
+                warnings.warn(
+                    f"The server has the wrong namespace for SRU, it should be {sru} but it's currently set to {{{main_ns}}}.",
+                    errors.WrongNamespaceWarning
+                )
+                self.xmlparser.namespaces['sru'] = main_ns
+            else:
+                raise errors.ServerIncompatibleError(
+                    f"Server response did not contain a {response} tag"
+                )
 
 
 class SearchRetrieveResponse(Response):
@@ -26,13 +43,13 @@ class SearchRetrieveResponse(Response):
         try: 
             return (
                 'SearchRetrieveResponse('
+                'sru_version=%r,'
                 'count=%r,'
-                'next_start_record=%r'
-                'records=%r)'
+                'next_start_record=%r)'
                 ) % (
+                   self.sru_version,
                    self.count,
                    self.next_start_record,
-                   self.records
                 )
         except AttributeError:
             return 'SearchRetrieveResponse(empty)'
@@ -40,13 +57,13 @@ class SearchRetrieveResponse(Response):
     def _parse_content(self, xml):
         self._check_response_tag(xml, 'searchRetrieveResponse')
 
-        self.sru_version = xmlparse.find(xml, './sru:version').text
-        self.count = int(xmlparse.find(xml, './sru:numberOfRecords').text)
+        self.sru_version = self.xmlparser.find(xml, './sru:version').text
+        self.count = self.maybe_int(self.xmlparser.find(xml, './sru:numberOfRecords').text)
         self._extract_records(xml)
 
-        next_start_record = xmlparse.find(xml, './sru:nextRecordPosition').text
+        next_start_record = self.xmlparser.find(xml, './sru:nextRecordPosition').text
         if next_start_record:
-            self.next_start_record = int(next_start_record)
+            self.next_start_record = self.maybe_int(next_start_record)
         else:
             self.next_start_record = None
 
@@ -91,20 +108,20 @@ class SearchRetrieveResponse(Response):
                 break
 
     def _load_new_data(self):
-        xml = self.data_loader.load(startRecord=self.next_start_record)
-        self._parse_content(xml)
         if self.next_start_record is None:
             raise errors.NoMoreRecordsError()
+        xml = self.data_loader.load(startRecord=self.next_start_record)
+        self._parse_content(xml)
 
     def _extract_records(self, xml):
         new_records = []
 
-        xml_recs = xmlparse.findall(xml, './sru:records/sru:record')
+        xml_recs = self.xmlparser.findall(xml, './sru:records/sru:record')
         for xml_rec in xml_recs:
             record = defaultdict()
-            record['schema'] = xmlparse.find(xml_rec, './sru:recordSchema').text
-            record_data = xmlparse.find(xml_rec, './sru:recordData')
-            extra_data = xmlparse.find(xml_rec, './sru:extraRecordData')
+            record['schema'] = self.xmlparser.find(xml_rec, './sru:recordSchema').text
+            record_data = self.xmlparser.find(xml_rec, './sru:recordData')
+            extra_data = self.xmlparser.find(xml_rec, './sru:extraRecordData')
 
             for elem in record_data.iter():
                 record = self._tag_data(record, elem)
