@@ -139,23 +139,102 @@ class ExplainResponse(Response):
             'server=%r,'
             'database=%r'
             'index=%r'
-            'schema=%r)'
+            'schema=%r'
+            'config=%r)'
             ) % (
                self.sru_version,
                self.server,
                self.database,
                self.index,
                self.schema,
+               self.config,
             )
 
     def _parse_content(self, xml):
         self._check_response_tag(xml, 'explainResponse')
 
-        self.sru_version = xmlparse.find(xml, './sru:version').text
-        self.server = xmlparse.find(xml, './zr:serverInfo').text
-        self.database = ''
-        self.index = ''
-        self.schema = ''
-        print(self)
+        record_schema = self.xmlparser.find(xml, './/sru:recordSchema').text
+        if record_schema:
+            self.xmlparser.namespaces['zr'] = record_schema
+
+        self.sru_version = self.xmlparser.find(xml, './sru:version').text
+
+        self.server = self._parse_server(xml)
+        self.database = self._parse_database(xml)
+        self.index = self._parse_index(xml)
+        self.schema = self._parse_schema(xml)
+        self.config = self._parse_config(xml)
+
+    def _parse_server(self, xml):
+        server_info =  {
+            'host': self.xmlparser.find(xml, './/zr:serverInfo/zr:host').text,
+            'port': self.xmlparser.find(xml, './/zr:serverInfo/zr:port').text,
+        }
+        server_info['port'] = self.maybe_int(server_info['port'])
+        return server_info
+
+    def _parse_schema(self, xml):
+        def bool_or_none(v):
+            if v is None:
+                return None
+            return bool(v)
+        ident = lambda a: a
+        attributes = {
+            'identifier': ident,
+            'name': ident,
+            'location': ident,
+            'sort': bool_or_none,
+            'retrieve': bool_or_none,
+        }
+        
+        schemas = []
+        for schema in self.xmlparser.findall(xml, './/zr:schemaInfo/zr:schema'):
+            schema_info = {}
+            for attr, fn in attributes.items():
+                xml_attr = schema.attrib.get(attr)
+                if xml_attr:
+                    schema_info[attr] = fn(xml_attr)
+            schema_info['title'] = self.xmlparser.find(schema, './zr:title').text
+            schemas.append(schema_info)
+        return schemas
+                
+    def _parse_config(self, xml):
+        config = {}
+        for setting in self.xmlparser.findall(xml, './/zr:configInfo/zr:setting'):
+            t = setting.attrib['type']
+            config[t] = self.maybe_int(setting.text)
+            
+        # defaults
+        defaults = {}
+        for default in self.xmlparser.findall(xml, './/zr:configInfo/zr:default'):
+            t = default.attrib['type']
+            defaults[t] = self.maybe_int(default.text)
+        config['defaults'] = defaults
+        return config
+
+    def _parse_database(self, xml):
+        db = self.xmlparser.find(xml, './/zr:databaseInfo')
+        db_info = {
+            'title': self.xmlparser.find(db, ['./zr:title', './title']).text,
+            'description': self.xmlparser.find(db, ['./zr:description', './description']).text,
+            'contact': self.xmlparser.find(db, ['./zr:contact', './contact']).text,
+        }
+        db_info = {k: v.strip() if v else v for (k, v) in db_info.items()}
+        return db_info
+    
+    def _parse_index(self, xml):
+        index = defaultdict(defaultdict)
+        for index_set in self.xmlparser.findall(xml,'.//zr:indexInfo/zr:set'):
+            index[index_set.attrib['name']] = defaultdict()
+
+        for index_field in self.xmlparser.findall(xml,'.//zr:indexInfo/zr:index'):
+            title = self.xmlparser.find(index_field, './zr:title').text or \
+                    self.xmlparser.find(index_field, './title').text
+            if title:
+                title = title.strip()
+            for name in self.xmlparser.findall(index_field, './/zr:map/zr:name'):
+                index[name.attrib['set']][name.text.strip()] = title
+
+        return {k: dict(v) for k,v in dict(index).items()}
 
 
