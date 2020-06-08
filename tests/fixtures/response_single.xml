@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<searchRetrieveResponse xmlns="http://www.loc.gov/zing/srw/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:isad="http://www.expertisecentrumdavid.be/xmlschemas/isad.xsd" xsi:schemaLocation="http://www.loc.gov/zing/srw/ http://www.loc.gov/standards/sru/sru1-1archive/xml-files/srw-types.xsd">
+  <version>1.2</version>
+  <numberOfRecords>1</numberOfRecords>
+  <records>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordPacking>xml</recordPacking>
+      <recordData>
+        <isad:archivaldescription>
+          <isad:identity>
+            <isad:reference>VII.8802-Test.</isad:reference>
+            <isad:title>Test-Title</isad:title>
+            <isad:date>2020</isad:date>
+            <isad:descriptionlevel>Dossier</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>1</recordPosition>
+      <extraRecordData>
+        <rel:score xmlns:rel="info:srw/extension/2/relevancy-1.0">0.38</rel:score>
+        <ap:link xmlns:ap="http://www.archivportal.ch/srw/extension/">https://amsquery.stadt-zuerich.ch/detail.aspx?Id=410130</ap:link>
+        <ap:beginDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1998-01-01</ap:beginDateISO>
+        <ap:beginApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:beginApprox>
+        <ap:endDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">2020-12-31</ap:endDateISO>
+        <ap:endApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:endApprox>
+        <ap:hasDigitizedItems xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:hasDigitizedItems>
+      </extraRecordData>
+    </record>
+  </records>
+</searchRetrieveResponse>

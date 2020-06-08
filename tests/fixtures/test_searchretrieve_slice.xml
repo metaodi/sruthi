@@ -1,0 +1,112 @@
+<?xml version="1.0" ?><searchRetrieveResponse xmlns="http://www.loc.gov/zing/srw" >
+<version>1.1</version><numberOfRecords>10</numberOfRecords><records xmlns:ns1="http://www.loc.gov/zing/srw" >
+<record><recordSchema>info:srw/schema/1/marcxml-v1.1</recordSchema><recordPacking>xml</recordPacking><recordData><srw_dc:dc xmlns:srw_dc="info:srw/schema/1/dc-v1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/">
+<dc:id>107853744</dc:id>
+<dcterms:extent>1 Karte : mehrfarbig</dcterms:extent>
+<dc:title>Zürich</dc:title>
+<dc:type>cartographic</dc:type>
+<dc:type>
+            Karte
+            gnd-content
+         </dc:type>
+<dc:language>ger</dc:language>
+<dcterms:isPartof>Topographische Karte der Schweiz</dcterms:isPartof>
+<dc:description>Auflagendruck 3.49 (i.e. März 1949)</dc:description>
+</srw_dc:dc>
+</recordData></record><record><recordSchema>info:srw/schema/1/marcxml-v1.1</recordSchema><recordPacking>xml</recordPacking><recordData><srw_dc:dc xmlns:srw_dc="info:srw/schema/1/dc-v1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/">
+<dc:id>105427527</dc:id>
+<dcterms:extent>   v.</dcterms:extent>
+<dc:title>Zürich : ein Lesebuch zur Heimatkunde in Schweizerschulen</dc:title>
+<dc:creator>Wälti, Hans, 1902-</dc:creator>
+<dc:type>text</dc:type>
+<dc:language>ger</dc:language>
+<dcterms:isPartof>Die Schweiz in Lebensbildern .- Bd. 5</dcterms:isPartof>
+</srw_dc:dc>
+</recordData></record><record><recordSchema>info:srw/schema/1/marcxml-v1.1</recordSchema><recordPacking>xml</recordPacking><recordData><srw_dc:dc xmlns:srw_dc="info:srw/schema/1/dc-v1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/">
+<dc:id>106876457</dc:id>
+<dcterms:extent>1 Bd. : Ill.</dcterms:extent>
+<dc:title>Zürich : die Wirtschaftsmetropole der Schweiz</dc:title>
+<dc:type>text</dc:type>
+<dc:language>ger</dc:language>
+<dc:subject>Kommunales Unternehmen</dc:subject>
+</srw_dc:dc>
+</recordData></record><record><recordSchema>info:srw/schema/1/marcxml-v1.1</recordSchema><recordPacking>xml</recordPacking><recordData><srw_dc:dc xmlns:srw_dc="info:srw/schema/1/dc-v1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/">
+<dc:id>10723971X</dc:id>
+<dcterms:extent>Online-Datei</dcterms:extent>
+<dc:title>Zürich : die Wirtschaftsmetropole der Schweiz</dc:title>
+<dc:type>text</dc:type>
+<dc:language>ger</dc:language>
+<dc:description>URL: http://www.standort.zh.ch/internet/vd/awa/standort/de/wirtschaft/einleitung.SubContainerList.SubContainer2.ContentContainerList.0016.DownloadFile.pdf?CFC_cK=1286824768644 [Stand: 15.10.2010]</dc:description>
+<dc:subject>Kommunales Unternehmen</dc:subject>
+<dc:identifier>http://www.ub.unibas.ch/digi/a125/sachdok/2010/BAU_1_5326931.pdf</dc:identifier>
+</srw_dc:dc>
+</recordData></record><record><recordSchema>info:srw/schema/1/marcxml-v1.1</recordSchema><recordPacking>xml</recordPacking><recordData><srw_dc:dc xmlns:srw_dc="info:srw/schema/1/dc-v1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/">
+<dc:id>108757544</dc:id>
+<dc:title>Zürich</dc:title>
+<dc:creator>Welti, Rolf</dc:creator>
+<dc:type>text</dc:type>
+<dc:language>ger</dc:language>
+<dc:source>Jugend-Briefmarkenzeitung .- (1993)4, S. 8-15 ill.</dc:source>
+</srw_dc:dc>
+</recordData></record><record><recordSchema>info:srw/schema/1/marcxml-v1.1</recordSchema><recordPacking>xml</recordPacking><recordData><srw_dc:dc xmlns:srw_dc="info:srw/schema/1/dc-v1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/">
+<dc:id>020437471</dc:id>
+<dcterms:extent>1 Karte : mehrfarbig</dcterms:extent>
+<dc:title>Zürich Kartenmaterial : Velokarte = bicycle map = carte cycliste = carta ciclistica</dc:title>
+<dc:type>cartographic</dc:type>
+<dc:publisher>Bern : Kümmerly + Frey</dc:publisher>
+<dc:date>[2007?]</dc:date>
+<dc:language>ger</dc:language>
+<dcterms:isPartof>Velokarten - Veloland Schweiz .- Bl. 6</dcterms:isPartof>
+<dc:description>Redaktionsstand 2007, Laufzeit bis 2010</dc:description>
+<dc:identifier>URN:ISBN:978-3-259-00518-7</dc:identifier>
+</srw_dc:dc>
+</recordData></record><record><recordSchema>info:srw/schema/1/marcxml-v1.1</recordSchema><recordPacking>xml</recordPacking><recordData><srw_dc:dc xmlns:srw_dc="info:srw/schema/1/dc-v1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/">
+<dc:id>075640988</dc:id>
+<dcterms:extent>8 S.</dcterms:extent>
+<dc:title>Zürich</dc:title>
+<dc:type>text</dc:type>
+<dc:language>ger</dc:language>
+<dcterms:isPartof>Kleinstwasserkraftwerke</dcterms:isPartof>
+</srw_dc:dc>
+</recordData></record><record><recordSchema>info:srw/schema/1/marcxml-v1.1</recordSchema><recordPacking>xml</recordPacking><recordData><srw_dc:dc xmlns:srw_dc="info:srw/schema/1/dc-v1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/">
+<dc:id>072890770</dc:id>
+<dcterms:extent>245 S.</dcterms:extent>
+<dc:title>Zürich</dc:title>
+<dc:creator>Kübler, Arnold, 1890-1983</dc:creator>
+<dc:type>text</dc:type>
+<dc:language>ger</dc:language>
+</srw_dc:dc>
+</recordData></record><record><recordSchema>info:srw/schema/1/marcxml-v1.1</recordSchema><recordPacking>xml</recordPacking><recordData><srw_dc:dc xmlns:srw_dc="info:srw/schema/1/dc-v1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/">
+<dc:id>07865257X</dc:id>
+<dcterms:extent>1 Bd.</dcterms:extent>
+<dc:title>Zürich : die Wirtschaftsmetropole der Schweiz</dc:title>
+<dc:type>text</dc:type>
+<dc:language>ger</dc:language>
+</srw_dc:dc>
+</recordData></record><record><recordSchema>info:srw/schema/1/marcxml-v1.1</recordSchema><recordPacking>xml</recordPacking><recordData><srw_dc:dc xmlns:srw_dc="info:srw/schema/1/dc-v1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/">
+<dc:id>113008686</dc:id>
+<dcterms:extent>1 Karte : mehrfarbig</dcterms:extent>
+<dc:title>Zürich : Velokarte</dc:title>
+<dc:type>cartographic</dc:type>
+<dc:type>
+            Karte
+            gnd-content
+         </dc:type>
+<dc:language>ger</dc:language>
+<dcterms:isPartof>Velokarte 1:60 000 .- 6</dcterms:isPartof>
+<dc:description>"Velokarte mit den offiziellen Routen "Veloland Schweiz", GPS-tauglich, Index"</dc:description>
+<dc:description>Legende deutsch, französisch, italienisch, englisch</dc:description>
+<dc:description/>
+<dc:identifier>URN:ISBN:978-3-259-00518-7</dc:identifier>
+</srw_dc:dc>
+</recordData></record></records>
+<echoedSearchRetrieveRequest>
+<version>1.1</version>
+<query><![CDATA[dc.title = Zürich]]></query>
+<startRecord>0</startRecord><maximumRecords>10</maximumRecords>
+<recordPacking>null</recordPacking>
+<recordSchema>info:srw/schema/1/dc-v1.1</recordSchema>
+<resultSetTTL>0</resultSetTTL>
+</echoedSearchRetrieveRequest>
+<sortKeys/>
+</searchRetrieveResponse>
