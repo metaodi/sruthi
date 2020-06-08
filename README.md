@@ -2,6 +2,8 @@
 
 **sru**thi is a client for python to make [SRU requests (Search/Retrieve via URL)](http://www.loc.gov/standards/sru/).
 
+Currently only SRU 1.2 is supported.
+
 ## Table of Contents
 
 * [Installation](#installation)
