@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><searchRetrieveResponse xmlns="http://www.loc.gov/zing/srw" >
+<?xml version="1.0" ?><searchRetrieveResponse xmlns="http://www.loc.gov/zing/srw/" >
 <version>1.1</version><numberOfRecords>10</numberOfRecords><records xmlns:ns1="http://www.loc.gov/zing/srw" >
 <record><recordSchema>info:srw/schema/1/marcxml-v1.1</recordSchema><recordPacking>xml</recordPacking><recordData><srw_dc:dc xmlns:srw_dc="info:srw/schema/1/dc-v1.1" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/">
 <dc:id>107853744</dc:id>
