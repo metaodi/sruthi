@@ -99,8 +99,9 @@ class TestSruthiClient(SruthiTestCase):
         # schema
         schema = info.schema
         self.assertEqual(len(schema), 1)
-        self.assertEqual(schema[0]['name'], 'isad')
-        self.assertEqual(schema[0]['title'], 'ISAD(G)')
+        self.assertEqual(list(schema.keys()), ['isad'])
+        self.assertEqual(schema['isad']['name'], 'isad')
+        self.assertEqual(schema['isad']['title'], 'ISAD(G)')
 
         # config
         config = info.config
