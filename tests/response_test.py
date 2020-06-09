@@ -1,7 +1,5 @@
-import mock
-from sruthi_test import SruthiTestCase
+from sruthi_test import ResponseTestCase
 from sruthi.response import SearchRetrieveResponse, ExplainResponse
-from sruthi import xmlparse
 import os
 
 __location__ = os.path.realpath(
@@ -10,27 +8,6 @@ __location__ = os.path.realpath(
         os.path.dirname(__file__)
     )
 )
-
-
-class ResponseTestCase(SruthiTestCase):
-    def _data_loader_mock(self, filenames):
-        xmls = []
-        for filename in filenames:
-            xmls.append(self._load_xml(filename))
-        m = mock.Mock()
-        m.load.side_effect = xmls
-        return m
-
-    def _load_xml(self, filename):
-        path = os.path.join(
-            __location__,
-            'fixtures',
-            filename
-        )
-        xmlparser = xmlparse.XMLParser()
-        with open(path) as file:
-            content = file.read()
-        return xmlparser.parse(content)
 
 
 class TestSearchRetrieveResponse(ResponseTestCase):
