@@ -1,0 +1,625 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<searchRetrieveResponse xmlns="http://www.loc.gov/zing/srw/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:isad="http://www.expertisecentrumdavid.be/xmlschemas/isad.xsd" xsi:schemaLocation="http://www.loc.gov/zing/srw/ http://www.loc.gov/standards/sru/sru1-1archive/xml-files/srw-types.xsd">
+  <version>1.2</version>
+  <numberOfRecords>220</numberOfRecords>
+  <records>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordPacking>xml</recordPacking>
+      <recordData>
+        <isad:archivaldescription>
+          <isad:identity>
+            <isad:reference>MM 24.76 KRP 1966/106/0731</isad:reference>
+            <isad:title>Verfassungsgesetz über die Abänderung von Art. 16 der Staatsverfassung</isad:title>
+            <isad:date>09.05.1966</isad:date>
+            <isad:descriptionlevel>Dokument</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>1</recordPosition>
+      <extraRecordData>
+        <rel:score xmlns:rel="info:srw/extension/2/relevancy-1.0">0.14</rel:score>
+        <ap:link xmlns:ap="http://www.archivportal.ch/srw/extension/">https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=3707223</ap:link>
+        <ap:beginDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1966-05-09</ap:beginDateISO>
+        <ap:beginApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:beginApprox>
+        <ap:endDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1966-05-09</ap:endDateISO>
+        <ap:endApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:endApprox>
+        <ap:hasDigitizedItems xmlns:ap="http://www.archivportal.ch/srw/extension/">1</ap:hasDigitizedItems>
+      </extraRecordData>
+    </record>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordPacking>xml</recordPacking>
+      <recordData>
+        <isad:archivaldescription>
+          <isad:identity>
+            <isad:reference>MM 24.90 KRP 1975/006/0071</isad:reference>
+            <isad:title>Motion Hans R. Bachofner - Zürich vom 2. Juni 1975 betreffend die Einreichung einer Standesinitiative über den Bau und den Betrieb von Kernkraftwerken</isad:title>
+            <isad:date>30.06.1975</isad:date>
+            <isad:descriptionlevel>Dokument</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>2</recordPosition>
+      <extraRecordData>
+        <rel:score xmlns:rel="info:srw/extension/2/relevancy-1.0">0.14</rel:score>
+        <ap:link xmlns:ap="http://www.archivportal.ch/srw/extension/">https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=3722491</ap:link>
+        <ap:beginDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1975-06-30</ap:beginDateISO>
+        <ap:beginApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:beginApprox>
+        <ap:endDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1975-06-30</ap:endDateISO>
+        <ap:endApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:endApprox>
+        <ap:hasDigitizedItems xmlns:ap="http://www.archivportal.ch/srw/extension/">1</ap:hasDigitizedItems>
+      </extraRecordData>
+    </record>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordPacking>xml</recordPacking>
+      <recordData>
+        <isad:archivaldescription>
+          <isad:identity>
+            <isad:reference>MM 24.125 KRP 1989/117/0004 - MM 24.125 KRP 1989/117/0005</isad:reference>
+            <isad:title>Postulat Dr. Ulrich Hedinger (SP, Zürich), Heidi Hofmann (SP, Zürich) und Agnes Guler (SP, Zürich) vom 5. September betreffend finanzielle Unterstützung des Dritt-Welt-Frauen-Informationszentrums (FIZ) in Zürich (schriftlich begründet); Postulat Dr. Ulrich Hedinger (SP, Zürich) und Agnes Guler (SP, </isad:title>
+            <isad:date>21.08.1989</isad:date>
+            <isad:descriptionlevel>Dokument</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>3</recordPosition>
+      <extraRecordData>
+        <rel:score xmlns:rel="info:srw/extension/2/relevancy-1.0">0.14</rel:score>
+        <ap:link xmlns:ap="http://www.archivportal.ch/srw/extension/">https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=3737721</ap:link>
+        <ap:beginDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1989-08-21</ap:beginDateISO>
+        <ap:beginApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:beginApprox>
+        <ap:endDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1989-08-21</ap:endDateISO>
+        <ap:endApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:endApprox>
+        <ap:hasDigitizedItems xmlns:ap="http://www.archivportal.ch/srw/extension/">1</ap:hasDigitizedItems>
+      </extraRecordData>
+    </record>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordPacking>xml</recordPacking>
+      <recordData>
+        <isad:archivaldescription>
+          <isad:identity>
+            <isad:reference>MM 24.122 KRP 1988/054/0007</isad:reference>
+            <isad:title>Interpellation Dr. Ulrich Hedinger (SP, Zürich) und Ulrich Schäpper (SP, Zürich) vom 8. Februar 1988 betreffend Auswirkungen des Transnuklear-Skandals für den Kanton Zürich (schriftlich begründet) 
+KR-Nr. 46/1988, RRB-Nr. 879/23.3.1988</isad:title>
+            <isad:date>02.05.1988</isad:date>
+            <isad:descriptionlevel>Dokument</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>4</recordPosition>
+      <extraRecordData>
+        <rel:score xmlns:rel="info:srw/extension/2/relevancy-1.0">0.14</rel:score>
+        <ap:link xmlns:ap="http://www.archivportal.ch/srw/extension/">https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=3738367</ap:link>
+        <ap:beginDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1988-05-02</ap:beginDateISO>
+        <ap:beginApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:beginApprox>
+        <ap:endDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1988-05-02</ap:endDateISO>
+        <ap:endApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:endApprox>
+        <ap:hasDigitizedItems xmlns:ap="http://www.archivportal.ch/srw/extension/">1</ap:hasDigitizedItems>
+      </extraRecordData>
+    </record>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordPacking>xml</recordPacking>
+      <recordData>
+        <isad:archivaldescription>
+          <isad:identity>
+            <isad:reference>MM 24.126 KRP 1989/133/0001a</isad:reference>
+            <isad:title>Mitteilungen</isad:title>
+            <isad:date>20.11.1989</isad:date>
+            <isad:descriptionlevel>Dokument</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>5</recordPosition>
+      <extraRecordData>
+        <rel:score xmlns:rel="info:srw/extension/2/relevancy-1.0">0.14</rel:score>
+        <ap:link xmlns:ap="http://www.archivportal.ch/srw/extension/">https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=3738772</ap:link>
+        <ap:beginDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1989-11-20</ap:beginDateISO>
+        <ap:beginApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:beginApprox>
+        <ap:endDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1989-11-20</ap:endDateISO>
+        <ap:endApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:endApprox>
+        <ap:hasDigitizedItems xmlns:ap="http://www.archivportal.ch/srw/extension/">1</ap:hasDigitizedItems>
+      </extraRecordData>
+    </record>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordPacking>xml</recordPacking>
+      <recordData>
+        <isad:archivaldescription>
+          <isad:identity>
+            <isad:reference>MM 24.131 KRP 1991/011/0005 - MM 24.131 KRP 1991/011/0006</isad:reference>
+            <isad:title>Dringliche Interpellation Dr. Thomas Huonker (SP, Zürich), Urs Kaltenrieder (SP, Dielsdorf) und Kaspar Günthardt (GP, Dällikon) vom 27. Mai 1991 betreffend vorläufigen Ausschaffungsstopp von abgewiesenen kurdischen Asylbewerbern in die Türkei, den Irak und den Iran (mündlich begründet); Dringliche I</isad:title>
+            <isad:date>19.08.1991</isad:date>
+            <isad:descriptionlevel>Dokument</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>6</recordPosition>
+      <extraRecordData>
+        <rel:score xmlns:rel="info:srw/extension/2/relevancy-1.0">0.14</rel:score>
+        <ap:link xmlns:ap="http://www.archivportal.ch/srw/extension/">https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=3744020</ap:link>
+        <ap:beginDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1991-08-19</ap:beginDateISO>
+        <ap:beginApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:beginApprox>
+        <ap:endDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1991-08-19</ap:endDateISO>
+        <ap:endApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:endApprox>
+        <ap:hasDigitizedItems xmlns:ap="http://www.archivportal.ch/srw/extension/">1</ap:hasDigitizedItems>
+      </extraRecordData>
+    </record>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordPacking>xml</recordPacking>
+      <recordData>
+        <isad:archivaldescription>
+          <isad:identity>
+            <isad:reference>MM 24.131 KRP 1991/012/0001a</isad:reference>
+            <isad:title>Mitteilungen</isad:title>
+            <isad:date>26.08.1991</isad:date>
+            <isad:descriptionlevel>Dokument</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>7</recordPosition>
+      <extraRecordData>
+        <rel:score xmlns:rel="info:srw/extension/2/relevancy-1.0">0.14</rel:score>
+        <ap:link xmlns:ap="http://www.archivportal.ch/srw/extension/">https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=3744023</ap:link>
+        <ap:beginDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1991-08-26</ap:beginDateISO>
+        <ap:beginApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:beginApprox>
+        <ap:endDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1991-08-26</ap:endDateISO>
+        <ap:endApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:endApprox>
+        <ap:hasDigitizedItems xmlns:ap="http://www.archivportal.ch/srw/extension/">1</ap:hasDigitizedItems>
+      </extraRecordData>
+    </record>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordPacking>xml</recordPacking>
+      <recordData>
+        <isad:archivaldescription>
+          <isad:identity>
+            <isad:reference>MM 24.138 KRP 1994/153/0001a</isad:reference>
+            <isad:title>Mitteilungen</isad:title>
+            <isad:date>28.02.1994</isad:date>
+            <isad:descriptionlevel>Dokument</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>8</recordPosition>
+      <extraRecordData>
+        <rel:score xmlns:rel="info:srw/extension/2/relevancy-1.0">0.14</rel:score>
+        <ap:link xmlns:ap="http://www.archivportal.ch/srw/extension/">https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=3744602</ap:link>
+        <ap:beginDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1994-02-28</ap:beginDateISO>
+        <ap:beginApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:beginApprox>
+        <ap:endDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1994-02-28</ap:endDateISO>
+        <ap:endApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:endApprox>
+        <ap:hasDigitizedItems xmlns:ap="http://www.archivportal.ch/srw/extension/">1</ap:hasDigitizedItems>
+      </extraRecordData>
+    </record>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordPacking>xml</recordPacking>
+      <recordData>
+        <isad:archivaldescription>
+          <isad:identity>
+            <isad:reference>MM 24.138 KRP 1994/162/0009</isad:reference>
+            <isad:title>Interpellation Ernst Schibli, Otelfingen, Ernst E. Büchi, Zürich, und Werner E. Schwendimann, Oberstammheim, von 29. November 1993 betreffend Missstände im Strafvollzug und nötige Konsequenzen (schriftlich begründet) 
+KR-Nr. 348/1993, RRB-Nr. 108/12. 1. 1994</isad:title>
+            <isad:date>09.05.1994</isad:date>
+            <isad:descriptionlevel>Dokument</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>9</recordPosition>
+      <extraRecordData>
+        <rel:score xmlns:rel="info:srw/extension/2/relevancy-1.0">0.14</rel:score>
+        <ap:link xmlns:ap="http://www.archivportal.ch/srw/extension/">https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=3744711</ap:link>
+        <ap:beginDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1994-05-09</ap:beginDateISO>
+        <ap:beginApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:beginApprox>
+        <ap:endDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1994-05-09</ap:endDateISO>
+        <ap:endApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:endApprox>
+        <ap:hasDigitizedItems xmlns:ap="http://www.archivportal.ch/srw/extension/">1</ap:hasDigitizedItems>
+      </extraRecordData>
+    </record>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordPacking>xml</recordPacking>
+      <recordData>
+        <isad:archivaldescription>
+          <isad:identity>
+            <isad:reference>MM 3.124 RRB 1968/3520</isad:reference>
+            <isad:title>Interpellation.</isad:title>
+            <isad:date>05.09.1968</isad:date>
+            <isad:descriptionlevel>Dokument</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>10</recordPosition>
+      <extraRecordData>
+        <rel:score xmlns:rel="info:srw/extension/2/relevancy-1.0">0.14</rel:score>
+        <ap:link xmlns:ap="http://www.archivportal.ch/srw/extension/">https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=4034313</ap:link>
+        <ap:beginDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1968-09-05</ap:beginDateISO>
+        <ap:beginApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:beginApprox>
+        <ap:endDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1968-09-05</ap:endDateISO>
+        <ap:endApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:endApprox>
+        <ap:hasDigitizedItems xmlns:ap="http://www.archivportal.ch/srw/extension/">1</ap:hasDigitizedItems>
+      </extraRecordData>
+    </record>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordPacking>xml</recordPacking>
+      <recordData>
+        <isad:archivaldescription>
+          <isad:identity>
+            <isad:reference>MM 3.185 RRB 1988/0391</isad:reference>
+            <isad:title>Motion</isad:title>
+            <isad:date>10.02.1988</isad:date>
+            <isad:descriptionlevel>Dokument</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>11</recordPosition>
+      <extraRecordData>
+        <rel:score xmlns:rel="info:srw/extension/2/relevancy-1.0">0.14</rel:score>
+        <ap:link xmlns:ap="http://www.archivportal.ch/srw/extension/">https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=4129664</ap:link>
+        <ap:beginDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1988-02-10</ap:beginDateISO>
+        <ap:beginApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:beginApprox>
+        <ap:endDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1988-02-10</ap:endDateISO>
+        <ap:endApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:endApprox>
+        <ap:hasDigitizedItems xmlns:ap="http://www.archivportal.ch/srw/extension/">1</ap:hasDigitizedItems>
+      </extraRecordData>
+    </record>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordPacking>xml</recordPacking>
+      <recordData>
+        <isad:archivaldescription>
+          <isad:identity>
+            <isad:reference>MM 3.185 RRB 1988/0879</isad:reference>
+            <isad:title>Interpellation</isad:title>
+            <isad:date>23.03.1988</isad:date>
+            <isad:descriptionlevel>Dokument</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>12</recordPosition>
+      <extraRecordData>
+        <rel:score xmlns:rel="info:srw/extension/2/relevancy-1.0">0.14</rel:score>
+        <ap:link xmlns:ap="http://www.archivportal.ch/srw/extension/">https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=4130164</ap:link>
+        <ap:beginDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1988-03-23</ap:beginDateISO>
+        <ap:beginApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:beginApprox>
+        <ap:endDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1988-03-23</ap:endDateISO>
+        <ap:endApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:endApprox>
+        <ap:hasDigitizedItems xmlns:ap="http://www.archivportal.ch/srw/extension/">1</ap:hasDigitizedItems>
+      </extraRecordData>
+    </record>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordPacking>xml</recordPacking>
+      <recordData>
+        <isad:archivaldescription>
+          <isad:identity>
+            <isad:reference>MM 3.198 RRB 1992/0687</isad:reference>
+            <isad:title>Vorentwurf eines Bundesgesetzes über den Staatsschutz (Vernehmlassung)</isad:title>
+            <isad:date>04.03.1992</isad:date>
+            <isad:descriptionlevel>Dokument</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>13</recordPosition>
+      <extraRecordData>
+        <rel:score xmlns:rel="info:srw/extension/2/relevancy-1.0">0.14</rel:score>
+        <ap:link xmlns:ap="http://www.archivportal.ch/srw/extension/">https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=4178011</ap:link>
+        <ap:beginDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1992-03-04</ap:beginDateISO>
+        <ap:beginApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:beginApprox>
+        <ap:endDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1992-03-04</ap:endDateISO>
+        <ap:endApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:endApprox>
+        <ap:hasDigitizedItems xmlns:ap="http://www.archivportal.ch/srw/extension/">1</ap:hasDigitizedItems>
+      </extraRecordData>
+    </record>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordPacking>xml</recordPacking>
+      <recordData>
+        <isad:archivaldescription>
+          <isad:identity>
+            <isad:reference>MM 3.204 RRB 1994/1419</isad:reference>
+            <isad:title>Anfrage (Gefängnisplanung)</isad:title>
+            <isad:date>18.05.1994</isad:date>
+            <isad:descriptionlevel>Dokument</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>14</recordPosition>
+      <extraRecordData>
+        <rel:score xmlns:rel="info:srw/extension/2/relevancy-1.0">0.14</rel:score>
+        <ap:link xmlns:ap="http://www.archivportal.ch/srw/extension/">https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=4183181</ap:link>
+        <ap:beginDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1994-05-18</ap:beginDateISO>
+        <ap:beginApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:beginApprox>
+        <ap:endDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1994-05-18</ap:endDateISO>
+        <ap:endApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:endApprox>
+        <ap:hasDigitizedItems xmlns:ap="http://www.archivportal.ch/srw/extension/">1</ap:hasDigitizedItems>
+      </extraRecordData>
+    </record>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordPacking>xml</recordPacking>
+      <recordData>
+        <isad:archivaldescription>
+          <isad:identity>
+            <isad:reference>Z 248.37</isad:reference>
+            <isad:title>Protokoll des Zürcher Verfassungsrates, 31. Sitzung</isad:title>
+            <isad:date>23.01.2003</isad:date>
+            <isad:descriptionlevel>Dossier</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>15</recordPosition>
+      <extraRecordData>
+        <rel:score xmlns:rel="info:srw/extension/2/relevancy-1.0">0.14</rel:score>
+        <ap:link xmlns:ap="http://www.archivportal.ch/srw/extension/">https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=4632951</ap:link>
+        <ap:beginDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">2003-01-23</ap:beginDateISO>
+        <ap:beginApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:beginApprox>
+        <ap:endDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">2003-01-23</ap:endDateISO>
+        <ap:endApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:endApprox>
+        <ap:hasDigitizedItems xmlns:ap="http://www.archivportal.ch/srw/extension/">1</ap:hasDigitizedItems>
+      </extraRecordData>
+    </record>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordPacking>xml</recordPacking>
+      <recordData>
+        <isad:archivaldescription>
+          <isad:identity>
+            <isad:reference>Z 248.59</isad:reference>
+            <isad:title>Protokoll des Zürcher Verfassungsrates, 53. Sitzung</isad:title>
+            <isad:date>25.06.2004</isad:date>
+            <isad:descriptionlevel>Dossier</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>16</recordPosition>
+      <extraRecordData>
+        <rel:score xmlns:rel="info:srw/extension/2/relevancy-1.0">0.14</rel:score>
+        <ap:link xmlns:ap="http://www.archivportal.ch/srw/extension/">https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=4633006</ap:link>
+        <ap:beginDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">2004-06-25</ap:beginDateISO>
+        <ap:beginApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:beginApprox>
+        <ap:endDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">2004-06-25</ap:endDateISO>
+        <ap:endApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:endApprox>
+        <ap:hasDigitizedItems xmlns:ap="http://www.archivportal.ch/srw/extension/">1</ap:hasDigitizedItems>
+      </extraRecordData>
+    </record>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordPacking>xml</recordPacking>
+      <recordData>
+        <isad:archivaldescription>
+          <isad:identity>
+            <isad:reference>Z 248.68</isad:reference>
+            <isad:title>Protokoll des Zürcher Verfassungsrates, 62. Sitzung</isad:title>
+            <isad:date>28.10.2004</isad:date>
+            <isad:descriptionlevel>Dossier</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>17</recordPosition>
+      <extraRecordData>
+        <rel:score xmlns:rel="info:srw/extension/2/relevancy-1.0">0.14</rel:score>
+        <ap:link xmlns:ap="http://www.archivportal.ch/srw/extension/">https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=4633015</ap:link>
+        <ap:beginDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">2004-10-28</ap:beginDateISO>
+        <ap:beginApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:beginApprox>
+        <ap:endDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">2004-10-28</ap:endDateISO>
+        <ap:endApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:endApprox>
+        <ap:hasDigitizedItems xmlns:ap="http://www.archivportal.ch/srw/extension/">1</ap:hasDigitizedItems>
+      </extraRecordData>
+    </record>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordPacking>xml</recordPacking>
+      <recordData>
+        <isad:archivaldescription>
+          <isad:identity>
+            <isad:reference>MM 24.51 KRP 1918/053/0377</isad:reference>
+            <isad:title>Militäraufgebot. Fortsetzung der Beratung.</isad:title>
+            <isad:date>13.11.1918</isad:date>
+            <isad:descriptionlevel>Dokument</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>18</recordPosition>
+      <extraRecordData>
+        <rel:score xmlns:rel="info:srw/extension/2/relevancy-1.0">0.14</rel:score>
+        <ap:link xmlns:ap="http://www.archivportal.ch/srw/extension/">https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=3628011</ap:link>
+        <ap:beginDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1918-11-13</ap:beginDateISO>
+        <ap:beginApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:beginApprox>
+        <ap:endDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1918-11-13</ap:endDateISO>
+        <ap:endApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:endApprox>
+        <ap:hasDigitizedItems xmlns:ap="http://www.archivportal.ch/srw/extension/">1</ap:hasDigitizedItems>
+      </extraRecordData>
+    </record>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordPacking>xml</recordPacking>
+      <recordData>
+        <isad:archivaldescription>
+          <isad:identity>
+            <isad:reference>MM 24.61 KRP 1945/076/0691</isad:reference>
+            <isad:title>Interpellation Weiß - Zürich vom 16. Juli 1945 über die Ausweisung von Nazis und Faschisten (Diskussion) (Traktandum 3) und Motion Alfred Weiß - Zürich vom 3. September 1945 über die Ausweisung von nationalsozialistischen und faschistischen Elementen (vorgeschobenes Traktandum 19).</isad:title>
+            <isad:date>10.09.1945</isad:date>
+            <isad:descriptionlevel>Dokument</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>19</recordPosition>
+      <extraRecordData>
+        <rel:score xmlns:rel="info:srw/extension/2/relevancy-1.0">0.14</rel:score>
+        <ap:link xmlns:ap="http://www.archivportal.ch/srw/extension/">https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=3689974</ap:link>
+        <ap:beginDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1945-09-10</ap:beginDateISO>
+        <ap:beginApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:beginApprox>
+        <ap:endDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1945-09-10</ap:endDateISO>
+        <ap:endApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:endApprox>
+        <ap:hasDigitizedItems xmlns:ap="http://www.archivportal.ch/srw/extension/">1</ap:hasDigitizedItems>
+      </extraRecordData>
+    </record>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordPacking>xml</recordPacking>
+      <recordData>
+        <isad:archivaldescription>
+          <isad:identity>
+            <isad:reference>MM 24.75 KRP 1965/084/0578</isad:reference>
+            <isad:title>Beschluss des Kantonsrates über die kantonalzürcherische Initiative gegen die Bodenspekulation (Fortsetzung der Beratungen)</isad:title>
+            <isad:date>20.09.1965</isad:date>
+            <isad:descriptionlevel>Dokument</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>20</recordPosition>
+      <extraRecordData>
+        <rel:score xmlns:rel="info:srw/extension/2/relevancy-1.0">0.14</rel:score>
+        <ap:link xmlns:ap="http://www.archivportal.ch/srw/extension/">https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=3706369</ap:link>
+        <ap:beginDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1965-09-20</ap:beginDateISO>
+        <ap:beginApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:beginApprox>
+        <ap:endDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1965-09-20</ap:endDateISO>
+        <ap:endApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:endApprox>
+        <ap:hasDigitizedItems xmlns:ap="http://www.archivportal.ch/srw/extension/">1</ap:hasDigitizedItems>
+      </extraRecordData>
+    </record>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordPacking>xml</recordPacking>
+      <recordData>
+        <isad:archivaldescription>
+          <isad:identity>
+            <isad:reference>MM 24.78 KRP 1969/060/0455</isad:reference>
+            <isad:title>Verfassungsgesetz über die Änderung von Art. 16 der Staatsverfassung</isad:title>
+            <isad:date>24.03.1969</isad:date>
+            <isad:descriptionlevel>Dokument</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>21</recordPosition>
+      <extraRecordData>
+        <rel:score xmlns:rel="info:srw/extension/2/relevancy-1.0">0.14</rel:score>
+        <ap:link xmlns:ap="http://www.archivportal.ch/srw/extension/">https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=3708619</ap:link>
+        <ap:beginDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1969-03-24</ap:beginDateISO>
+        <ap:beginApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:beginApprox>
+        <ap:endDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1969-03-24</ap:endDateISO>
+        <ap:endApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:endApprox>
+        <ap:hasDigitizedItems xmlns:ap="http://www.archivportal.ch/srw/extension/">1</ap:hasDigitizedItems>
+      </extraRecordData>
+    </record>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordPacking>xml</recordPacking>
+      <recordData>
+        <isad:archivaldescription>
+          <isad:identity>
+            <isad:reference>MM 24.79 KRP 1969/066/0495</isad:reference>
+            <isad:title>Interpellation Dr. Hansjörg Braunschweig - Dübendorf vom 10. Februar 1969 über eine Anleihe der Republik Südafrika (Fortsetzung der Diskussion)</isad:title>
+            <isad:date>12.05.1969</isad:date>
+            <isad:descriptionlevel>Dokument</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>22</recordPosition>
+      <extraRecordData>
+        <rel:score xmlns:rel="info:srw/extension/2/relevancy-1.0">0.14</rel:score>
+        <ap:link xmlns:ap="http://www.archivportal.ch/srw/extension/">https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=3708916</ap:link>
+        <ap:beginDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1969-05-12</ap:beginDateISO>
+        <ap:beginApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:beginApprox>
+        <ap:endDateISO xmlns:ap="http://www.archivportal.ch/srw/extension/">1969-05-12</ap:endDateISO>
+        <ap:endApprox xmlns:ap="http://www.archivportal.ch/srw/extension/">0</ap:endApprox>
+        <ap:hasDigitizedItems xmlns:ap="http://www.archivportal.ch/srw/extension/">1</ap:hasDigitizedItems>
+      </extraRecordData>
+    </record>
+  </records>
+</searchRetrieveResponse>

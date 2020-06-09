@@ -24,7 +24,7 @@ setup(
     name='sruthi',
     packages=find_packages(),
     version=version,
-    install_requires=['requests'],
+    install_requires=['requests', 'defusedxml'],
     description='SRU client for Python',
     long_description=description,
     author='Stefan Oderbolz',

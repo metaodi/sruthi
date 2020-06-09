@@ -11,6 +11,14 @@ __location__ = os.path.realpath(
 
 
 class SruthiTestCase(unittest.TestCase):
+    def setUp(self):
+        self.patcher = mock.patch('sruthi.client.requests.Session')
+        self.mock_object = self.patcher.start()
+        self._session_mock(self.mock_object)
+
+    def tearDown(self):
+        self.patcher.stop()
+
     def _session_mock(self, session_mock, filename=None):
         if not filename:
             filename = self._testMethodName + ".xml"
@@ -19,5 +27,8 @@ class SruthiTestCase(unittest.TestCase):
             'fixtures',
             filename
         )
+        if not os.path.exists(path):
+            return
+
         with open(path) as file:
             session_mock.return_value.get.return_value = mock.MagicMock(content=file.read())  # noqa

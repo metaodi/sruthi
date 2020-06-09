@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sru:explainResponse xmlns:sru="http://www.loc.gov/zing/srw/">
+  <sru:version>1.2</sru:version>
+  <sru:record>
+    <sru:recordPacking>XML</sru:recordPacking>
+    <sru:recordSchema>http://explain.z3950.org/dtd/2.1/</sru:recordSchema>
+    <sru:recordData>
+
+      <zr:explain xmlns:zr="http://explain.z3950.org/dtd/2.1/">
+        <zr:serverInfo protocol="SRU" version="1.2" transport="http">
+          <zr:host>https://test.com/sru</zr:host>
+          <zr:port>80</zr:port>
+          <zr:database>sru</zr:database>
+        </zr:serverInfo>
+        <zr:databaseInfo>
+          <title lang="de" primary="true">Testarchiv Online Search</title>
+          <description lang="de" primary="true">Durchsuchen der Bestände des Testarchivs.</description>
+          <contact>test@test.com</contact>
+        </zr:databaseInfo>
+        <zr:indexInfo>
+          <zr:set name="isad" identifier="info:srw/cql-context-set/1/dc-v1.1"/>
+          <zr:index>
+            <title lang="de">Title</title>
+            <zr:map>
+              <zr:name set="isad">title</zr:name>
+            </zr:map>
+          </zr:index>
+          <zr:index>
+            <title lang="de">Reference Code</title>
+            <zr:map>
+              <zr:name set="isad">reference</zr:name>
+            </zr:map>
+          </zr:index>
+          <zr:index>
+            <title lang="de">Date </title>
+            <zr:map>
+              <zr:name set="isad">date</zr:name>
+            </zr:map>
+          </zr:index>
+          <zr:index>
+            <title lang="de">Level</title>
+            <zr:map>
+              <zr:name set="isad">descriptionlevel</zr:name>
+            </zr:map>
+          </zr:index>
+        </zr:indexInfo>
+        <zr:schemaInfo>
+          <zr:schema name="isad" identifier="http://www.expertisecentrumdavid.be/xmlschemas/isad.xsd">
+            <zr:title>ISAD(G)</zr:title>
+          </zr:schema>
+        </zr:schemaInfo>
+        <zr:configInfo>
+          <zr:default type="numberOfRecords">99</zr:default>
+          <zr:setting type="maximumRecords">99</zr:setting>
+          <zr:setting type="my-test-config">test123</zr:setting>
+        </zr:configInfo>
+      </zr:explain>
+
+    </sru:recordData>
+  </sru:record>
+</sru:explainResponse>
