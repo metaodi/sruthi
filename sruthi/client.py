@@ -7,17 +7,18 @@ from . import response
 
 
 class Client(object):
-    def __init__(self, url=None):
+    def __init__(self, url=None, maximum_records=10):
         self.url = url
-        # get explain here to get supported version?
-        # get number_of_records from explain as well
+        self.maximum_records = maximum_records
+        self.sru_version = '1.2'
 
     def searchretrieve(self, query, start_record=1):
         params = {
             'operation': 'searchretrieve',
-            'version': '1.2',
+            'version': self.sru_version,
             'query': query,
             'startRecord': start_record,
+            'maximumRecords': self.maximum_records,
         }
         data_loader = DataLoader(self.url, params)
         return response.SearchRetrieveResponse(data_loader)
@@ -25,7 +26,7 @@ class Client(object):
     def explain(self):
         params = {
             'operation': 'explain',
-            'version': '1.2',
+            'version': self.sru_version,
         }
         data_loader = DataLoader(self.url, params)
         return response.ExplainResponse(data_loader)

@@ -211,7 +211,7 @@ class ExplainResponse(Response):
             'retrieve': bool_or_none,
         }
 
-        schemas = []
+        schemas = {}
         for schema in self.xmlparser.findall(xml, './/zr:schemaInfo/zr:schema'):
             schema_info = {}
             for attr, fn in attributes.items():
@@ -219,7 +219,7 @@ class ExplainResponse(Response):
                 if xml_attr:
                     schema_info[attr] = fn(xml_attr)
             schema_info['title'] = self.xmlparser.find(schema, './zr:title').text
-            schemas.append(schema_info)
+            schemas[schema.attrib.get('name')] = schema_info
         return schemas
 
     def _parse_config(self, xml):

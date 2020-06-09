@@ -10,3 +10,7 @@ class TestSru(SruthiTestCase):
     def test_explain(self):
         info = sruthi.explain('http://test.com/sru/')
         self.assertIsInstance(info, sruthi.response.ExplainResponse)
+
+    def test_client(self):
+        client = sruthi.Client('http://test.com/sru')
+        self.assertIsInstance(client, sruthi.client.Client)
