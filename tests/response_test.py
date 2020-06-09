@@ -12,7 +12,7 @@ __location__ = os.path.realpath(
 )
 
 
-class TestSearchRetrieveResponse(SruthiTestCase):
+class ResponseTestCase(SruthiTestCase):
     def _data_loader_mock(self, filenames):
         xmls = []
         for filename in filenames:
@@ -33,6 +33,7 @@ class TestSearchRetrieveResponse(SruthiTestCase):
         return xmlparser.parse(content)
 
 
+class TestSearchRetrieveResponse(ResponseTestCase):
     def test_response_single(self):
         data_loader = self._data_loader_mock(['response_single.xml'])
         res = SearchRetrieveResponse(data_loader)
@@ -87,4 +88,16 @@ class TestSearchRetrieveResponse(SruthiTestCase):
         self.assertIsNotNone(res[205])
         self.assertIsInstance(res[205], dict)
         self.assertEqual(data_loader.load.call_count, 3)
-        
+
+
+class TestExplainResponse(ResponseTestCase):
+    def test_response_simple(self):
+        data_loader = self._data_loader_mock(['test_explain.xml'])
+        res = ExplainResponse(data_loader)
+        self.assertEqual(data_loader.load.call_count, 1)
+
+        self.assertIsNotNone(res.server)
+        self.assertIsNotNone(res.index)
+        self.assertIsNotNone(res.schema)
+        self.assertIsNotNone(res.database)
+        self.assertIsNotNone(res.config)

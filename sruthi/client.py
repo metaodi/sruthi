@@ -19,7 +19,7 @@ class Client(object):
             'query': query,
             'startRecord': start_record,
         }
-        data_loader = DataLoader(self.url, params) 
+        data_loader = DataLoader(self.url, params)
         return response.SearchRetrieveResponse(data_loader)
 
     def explain(self):
@@ -27,7 +27,7 @@ class Client(object):
             'operation': 'explain',
             'version': '1.2',
         }
-        data_loader = DataLoader(self.url, params) 
+        data_loader = DataLoader(self.url, params)
         return response.ExplainResponse(data_loader)
 
 

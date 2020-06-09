@@ -24,10 +24,12 @@ class NoMoreRecordsError(SruthiError):
     present)
     """
 
+
 class SruthiWarning(Warning):
     """
     General sruthi warning class to provide a superclass for all warnings
     """
+
 
 class WrongNamespaceWarning(SruthiWarning):
     """

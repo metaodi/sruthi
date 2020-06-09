@@ -1,4 +1,3 @@
-import mock
 from sruthi_test import SruthiTestCase
 import sruthi
 

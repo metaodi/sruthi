@@ -3,7 +3,6 @@ import sruthi
 from termcolor import cprint
 import yaml
 
-#info = sruthi.explain('https://suche.staatsarchiv.djiktzh.ch/SRU/')
 sru_endpoints = [
     'https://suche.staatsarchiv.djiktzh.ch/SRU/',
     'https://amsquery.stadt-zuerich.ch/SRU/',
@@ -11,14 +10,18 @@ sru_endpoints = [
     'https://sru.swissbib.ch/sru/explain',
 ]
 
+
 def print_header(s):
     cprint(s, 'green', attrs=['bold'])
+
 
 def print_title(s):
     cprint(s, attrs=['bold'])
 
+
 def dump(d):
     print(yaml.dump(d, allow_unicode=True, default_flow_style=False))
+
 
 for endpoint in sru_endpoints:
     print_header(20 * '=')

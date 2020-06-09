@@ -6,6 +6,7 @@ import warnings
 from . import xmlparse
 from . import errors
 
+
 class Response(object):
     def __init__(self, data_loader):
         self.data_loader = data_loader
@@ -28,7 +29,10 @@ class Response(object):
             main_ns = self.xmlparser.namespace(xml)
             if 'www.loc.gov/zing/srw' in main_ns:
                 warnings.warn(
-                    f"The server has the wrong namespace for SRU, it should be {sru} but it's currently set to {{{main_ns}}}.",
+                    f"""
+                    The server has the wrong namespace for SRU,
+                    it should be {sru} but it's currently set to {{{main_ns}}}.
+                    """,
                     errors.WrongNamespaceWarning
                 )
                 self.xmlparser.namespaces['sru'] = main_ns
@@ -40,7 +44,7 @@ class Response(object):
 
 class SearchRetrieveResponse(Response):
     def __repr__(self):
-        try: 
+        try:
             return (
                 'SearchRetrieveResponse('
                 'sru_version=%r,'
@@ -183,7 +187,7 @@ class ExplainResponse(Response):
         self.config = self._parse_config(xml)
 
     def _parse_server(self, xml):
-        server_info =  {
+        server_info = {
             'host': self.xmlparser.find(xml, './/zr:serverInfo/zr:host').text,
             'port': self.xmlparser.find(xml, './/zr:serverInfo/zr:port').text,
         }
@@ -195,7 +199,10 @@ class ExplainResponse(Response):
             if v is None:
                 return None
             return bool(v)
-        ident = lambda a: a
+
+        def ident(a):
+            return a
+
         attributes = {
             'identifier': ident,
             'name': ident,
@@ -203,7 +210,7 @@ class ExplainResponse(Response):
             'sort': bool_or_none,
             'retrieve': bool_or_none,
         }
-        
+
         schemas = []
         for schema in self.xmlparser.findall(xml, './/zr:schemaInfo/zr:schema'):
             schema_info = {}
@@ -214,13 +221,13 @@ class ExplainResponse(Response):
             schema_info['title'] = self.xmlparser.find(schema, './zr:title').text
             schemas.append(schema_info)
         return schemas
-                
+
     def _parse_config(self, xml):
         config = {}
         for setting in self.xmlparser.findall(xml, './/zr:configInfo/zr:setting'):
             t = setting.attrib['type']
             config[t] = self.maybe_int(setting.text)
-            
+
         # defaults
         defaults = {}
         for default in self.xmlparser.findall(xml, './/zr:configInfo/zr:default'):
@@ -238,13 +245,13 @@ class ExplainResponse(Response):
         }
         db_info = {k: v.strip() if v else v for (k, v) in db_info.items()}
         return db_info
-    
+
     def _parse_index(self, xml):
         index = defaultdict(defaultdict)
-        for index_set in self.xmlparser.findall(xml,'.//zr:indexInfo/zr:set'):
+        for index_set in self.xmlparser.findall(xml, './/zr:indexInfo/zr:set'):
             index[index_set.attrib['name']] = defaultdict()
 
-        for index_field in self.xmlparser.findall(xml,'.//zr:indexInfo/zr:index'):
+        for index_field in self.xmlparser.findall(xml, './/zr:indexInfo/zr:index'):
             title = self.xmlparser.find(index_field, './zr:title').text or \
                     self.xmlparser.find(index_field, './title').text
             if title:
@@ -252,6 +259,4 @@ class ExplainResponse(Response):
             for name in self.xmlparser.findall(index_field, './/zr:map/zr:name'):
                 index[name.attrib['set']][name.text.strip()] = title
 
-        return {k: dict(v) for k,v in dict(index).items()}
-
-
+        return {k: dict(v) for k, v in dict(index).items()}

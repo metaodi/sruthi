@@ -1,7 +1,7 @@
-import mock
 from sruthi_test import SruthiTestCase
 from sruthi.client import Client
 from sruthi.errors import WrongNamespaceWarning
+
 
 class TestSruthiClient(SruthiTestCase):
     def test_searchretrieve(self):
@@ -35,7 +35,7 @@ class TestSruthiClient(SruthiTestCase):
     def test_searchretrieve_warning(self):
         with self.assertWarns(WrongNamespaceWarning):
             client = Client('http://server-with-wrong-sru.namespace/sru/search')
-            r = client.searchretrieve('dc.title = Test')
+            client.searchretrieve('dc.title = Test')
 
     def test_searchretrieve_slice(self):
         client = Client('http://test.com/sru/search')
@@ -73,7 +73,7 @@ class TestSruthiClient(SruthiTestCase):
     def test_explain(self):
         client = Client('https://test.com/sru')
         info = client.explain()
-        
+
         # server
         server = info.server
         self.assertEqual(server['host'], 'https://test.com/sru')

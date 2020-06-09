@@ -1,8 +1,6 @@
 import re
 import defusedxml.ElementTree as etree
-from io import StringIO  
 from . import errors
-
 
 
 class XMLNone(object):
@@ -16,6 +14,7 @@ class XMLNone(object):
         return []
 
     text = None
+
 
 class XMLParser(object):
     def __init__(self):
@@ -33,7 +32,6 @@ class XMLParser(object):
         except Exception as e:
             raise errors.SruError("Error while parsing XML: %s" % e)
 
-
     def find(self, xml, path):
         if isinstance(path, list):
             for p in path:
@@ -46,13 +44,11 @@ class XMLParser(object):
             return XMLNone()
         return elem
 
-
     def findall(self, xml, path):
         return xml.findall(path, self.namespaces)
 
     def tostring(self, xml):
         return etree.tostring(xml)
-
 
     def namespace(self, element):
         m = re.match(r'\{(.*)\}', element.tag)
