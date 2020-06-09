@@ -20,6 +20,8 @@ $ pip install sruthi
 
 ## Usage
 
+See the [`examples` directory](https://github.com/metaodi/sruthi/tree/master/examples) for more scripts.
+
 ### `searchretrieve` operation
 
 ```python
@@ -70,9 +72,6 @@ print(info.database)
 print(info.index)
 print(info.schema)
 ```
-
-
-
 
 ## Schemas
 
