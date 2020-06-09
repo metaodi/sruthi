@@ -26,5 +26,4 @@ jobs:
         pip install -r test-requirements.txt
         pip install -e .
 
-    - run: flake8 . --count --show-source --statistics
-    - run: pytest
+    - run: ./validate.sh
