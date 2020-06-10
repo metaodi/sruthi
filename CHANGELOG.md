@@ -4,6 +4,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+## [0.0.3] - 2020-06-10
+### Fixed
+- Fixed publish workflow to not create release
+- Add missing modules to `__all__`
+
 ## [0.0.2] - 2020-06-10
 ### Added
 - Support for explain operation
@@ -31,6 +36,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - `Fixed` for any bug fixes.
 - `Security` to invite users to upgrade in case of vulnerabilities.
 
-[Unreleased]: https://github.com/metaodi/sruthi/compare/v0.0.2...HEAD
+[Unreleased]: https://github.com/metaodi/sruthi/compare/v0.0.3...HEAD
+[0.0.3]: https://github.com/metaodi/sruthi/compare/v0.0.2...v0.0.3
 [0.0.2]: https://github.com/metaodi/sruthi/compare/v0.0.1...v0.0.2
 [0.0.1]: https://github.com/metaodi/sruthi/releases/tag/v0.0.1
