@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project follows [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Fixed
+- Fix description text on PyPI
 
 ## [0.0.3] - 2020-06-10
 ### Fixed
