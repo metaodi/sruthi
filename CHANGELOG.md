@@ -4,6 +4,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+## [0.0.5] - 2020-06-10
+### Changed
+- Remove dependencies to convert md to rst
+- Directly provide markdown to PyPI
+
 ## [0.0.4] - 2020-06-10
 ### Fixed
 - Fix description text on PyPI
@@ -40,7 +45,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - `Fixed` for any bug fixes.
 - `Security` to invite users to upgrade in case of vulnerabilities.
 
-[Unreleased]: https://github.com/metaodi/sruthi/compare/v0.0.4...HEAD
+[Unreleased]: https://github.com/metaodi/sruthi/compare/v0.0.5...HEAD
+[0.0.5]: https://github.com/metaodi/sruthi/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/metaodi/sruthi/compare/v0.0.3...v0.0.4
 [0.0.3]: https://github.com/metaodi/sruthi/compare/v0.0.2...v0.0.3
 [0.0.2]: https://github.com/metaodi/sruthi/compare/v0.0.1...v0.0.2
