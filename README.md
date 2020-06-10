@@ -82,3 +82,13 @@ sruthi has been tested with the following schemas:
 * [Dublin Core Record Schema](http://www.loc.gov/standards/sru/recordSchemas/dc-schema.html) (dc)
 * [MARCXML: The MARC 21 XML Schema](http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd) (marcxml)
 * [ISAD(G): General International Standard Archival Description, Second edition](http://www.expertisecentrumdavid.be/xmlschemas/isad.xsd) (isad)
+
+## Release
+
+To create a new release, follow these steps (please respect [Semantic Versioning](http://semver.org/)):
+
+1. Adapt the version number in `sruthi/__init__.py`
+1. Update the CHANGELOG with the version
+1. Create a pull request to merge `develop` into `master` (make sure the tests pass!)
+1. Create a [new release/tag on GitHub](https://github.com/metaodi/sruthi/releases) (on the master branch)
+1. The [publication on PyPI](https://pypi.python.org/pypi/sruthi) happens via [GitHub Actions](https://github.com/metaodi/sruthi/actions?query=workflow%3A%22Upload+Python+Package%22) on every tagged commit
