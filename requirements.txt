@@ -1,4 +1,2 @@
 requests
 defusedxml
-pypandoc
-Unidecode

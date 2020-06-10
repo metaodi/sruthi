@@ -11,14 +11,8 @@ with open('sruthi/__init__.py', 'r') as fd:
 if not version:
     raise RuntimeError('Cannot find version information')
 
-try:
-    import pypandoc
-    from unidecode import unidecode
-    description = open('README.md', encoding='utf-8').read()
-    description = unidecode(description)
-    description = pypandoc.convert_text(description, 'rst', format='md')
-except (IOError, OSError, ImportError):
-    description = 'SRU client for Python'
+with open('README.md', 'r', encoding="utf-8") as f:
+    long_description = f.read()
 
 setup(
     name='sruthi',
@@ -26,7 +20,8 @@ setup(
     version=version,
     install_requires=['requests', 'defusedxml'],
     description='SRU client for Python',
-    long_description=description,
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     author='Stefan Oderbolz',
     author_email='odi@metaodi.ch',
     maintainer='Stefan Oderbolz',
