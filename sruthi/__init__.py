@@ -1,4 +1,4 @@
-__version__ = '0.0.3'
+__version__ = '0.0.4'
 __all__ = ['client', 'errors', 'response', 'sru', 'xmlparse']
 
 from .errors import SruthiError, ServerIncompatibleError, SruError, NoMoreRecordsError  # noqa
