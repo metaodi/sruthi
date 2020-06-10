@@ -16,7 +16,7 @@ try:
     from unidecode import unidecode
     description = open('README.md', encoding='utf-8').read()
     description = unidecode(description)
-    description = pypandoc.convert(description, 'rst', format='md')
+    description = pypandoc.convert_text(description, 'rst', format='md')
 except (IOError, OSError, ImportError):
     description = 'SRU client for Python'
 
