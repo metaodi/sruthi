@@ -8,7 +8,10 @@ Currently only SRU 1.2 is supported.
 
 * [Installation](#installation)
 * [Usage](#usage)
+** [`searchretrieve` operation](#searchretrieve-operation)
+** [`explian` operation](#explain-operation)
 * [Schemas](#schemas)
+* [Release](#release)
 
 ## Installation
 
