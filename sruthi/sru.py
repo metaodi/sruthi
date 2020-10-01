@@ -2,10 +2,6 @@
 
 from . import client
 
-import logging
-
-logging.basicConfig(level=logging.DEBUG)
-
 
 def searchretrieve(url, query, operation='searchretrieve', recordSchema=None):
     c = client.Client(url)
