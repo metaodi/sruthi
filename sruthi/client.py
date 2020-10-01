@@ -12,9 +12,9 @@ class Client(object):
         self.maximum_records = maximum_records
         self.sru_version = '1.2'
 
-    def searchretrieve(self, query, start_record=1):
+    def searchretrieve(self, query, start_record=1, operation='searchretrieve'):
         params = {
-            'operation': 'searchretrieve',
+            'operation': operation,
             'version': self.sru_version,
             'query': query,
             'startRecord': start_record,
