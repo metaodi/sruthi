@@ -12,7 +12,7 @@ class Client(object):
         self.maximum_records = maximum_records
         self.sru_version = '1.2'
 
-    def searchretrieve(self, query, start_record=1, operation='searchretrieve'):
+    def searchretrieve(self, query, start_record=1, operation='searchretrieve', recordSchema=None):
         params = {
             'operation': operation,
             'version': self.sru_version,
@@ -20,6 +20,8 @@ class Client(object):
             'startRecord': start_record,
             'maximumRecords': self.maximum_records,
         }
+        if recordSchema:
+            params.update({'recordSchema': recordSchema})
         data_loader = DataLoader(self.url, params)
         return response.SearchRetrieveResponse(data_loader)
 

@@ -2,10 +2,17 @@
 
 from . import client
 
+import logging
 
-def searchretrieve(url, query, operation='searchretrieve'):
+logging.basicConfig(level=logging.DEBUG)
+
+
+def searchretrieve(url, query, operation='searchretrieve', recordSchema=None):
     c = client.Client(url)
-    return c.searchretrieve(query, operation=operation)
+    if recordSchema:
+        return c.searchretrieve(query, operation=operation, recordSchema=recordSchema)
+    else:
+        return c.searchretrieve(query, operation=operation)
 
 
 def explain(url):
