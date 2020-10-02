@@ -3,6 +3,7 @@
 from collections import defaultdict
 import re
 import warnings
+from flatten_dict import flatten
 from . import xmlparse
 from . import errors
 
@@ -127,45 +128,41 @@ class SearchRetrieveResponse(Response):
             record_data = self.xmlparser.find(xml_rec, './sru:recordData')
             extra_data = self.xmlparser.find(xml_rec, './sru:extraRecordData')
 
-            for elem in record_data:
-                record = self._tag_data(record, elem)
-
-            extra = defaultdict()
-            for elem in extra_data.iter():
-                extra = self._tag_data(extra, elem)
-            record['extra'] = dict(extra)
-
-            record.pop('recordData', None)
-            record.pop('extraRecordData', None)
+            record.update(self._tag_data(record_data, 'sru:recordData') or {})
+            record['extra'] = self._tag_data(extra_data, 'sru:extraRecordData')
 
             record = dict(record)
             new_records.append(record)
         self.records.extend(new_records)
 
-    def _tag_data(self, record, elem, child=False):
-        tag_name = self._remove_namespace(elem)
-        print(elem)
-        if elem.text and elem.text.strip():
-            entry = {
-                'text': elem.text.strip()
-            }
-            entry.update(elem.attrib)
+    def _tag_data(self, elem, parent):
+        if not elem:
+            return None
 
-            # get all children (flat)
-            if not child:
-                for child in elem.iter():
-                    child_tag = self._remove_namespace(child)
-                    entry[child_tag] = self._tag_data(entry, child, child=True)
+        record_data = self.xmlparser.todict(elem, xml_attribs=True).get(parent)
+        if not record_data:
+            return None
 
-            if tag_name in record and isinstance(record[tag_name], list):
-                record[tag_name].append(entry)
-            elif tag_name in record:
-                record[tag_name] = [record[tag_name]]
-            else:
-                record[tag_name] = entry
-        elif len(list(elem)) == 0:  # leaf element
-            record[tag_name] = None
-        return record
+        # check if there is only one element on the top level
+        keys = list(record_data.keys())
+        if len(record_data) == 1 and len(keys) > 0 and len(record_data[keys[0]]) > 0:
+            record_data = record_data[keys[0]]
+
+        record_data.pop('schemaLocation', None)
+        record_data.pop('xmlns', None)
+
+        def leaf_reducer(k1, k2):
+            # only use key of leaf element
+            return k2
+
+        try:
+            record_data = flatten(record_data, reducer=leaf_reducer)
+        except ValueError:
+            # if the keys of the leaf elements are not unique
+            # the dict will not be flattened
+            pass
+
+        return record_data
 
     def _remove_namespace(self, elem):
         ns_pattern = re.compile('{.+}')
