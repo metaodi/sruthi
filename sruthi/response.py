@@ -127,7 +127,7 @@ class SearchRetrieveResponse(Response):
             record_data = self.xmlparser.find(xml_rec, './sru:recordData')
             extra_data = self.xmlparser.find(xml_rec, './sru:extraRecordData')
 
-            for elem in record_data.iter():
+            for elem in record_data:
                 record = self._tag_data(record, elem)
 
             extra = defaultdict()
@@ -142,14 +142,35 @@ class SearchRetrieveResponse(Response):
             new_records.append(record)
         self.records.extend(new_records)
 
-    def _tag_data(self, record, elem):
-        ns_pattern = re.compile('{.+}')
-        tag_name = ns_pattern.sub('', elem.tag)
+    def _tag_data(self, record, elem, child=False):
+        tag_name = self._remove_namespace(elem)
+        print(elem)
         if elem.text and elem.text.strip():
-            record[tag_name] = elem.text.strip()
+            entry = {
+                'text': elem.text.strip()
+            }
+            entry.update(elem.attrib)
+
+            # get all children (flat)
+            if not child:
+                for child in elem.iter():
+                    child_tag = self._remove_namespace(child)
+                    entry[child_tag] = self._tag_data(entry, child, child=True)
+
+            if tag_name in record and isinstance(record[tag_name], list):
+                record[tag_name].append(entry)
+            elif tag_name in record:
+                record[tag_name] = [record[tag_name]]
+            else:
+                record[tag_name] = entry
         elif len(list(elem)) == 0:  # leaf element
             record[tag_name] = None
         return record
+
+    def _remove_namespace(self, elem):
+        ns_pattern = re.compile('{.+}')
+        tag_name = ns_pattern.sub('', elem.tag)
+        return tag_name
 
 
 class ExplainResponse(Response):
