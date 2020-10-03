@@ -8,7 +8,10 @@ Currently only SRU 1.2 is supported.
 
 * [Installation](#installation)
 * [Usage](#usage)
+    * [`searchretrieve` operation](#searchretrieve-operation)
+    * [`explain` operation](#explain-operation)
 * [Schemas](#schemas)
+* [Release](#release)
 
 ## Installation
 
@@ -43,7 +46,6 @@ import sruthi
 
 # note: records is an iterator
 records = sruthi.searchretrieve('https://suche.staatsarchiv.djiktzh.ch/SRU/', query='Human')
-print(records.cql)
 print(records.sru_version)
 print(records.count)
 
@@ -54,7 +56,7 @@ for record in records:
 
 The return value of `searchretrieve` is iterable, so you can easily loop over it. Or you can use indices to access elements, e.g. `records[1]` to get the second elemenet, or `records[-1]` to get the last one.
 
-Even [slicing](https://python-reference.readthedocs.io/en/latest/docs/brackets/slicing.html) is supported, so can can do things like only iterate over the first 5 elements using
+Even [slicing](https://python-reference.readthedocs.io/en/latest/docs/brackets/slicing.html) is supported, so you can do things like only iterate over the first 5 elements using
 
 ```python
 for records in records[:5]:
