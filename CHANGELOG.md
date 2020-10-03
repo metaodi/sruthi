@@ -4,6 +4,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+## [0.1.0] - 2020-10-04
+### Added
+- Add `record_schema` parameter
+- Add new dependencies to xmltodict and flatten-dict
+
+### Changed
+- recordData is now returned as flattened dict (if possible)
+
 ## [0.0.5] - 2020-06-10
 ### Changed
 - Remove dependencies to convert md to rst
@@ -45,7 +53,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - `Fixed` for any bug fixes.
 - `Security` to invite users to upgrade in case of vulnerabilities.
 
-[Unreleased]: https://github.com/metaodi/sruthi/compare/v0.0.5...HEAD
+[Unreleased]: https://github.com/metaodi/sruthi/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/metaodi/sruthi/compare/v0.0.5...v0.1.0
 [0.0.5]: https://github.com/metaodi/sruthi/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/metaodi/sruthi/compare/v0.0.3...v0.0.4
 [0.0.3]: https://github.com/metaodi/sruthi/compare/v0.0.2...v0.0.3
