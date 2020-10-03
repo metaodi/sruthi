@@ -1,6 +1,4 @@
 import sruthi
-import yaml
-import sys
 from pprint import pprint
 
 # check supported schemas of server
@@ -20,5 +18,3 @@ records = sruthi.searchretrieve(
     record_schema=schema
 )
 pprint(records[0])
-
-

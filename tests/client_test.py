@@ -110,6 +110,19 @@ class TestSruthiClient(SruthiTestCase):
         self.assertEqual(config['my-test-config'], 'test123')
         self.assertEqual(config['defaults']['numberOfRecords'], 99)
 
+    def test_explain_with_requests_kwargs(self):
+        client = Client('https://test.com/sru')
+        client.explain(requests_kwargs={'verify': False})
+
+        self.session_mock.return_value.get.assert_called_once_with(
+            'https://test.com/sru',
+            params={
+                'operation': 'explain',
+                'version': '1.2',
+            },
+            verify=False
+        )
+
     def test_passing_maximum_records(self):
         client = Client('http://my-param.com/sru', maximum_records=111)
         self.assertEqual(client.maximum_records, 111)

@@ -1,6 +1,4 @@
 import sruthi
-import yaml
-import sys
 from pprint import pprint
 
 # check supported schemas of server
@@ -21,6 +19,5 @@ for schema in server.schema.keys():
         record_schema=schema
     )
     pprint(records[0])
-    #print(yaml.dump(records[0], allow_unicode=True, default_flow_style=False))
     print('')
     print('')
