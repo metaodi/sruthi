@@ -118,7 +118,7 @@ class TestSruthiClient(SruthiTestCase):
         self.session_mock.return_value.get.assert_called_once_with(
             'http://my-param.com/sru',
             params={
-                'operation': 'searchretrieve',
+                'operation': 'searchRetrieve',
                 'version': '1.2',
                 'query': 'test-query',
                 'startRecord': 1,
@@ -134,13 +134,31 @@ class TestSruthiClient(SruthiTestCase):
         self.session_mock.return_value.get.assert_called_once_with(
             'http://my-param.com/sru',
             params={
-                'operation': 'searchretrieve',
+                'operation': 'searchRetrieve',
                 'version': '1.2',
                 'query': 'test-query',
                 'startRecord': 1,
                 'recordSchema': 'dc',
                 'maximumRecords': 10,
             }
+        )
+
+    def test_passing_requests_kwargs(self):
+        client = Client('https://my-param.com/sru', record_schema='dc')
+        self.assertEqual(client.record_schema, 'dc')
+
+        client.searchretrieve('test-query', requests_kwargs={'verify': False})
+        self.session_mock.return_value.get.assert_called_once_with(
+            'https://my-param.com/sru',
+            params={
+                'operation': 'searchRetrieve',
+                'version': '1.2',
+                'query': 'test-query',
+                'startRecord': 1,
+                'recordSchema': 'dc',
+                'maximumRecords': 10,
+            },
+            verify=False
         )
 
     def test_passing_start_record(self):
@@ -150,7 +168,7 @@ class TestSruthiClient(SruthiTestCase):
         self.session_mock.return_value.get.assert_called_once_with(
             'http://my-param.com/sru',
             params={
-                'operation': 'searchretrieve',
+                'operation': 'searchRetrieve',
                 'version': '1.2',
                 'query': 'test-query',
                 'startRecord': 10,
