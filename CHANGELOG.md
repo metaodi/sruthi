@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Changed
 - recordData is now returned as flattened dict (if possible)
 
+### Fixed
+- Fix typo in `searchRetrieve` operation name
+
 ## [0.0.5] - 2020-06-10
 ### Changed
 - Remove dependencies to convert md to rst
