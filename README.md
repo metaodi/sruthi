@@ -46,7 +46,6 @@ import sruthi
 
 # note: records is an iterator
 records = sruthi.searchretrieve('https://suche.staatsarchiv.djiktzh.ch/SRU/', query='Human')
-print(records.cql)
 print(records.sru_version)
 print(records.count)
 
