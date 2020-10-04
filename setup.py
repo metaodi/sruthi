@@ -18,7 +18,7 @@ setup(
     name='sruthi',
     packages=find_packages(),
     version=version,
-    install_requires=['requests', 'defusedxml'],
+    install_requires=['requests', 'defusedxml', 'xmltodict', 'flatten-dict'],
     description='SRU client for Python',
     long_description=long_description,
     long_description_content_type='text/markdown',
