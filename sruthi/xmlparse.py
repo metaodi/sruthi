@@ -33,6 +33,7 @@ class XMLParser(object):
             'info:srw/extension/2/relevancy-1.0': None,
             'http://www.archivportal.ch/srw/extension/': None,
             'http://www.loc.gov/MARC21/slim': None,
+            'info:lc/xmlns/marcxchange-v1': None,
             'http://www.loc.gov/mods/v3': None,
             'http://www.loc.gov/standards/mods/v3/mods-3-6.xsd': None,
             'http://www.loc.gov/standards/mods/v3/mods-3-6.xsd': None,
