@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project follows [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- Add MarcXchange (ISO 25577) namespace [#35](https://github.com/metaodi/sruthi/pull/35) (thanks [danmichaelo](https://github.com/danmichaelo)!)
 
 ## [0.1.2] - 2020-10-04
 ### Fixed
