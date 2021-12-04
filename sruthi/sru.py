@@ -16,6 +16,6 @@ def searchretrieve(url, query, **kwargs):
     return c.searchretrieve(**search_kwargs)
 
 
-def explain(url):
-    c = client.Client(url)
+def explain(url, **kwargs):
+    c = client.Client(url, **kwargs)
     return c.explain()
