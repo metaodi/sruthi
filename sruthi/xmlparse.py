@@ -26,6 +26,7 @@ class XMLParser(object):
             'rel': 'info:srw/extension/2/relevancy-1.0',
             'ap': 'http://www.archivportal.ch/srw/extension/',
             'zr': 'http://explain.z3950.org/dtd/2.1/',
+            'zr2': 'http://explain.z3950.org/dtd/2.0/',
         }
         self.dict_namespaces = {
             'http://www.loc.gov/zing/srw/': 'sru',
@@ -62,6 +63,12 @@ class XMLParser(object):
         return elem
 
     def findall(self, xml, path):
+        if isinstance(path, list):
+            for p in path:
+                elems = self.findall(xml, p)
+                if elems:
+                    return elems
+            return []
         return xml.findall(path, self.namespaces)
 
     def tostring(self, xml):
