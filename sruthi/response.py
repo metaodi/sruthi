@@ -207,7 +207,7 @@ class ExplainResponse(Response):
     def _parse_server(self, xml):
         server_info = {
             'host': self.xmlparser.find(
-                xml, 
+                xml,
                 [
                     './/zr:serverInfo/zr:host',
                     './/zr2:serverInfo/zr:host'
@@ -289,6 +289,8 @@ class ExplainResponse(Response):
 
     def _parse_database(self, xml):
         db = self.xmlparser.find(xml, './/zr:databaseInfo')
+        if not db:
+            return {}
         db_info = {
             'title': self.xmlparser.find(db, ['./zr:title', './title']).text,
             'description': self.xmlparser.find(db, ['./zr:description', './description']).text,
@@ -316,9 +318,8 @@ class ExplainResponse(Response):
                 './/zr2:indexInfo/zr2:index'
             ]
         )
-        #print(self.xmlparser.findall(xml, './/zr2:indexInfo/zr2:index'))
         for index_field in index_fields:
-            title = self.xmlparser.find(index_field, ['./zr:title', './title']).text 
+            title = self.xmlparser.find(index_field, ['./zr:title', './title']).text
             if title:
                 title = title.strip()
             names = self.xmlparser.findall(
