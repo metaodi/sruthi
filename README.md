@@ -11,6 +11,7 @@ Currently only SRU 1.2 is supported.
     * [`searchretrieve` operation](#searchretrieve-operation)
     * [`explain` operation](#explain-operation)
 * [Schemas](#schemas)
+* [Development](#development)
 * [Release](#release)
 
 ## Installation
@@ -84,6 +85,13 @@ sruthi has been tested with the following schemas:
 * [Dublin Core Record Schema](http://www.loc.gov/standards/sru/recordSchemas/dc-schema.html) (dc)
 * [MARCXML: The MARC 21 XML Schema](http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd) (marcxml)
 * [ISAD(G): General International Standard Archival Description, Second edition](http://www.expertisecentrumdavid.be/xmlschemas/isad.xsd) (isad)
+
+## Development
+
+To contribute to sruthi simply clone this repository and follow the instructions in [CONTRIBUTING.md](/CONTRIBUTING.md).
+
+This project ha a Makefile with the most common commands.
+Type `make help` to get an overview.
 
 ## Release
 
