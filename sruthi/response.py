@@ -207,19 +207,26 @@ class ExplainResponse(Response):
     def _parse_server(self, xml):
         server_info = {
             'host': self.xmlparser.find(
-                xml,
-                [
-                    './/zr:serverInfo/zr:host',
-                    './/zr2:serverInfo/zr:host'
-                ]
-            ).text,
+                        xml,
+                        [
+                            './/zr:serverInfo/zr:host',
+                            './/zr2:serverInfo/zr:host'
+                        ]
+                    ).text,
             'port': self.xmlparser.find(
-                xml,
-                [
-                    './/zr:serverInfo/zr:port',
-                    './/zr2:serverInfo/zr:port',
-                ]
-            ).text,
+                        xml,
+                        [
+                            './/zr:serverInfo/zr:port',
+                            './/zr2:serverInfo/zr:port',
+                        ]
+                    ).text,  
+            'database': self.xmlparser.find(
+                        xml,
+                        [
+                            './/zr:serverInfo/zr:database',
+                            './/zr2:serverInfo/zr:database',
+                        ]
+                    ).text,  
         }
         server_info['port'] = self.maybe_int(server_info['port'])
         return server_info
