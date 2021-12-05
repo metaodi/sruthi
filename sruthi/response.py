@@ -219,14 +219,14 @@ class ExplainResponse(Response):
                             './/zr:serverInfo/zr:port',
                             './/zr2:serverInfo/zr:port',
                         ]
-                    ).text,  
+                    ).text,
             'database': self.xmlparser.find(
                         xml,
                         [
                             './/zr:serverInfo/zr:database',
                             './/zr2:serverInfo/zr:database',
                         ]
-                    ).text,  
+                    ).text,
         }
         server_info['port'] = self.maybe_int(server_info['port'])
         return server_info

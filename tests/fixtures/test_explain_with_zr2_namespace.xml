@@ -1,0 +1,4441 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><explainResponse xmlns="http://www.loc.gov/zing/srw/">
+  <version>1.2</version>
+  <record>
+    <recordSchema>http://explain.z3950.org/dtd/2.1/</recordSchema>
+    <recordPacking>xml</recordPacking>
+    <recordData>
+      <explain xmlns="http://explain.z3950.org/dtd/2.0/" xmlns:ns="http://explain.z3950.org/dtd/2.1/">
+        <serverInfo>
+          <ns:host>example.com/sru</ns:host>
+          <ns:port>443</ns:port>
+          <ns:database>TR_INTEGRATION_INST</ns:database>
+        </serverInfo>
+        <indexInfo>
+          <set identifier="marcxml" name="alma"/>
+          <index>
+            <ns:title>Accompanying Material</ns:title>
+            <map>
+              <name set="alma">accompanying_material</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Additional Physical Form Available Note</ns:title>
+            <map>
+              <name set="alma">additional_physical_form_available_note</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Keywords</ns:title>
+            <map>
+              <name set="alma">all_for_ui</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Edition</ns:title>
+            <map>
+              <name set="alma">alternate_complete_edition</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Authority Id</ns:title>
+            <map>
+              <name set="alma">authority_id</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Authority Vocabulary</ns:title>
+            <map>
+              <name set="alma">authority_vocabulary</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Bibliographic Level</ns:title>
+            <map>
+              <name set="alma">bib_level</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Carrier Type Code (Title)</ns:title>
+            <map>
+              <name set="alma">carrier_type_code</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Carrier Type Term (Title)</ns:title>
+            <map>
+              <name set="alma">carrier_type_term</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Cartographic Mathematical Data</ns:title>
+            <map>
+              <name set="alma">cartographic_mathematical_data</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Physical Description</ns:title>
+            <map>
+              <name set="alma">category_of_material</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Classification Part</ns:title>
+            <map>
+              <name set="alma">classification_part</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Coded Cartographic Mathematical Data</ns:title>
+            <map>
+              <name set="alma">coded_cartographic_mathematical_data</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Content Related Data</ns:title>
+            <map>
+              <name set="alma">content_related_data</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Content Type Code</ns:title>
+            <map>
+              <name set="alma">content_type_code</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Content Type Term</ns:title>
+            <map>
+              <name set="alma">content_type_term</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Copyright Note</ns:title>
+            <map>
+              <name set="alma">copyrights_note</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Country of Publication (code)</ns:title>
+            <map>
+              <name set="alma">country_of_publication</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Country of Publication</ns:title>
+            <map>
+              <name set="alma">country_of_publication_new</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index sort="true">
+            <ns:title>Creator</ns:title>
+            <map>
+              <name set="alma">creator</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Additional Publication Year</ns:title>
+            <map>
+              <name set="alma">date_of_publication</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>dc:contributor</ns:title>
+            <map>
+              <name set="alma">dc_contributor</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>dc:coverage</ns:title>
+            <map>
+              <name set="alma">dc_coverage</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>dc:creator</ns:title>
+            <map>
+              <name set="alma">dc_creator</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>dc:date</ns:title>
+            <map>
+              <name set="alma">dc_date</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>dc:description</ns:title>
+            <map>
+              <name set="alma">dc_description</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>dc:format</ns:title>
+            <map>
+              <name set="alma">dc_format</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>dc:language</ns:title>
+            <map>
+              <name set="alma">dc_language</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>dc:publisher</ns:title>
+            <map>
+              <name set="alma">dc_publisher</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>dc:relation</ns:title>
+            <map>
+              <name set="alma">dc_relation</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>dc:rights</ns:title>
+            <map>
+              <name set="alma">dc_rights</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>dc:source</ns:title>
+            <map>
+              <name set="alma">dc_source</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>dc:subject</ns:title>
+            <map>
+              <name set="alma">dc_subject</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>dc:title</ns:title>
+            <map>
+              <name set="alma">dc_title</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>dc:type</ns:title>
+            <map>
+              <name set="alma">dc_type</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Description</ns:title>
+            <map>
+              <name set="alma">description</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Dewey Decimal Class Number</ns:title>
+            <map>
+              <name set="alma">dewey_decimal_class_number</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>DOI - Digital Object Identifier</ns:title>
+            <map>
+              <name set="alma">digital_object_identifier</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Electronic Location And Note</ns:title>
+            <map>
+              <name set="alma">elocation</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Event Date</ns:title>
+            <map>
+              <name set="alma">event_date</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Public Note (Title)</ns:title>
+            <map>
+              <name set="alma">general_note</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Genre Form</ns:title>
+            <map>
+              <name set="alma">genre_form</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Geographic Area Code</ns:title>
+            <map>
+              <name set="alma">geographic_area_code</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Government Document Number</ns:title>
+            <map>
+              <name set="alma">government_document_number</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Granular Resource Type</ns:title>
+            <map>
+              <name set="alma">granular_resource_type</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Has Inventory</ns:title>
+            <map>
+              <name set="alma">has_inventory</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Heading Information</ns:title>
+            <map>
+              <name set="alma">heading_info</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>dc:identifier</ns:title>
+            <map>
+              <name set="alma">identifier</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Is linked</ns:title>
+            <map>
+              <name set="alma">is_linked</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>ISBN</ns:title>
+            <map>
+              <name set="alma">isbn</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Other Standard ID</ns:title>
+            <map>
+              <name set="alma">ismn</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>ISNI - International Standard Name Identifier</ns:title>
+            <map>
+              <name set="alma">isni_identifier</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>ISSN</ns:title>
+            <map>
+              <name set="alma">issn</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>ISSN link</ns:title>
+            <map>
+              <name set="alma">issn_link</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Language (Title)</ns:title>
+            <map>
+              <name set="alma">language</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Language Of Cataloging</ns:title>
+            <map>
+              <name set="alma">language_of_cataloging</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>LC Call Number</ns:title>
+            <map>
+              <name set="alma">lc_class_number</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>LC Control No.</ns:title>
+            <map>
+              <name set="alma">lccn</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Subjects (LC)</ns:title>
+            <map>
+              <name set="alma">lcsh</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Linked Institution</ns:title>
+            <map>
+              <name set="alma">link_inst</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Local Control Field 009</ns:title>
+            <map>
+              <name set="alma">local_control_field_009</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Local field 900</ns:title>
+            <map>
+              <name set="alma">local_field_900</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Local field 906</ns:title>
+            <map>
+              <name set="alma">local_field_906</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Local field 912</ns:title>
+            <map>
+              <name set="alma">local_field_912</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Local field 917</ns:title>
+            <map>
+              <name set="alma">local_field_917</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Local field 919</ns:title>
+            <map>
+              <name set="alma">local_field_919</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>SHK</ns:title>
+            <map>
+              <name set="alma">local_field_939</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Local field 960</ns:title>
+            <map>
+              <name set="alma">local_field_960</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Local field 977</ns:title>
+            <map>
+              <name set="alma">local_field_977</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>CR Restricted</ns:title>
+            <map>
+              <name set="alma">local_field_999</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Local Notes</ns:title>
+            <map>
+              <name set="alma">local_notes</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>lom-edu:context</ns:title>
+            <map>
+              <name set="alma">lom_context</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>lom-edu:description</ns:title>
+            <map>
+              <name set="alma">lom_description</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>lom-edu:difficulty</ns:title>
+            <map>
+              <name set="alma">lom_difficulty</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>lom-edu:intendedEndUserRole</ns:title>
+            <map>
+              <name set="alma">lom_intendedEndUserRole</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>lom-edu:interactivityLevel</ns:title>
+            <map>
+              <name set="alma">lom_interactivityLevel</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>lom-edu:interactivityType</ns:title>
+            <map>
+              <name set="alma">lom_interactivityType</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>lom-edu:language</ns:title>
+            <map>
+              <name set="alma">lom_language</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>lom-edu:semanticDensity</ns:title>
+            <map>
+              <name set="alma">lom_semanticDensity</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>lom-edu:type</ns:title>
+            <map>
+              <name set="alma">lom_type</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>lom-edu:typicalLearningTime</ns:title>
+            <map>
+              <name set="alma">lom_typicalLearningTime</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index sort="true">
+            <ns:title>Publication Year</ns:title>
+            <map>
+              <name set="alma">main_pub_date</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="relation">&gt;=</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&lt;=</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Media Type Code (Title)</ns:title>
+            <map>
+              <name set="alma">media_type_code</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Media Type Term (Title)</ns:title>
+            <map>
+              <name set="alma">media_type_term</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Medium Type</ns:title>
+            <map>
+              <name set="alma">medium_type</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Medical Subjects (MeSH)</ns:title>
+            <map>
+              <name set="alma">mesh</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Brief Level</ns:title>
+            <map>
+              <name set="alma">mms_briefLevel</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="relation">&gt;=</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&lt;=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Cataloger Level</ns:title>
+            <map>
+              <name set="alma">mms_catalogerLevel</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="relation">&gt;=</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&lt;=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Contributed By</ns:title>
+            <map>
+              <name set="alma">mms_contributedBy</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>MMS Creation Date (Title)</ns:title>
+            <map>
+              <name set="alma">mms_createDate</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>MMS ID</ns:title>
+            <map>
+              <name set="alma">mms_id</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="relation">&gt;=</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&lt;=</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Managed By Provider (Title)</ns:title>
+            <map>
+              <name set="alma">mms_managed_by</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Material type</ns:title>
+            <map>
+              <name set="alma">mms_material_type</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Md Import modification job id</ns:title>
+            <map>
+              <name set="alma">mms_mdImportModificationHistory</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Collection ID</ns:title>
+            <map>
+              <name set="alma">mms_memberOfDeep</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Modification Date (Title)</ns:title>
+            <map>
+              <name set="alma">mms_modificationDate</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Originating System</ns:title>
+            <map>
+              <name set="alma">mms_originatingSystem</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Originating System Id</ns:title>
+            <map>
+              <name set="alma">mms_originatingSystemId</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Resource Type</ns:title>
+            <map>
+              <name set="alma">mms_resource_type</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>MMS SIP ID</ns:title>
+            <map>
+              <name set="alma">mms_sip_id</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Tag Suppressed (Title)</ns:title>
+            <map>
+              <name set="alma">mms_tagSuppressed</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Tag Suppressed From External Search</ns:title>
+            <map>
+              <name set="alma">mms_tagSuppressedExternalSearch</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Tag Sync External Catalog</ns:title>
+            <map>
+              <name set="alma">mms_tagSyncExternalCatalog</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Tag Sync External Catalog</ns:title>
+            <map>
+              <name set="alma">mms_tagSyncNationalCatalog</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Names</ns:title>
+            <map>
+              <name set="alma">name</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>National Bibliography Number</ns:title>
+            <map>
+              <name set="alma">national_bibliography_number</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>NLM-type Call Number</ns:title>
+            <map>
+              <name set="alma">nlm_call_number</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Notes</ns:title>
+            <map>
+              <name set="alma">notes</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>OCLC Control Number (019)</ns:title>
+            <map>
+              <name set="alma">oclc_control_number_019_a</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>OCLC Control Number (035a)</ns:title>
+            <map>
+              <name set="alma">oclc_control_number_035_a</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>OCLC Control Number (035a+z)</ns:title>
+            <map>
+              <name set="alma">oclc_control_number_035_az</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>OCLC Control Number (035z)</ns:title>
+            <map>
+              <name set="alma">oclc_control_number_035_z</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Open Access</ns:title>
+            <map>
+              <name set="alma">open_access</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>ORCID - Open Researcher and Contributor ID</ns:title>
+            <map>
+              <name set="alma">orcid_identifier</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Original Cataloging Agency</ns:title>
+            <map>
+              <name set="alma">original_cataloging_agency</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Other Classification Number</ns:title>
+            <map>
+              <name set="alma">other_class_number</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Other Physical Details</ns:title>
+            <map>
+              <name set="alma">other_physical_details</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Other Standard Identifier</ns:title>
+            <map>
+              <name set="alma">other_standard_identifier</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Other System Number</ns:title>
+            <map>
+              <name set="alma">other_system_number</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Peer Reviewed</ns:title>
+            <map>
+              <name set="alma">peer_reviewed</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Publisher</ns:title>
+            <map>
+              <name set="alma">publisher</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Publisher Location</ns:title>
+            <map>
+              <name set="alma">publisher_location</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Publisher Number</ns:title>
+            <map>
+              <name set="alma">publisher_number</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Record Format</ns:title>
+            <map>
+              <name set="alma">registry_id</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Relator</ns:title>
+            <map>
+              <name set="alma">relator</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>RUC Classification Number</ns:title>
+            <map>
+              <name set="alma">ruc_class_number</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Series</ns:title>
+            <map>
+              <name set="alma">series</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Shelving Location</ns:title>
+            <map>
+              <name set="alma">shelving_location</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Source Record Id</ns:title>
+            <map>
+              <name set="alma">source_record_id</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Standard Number</ns:title>
+            <map>
+              <name set="alma">standard_number</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>International Standard Recording Code</ns:title>
+            <map>
+              <name set="alma">stored_standard_number_024_a_ind1_0</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Universal Product Code</ns:title>
+            <map>
+              <name set="alma">stored_standard_number_024_a_ind1_1</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>International Standard Music Number</ns:title>
+            <map>
+              <name set="alma">stored_standard_number_024_a_ind1_2</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>International Article Number</ns:title>
+            <map>
+              <name set="alma">stored_standard_number_024_a_ind1_3</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Serial Item and Contribution Identifier</ns:title>
+            <map>
+              <name set="alma">stored_standard_number_024_a_ind1_4</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Subject Category Code</ns:title>
+            <map>
+              <name set="alma">subject_category_code</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Subjects</ns:title>
+            <map>
+              <name set="alma">subjects</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Sublocation</ns:title>
+            <map>
+              <name set="alma">sublocation</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index sort="true">
+            <ns:title>Title</ns:title>
+            <map>
+              <name set="alma">title</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Date Type Status</ns:title>
+            <map>
+              <name set="alma">type_of_date</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Bibliographic Format</ns:title>
+            <map>
+              <name set="alma">type_of_record</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Uniform Title</ns:title>
+            <map>
+              <name set="alma">uniform_title</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Serial Title</ns:title>
+            <map>
+              <name set="alma">unique_serial_title</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>UDC</ns:title>
+            <map>
+              <name set="alma">universal_decimal_class_number</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Item call number</ns:title>
+            <map>
+              <name set="alma">alterCallNumber</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Item call number type</ns:title>
+            <map>
+              <name set="alma">alternativeCallNumberType</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Receiving date</ns:title>
+            <map>
+              <name set="alma">arrivalDate</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Barcode</ns:title>
+            <map>
+              <name set="alma">barcode</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Base status</ns:title>
+            <map>
+              <name set="alma">baseStatus</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Chronology I</ns:title>
+            <map>
+              <name set="alma">chronologyI</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Chronology J</ns:title>
+            <map>
+              <name set="alma">chronologyJ</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Chronology K</ns:title>
+            <map>
+              <name set="alma">chronologyK</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Chronology L</ns:title>
+            <map>
+              <name set="alma">chronologyL</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Chronology M</ns:title>
+            <map>
+              <name set="alma">chronologyM</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>c.search.index_names.current_library</ns:title>
+            <map>
+              <name set="alma">current_Library</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>c.search.index_names.current_location</ns:title>
+            <map>
+              <name set="alma">current_Location</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Enumeration A</ns:title>
+            <map>
+              <name set="alma">enumerationA</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Enumeration B</ns:title>
+            <map>
+              <name set="alma">enumerationB</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Enumeration C</ns:title>
+            <map>
+              <name set="alma">enumerationC</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Enumeration D</ns:title>
+            <map>
+              <name set="alma">enumerationD</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Enumeration E</ns:title>
+            <map>
+              <name set="alma">enumerationE</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Enumeration F</ns:title>
+            <map>
+              <name set="alma">enumerationF</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Enumeration G</ns:title>
+            <map>
+              <name set="alma">enumerationG</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Enumeration H</ns:title>
+            <map>
+              <name set="alma">enumerationH</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Expected receiving date</ns:title>
+            <map>
+              <name set="alma">expectedArrivalDate</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Due back from temp location date</ns:title>
+            <map>
+              <name set="alma">expectedReturnFromTempLocation</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Fulfillment Note</ns:title>
+            <map>
+              <name set="alma">fulfilment_note</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Internal note 1</ns:title>
+            <map>
+              <name set="alma">internal_note_1</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Internal note 2</ns:title>
+            <map>
+              <name set="alma">internal_note_2</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Internal note 3</ns:title>
+            <map>
+              <name set="alma">internal_note_3</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Inventory date</ns:title>
+            <map>
+              <name set="alma">inventoryDate</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Inventory number</ns:title>
+            <map>
+              <name set="alma">inventoryNumber</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Is Magnetic</ns:title>
+            <map>
+              <name set="alma">isMagnetic</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Issue year</ns:title>
+            <map>
+              <name set="alma">issueYear</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="relation">&gt;=</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&lt;=</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Creation Date (Physical Item)</ns:title>
+            <map>
+              <name set="alma">item_createDate</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Description</ns:title>
+            <map>
+              <name set="alma">item_description</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Modification Date (Physical Item)</ns:title>
+            <map>
+              <name set="alma">item_modificationDate</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Item PID</ns:title>
+            <map>
+              <name set="alma">item_pid</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="relation">&gt;=</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&lt;=</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Item Issue Date</ns:title>
+            <map>
+              <name set="alma">itemIssueDate</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Library</ns:title>
+            <map>
+              <name set="alma">itemLibrary</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Location</ns:title>
+            <map>
+              <name set="alma">itemPhysicalLocation</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Item policy</ns:title>
+            <map>
+              <name set="alma">itemPolicy</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>PO Line</ns:title>
+            <map>
+              <name set="alma">itemPOLineID</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Item sequence number</ns:title>
+            <map>
+              <name set="alma">itemSequenceNumber</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Material Type (Physical Item)</ns:title>
+            <map>
+              <name set="alma">materialType</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>On shelf date</ns:title>
+            <map>
+              <name set="alma">onShelfDate</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>On shelf seq</ns:title>
+            <map>
+              <name set="alma">onShelfSeq</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Pages</ns:title>
+            <map>
+              <name set="alma">pages</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Call Number Type</ns:title>
+            <map>
+              <name set="alma">permanentCallNumberTypeFacet</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Physical condition</ns:title>
+            <map>
+              <name set="alma">physicalCondition</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Pieces</ns:title>
+            <map>
+              <name set="alma">pieces</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Process type</ns:title>
+            <map>
+              <name set="alma">processType</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Provenance Code</ns:title>
+            <map>
+              <name set="alma">provenanceCode</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Public note (Physical Item)</ns:title>
+            <map>
+              <name set="alma">public_note</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Statistics note 1</ns:title>
+            <map>
+              <name set="alma">statisticsNote1</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Statistics note 2</ns:title>
+            <map>
+              <name set="alma">statisticsNote2</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Statistics note 3</ns:title>
+            <map>
+              <name set="alma">statisticsNote3</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Storage Location ID</ns:title>
+            <map>
+              <name set="alma">storageLocationID</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Temporary call number</ns:title>
+            <map>
+              <name set="alma">temporaryCallNumber</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Temporary call number type</ns:title>
+            <map>
+              <name set="alma">temporaryCallNumberType</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Temporary item policy</ns:title>
+            <map>
+              <name set="alma">temporaryItemPolicy</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Temporary library</ns:title>
+            <map>
+              <name set="alma">temporaryLibrary</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Temporary physical location</ns:title>
+            <map>
+              <name set="alma">temporaryPhysicalLocation</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>In temporary location</ns:title>
+            <map>
+              <name set="alma">temporaryPhysicalLocationInUse</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="relation">&gt;=</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&lt;=</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Accession Number</ns:title>
+            <map>
+              <name set="alma">accessionNumber</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="relation">&gt;=</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&lt;=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Acquisition Note</ns:title>
+            <map>
+              <name set="alma">acquisition_note</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Action note</ns:title>
+            <map>
+              <name set="alma">action_note</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Action note - authorization</ns:title>
+            <map>
+              <name set="alma">action_note_authorization</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Action note - note</ns:title>
+            <map>
+              <name set="alma">action_note_note</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Binding Note</ns:title>
+            <map>
+              <name set="alma">binding_note</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Call number prefix</ns:title>
+            <map>
+              <name set="alma">callNumberPrefix</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Call number suffix</ns:title>
+            <map>
+              <name set="alma">callNumberSuffix</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Completeness</ns:title>
+            <map>
+              <name set="alma">completeness</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Encoding level</ns:title>
+            <map>
+              <name set="alma">encoding_level</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Ownership and Custodial History</ns:title>
+            <map>
+              <name set="alma">f561a</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>General retention policy</ns:title>
+            <map>
+              <name set="alma">general_retention_policy</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Control number (Holdings)</ns:title>
+            <map>
+              <name set="alma">hol_control_number</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Creation date (physical holdings)</ns:title>
+            <map>
+              <name set="alma">hol_createDate</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Modification date (physical holdings)</ns:title>
+            <map>
+              <name set="alma">hol_modificationDate</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>OCLC Control Number (035a) - Holdings</ns:title>
+            <map>
+              <name set="alma">hol_oclc_control_number_035_a</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>OCLC Control Number (035a+z) - Holdings</ns:title>
+            <map>
+              <name set="alma">hol_oclc_control_number_035_az</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>OCLC Control Number (035z) - Holdings</ns:title>
+            <map>
+              <name set="alma">hol_oclc_control_number_035_z</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Other System Number (035a) - Holdings</ns:title>
+            <map>
+              <name set="alma">hol_other_system_number_035_a</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Other System Number (035a+z) - Holdings</ns:title>
+            <map>
+              <name set="alma">hol_other_system_number_035_az</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Other System Number (035z) - Holdings</ns:title>
+            <map>
+              <name set="alma">hol_other_system_number_035_z</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Type of record</ns:title>
+            <map>
+              <name set="alma">hol_type_of_record</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>URL</ns:title>
+            <map>
+              <name set="alma">hol_url</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>URL access status</ns:title>
+            <map>
+              <name set="alma">hol_url_access_status</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>URL link text</ns:title>
+            <map>
+              <name set="alma">hol_url_link_text</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>URL materials specified</ns:title>
+            <map>
+              <name set="alma">hol_url_materials_specified</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>URL method</ns:title>
+            <map>
+              <name set="alma">hol_url_method</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>URL non public note</ns:title>
+            <map>
+              <name set="alma">hol_url_non_public_note</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>URL public note</ns:title>
+            <map>
+              <name set="alma">hol_url_public_note</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Carrier Type Code (Title)</ns:title>
+            <map>
+              <name set="alma">holding_carrier_type_code</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Carrier Type Term (Title)</ns:title>
+            <map>
+              <name set="alma">holding_carrier_type_term</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Library (Holdings)</ns:title>
+            <map>
+              <name set="alma">holding_Library</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Media type code (Holdings)</ns:title>
+            <map>
+              <name set="alma">holding_media_type_code</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Media type term (Holdings)</ns:title>
+            <map>
+              <name set="alma">holding_media_type_term</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Holdings note</ns:title>
+            <map>
+              <name set="alma">holding_Note</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Holdings PID</ns:title>
+            <map>
+              <name set="alma">holding_pid</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="relation">&gt;=</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&lt;=</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Tag Suppressed (Holdings)</ns:title>
+            <map>
+              <name set="alma">holding_tagSuppressed</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Lending Policy</ns:title>
+            <map>
+              <name set="alma">lending_policy</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Linkage number</ns:title>
+            <map>
+              <name set="alma">linkage_number</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>LOCAL holding 935</ns:title>
+            <map>
+              <name set="alma">local_holding_field_935</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Local holding field 959</ns:title>
+            <map>
+              <name set="alma">local_holding_field_959</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Local holding field 991</ns:title>
+            <map>
+              <name set="alma">local_holding_field_991</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Local holding field 999</ns:title>
+            <map>
+              <name set="alma">local_holding_field_999</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Method of acquisition</ns:title>
+            <map>
+              <name set="alma">method_of_acquisition</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>c.search.index_names.has_items</ns:title>
+            <map>
+              <name set="alma">p_level_4_id</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Pattern 5th level of enumeration</ns:title>
+            <map>
+              <name set="alma">pattern_fifth_level_enum</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Pattern 1st level of enumeration</ns:title>
+            <map>
+              <name set="alma">pattern_first_level_enum</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Pattern 4th level of enumeration</ns:title>
+            <map>
+              <name set="alma">pattern_fourth_level_enum</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Pattern frequency</ns:title>
+            <map>
+              <name set="alma">pattern_frequency</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Pattern 2nd level of enumeration</ns:title>
+            <map>
+              <name set="alma">pattern_second_level_enum</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Pattern 6th level of enumeration</ns:title>
+            <map>
+              <name set="alma">pattern_sixth_level_enum</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Pattern 3rd level of enumeration</ns:title>
+            <map>
+              <name set="alma">pattern_third_level_enum</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Permanent call number</ns:title>
+            <map>
+              <name set="alma">PermanentCallNumber</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="relation">&gt;=</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&lt;=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Permanent call number type</ns:title>
+            <map>
+              <name set="alma">permanentCallNumberType</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Permanent physical location</ns:title>
+            <map>
+              <name set="alma">permanentPhysicalLocation</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Receipt, acquisition, or access status</ns:title>
+            <map>
+              <name set="alma">receipt_acq_status</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Reproduction Policy</ns:title>
+            <map>
+              <name set="alma">reproduction_policy</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Summary holdings</ns:title>
+            <map>
+              <name set="alma">summaryHolding</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Textual holdings</ns:title>
+            <map>
+              <name set="alma">textual_holdings</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Textual holdings nonpublic note</ns:title>
+            <map>
+              <name set="alma">textual_holdings_non_public_note</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Textual holdings public note</ns:title>
+            <map>
+              <name set="alma">textual_holdings_public_note</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Available for</ns:title>
+            <map>
+              <name set="alma">available_for</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Available for group</ns:title>
+            <map>
+              <name set="alma">available_for_group</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Available for</ns:title>
+            <map>
+              <name set="alma">available_only_for</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Available explicitly for group</ns:title>
+            <map>
+              <name set="alma">available_only_for_group</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Coverage In Use</ns:title>
+            <map>
+              <name set="alma">coverageInUse</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Public note (Electronic Portfolio)</ns:title>
+            <map>
+              <name set="alma">generalNote</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>c.search.index_names.isStandalone</ns:title>
+            <map>
+              <name set="alma">is_standalone</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Access Rights (Electronic Portfolio)</ns:title>
+            <map>
+              <name set="alma">portfolio_accessRights</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Portfolio Access Type</ns:title>
+            <map>
+              <name set="alma">portfolio_accessType</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Activation Date (Electronic Portfolio)</ns:title>
+            <map>
+              <name set="alma">portfolio_activationDate</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Authentication note (Electronic Portfolio)</ns:title>
+            <map>
+              <name set="alma">portfolio_authenticationNote</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Availability (Electronic Portfolio)</ns:title>
+            <map>
+              <name set="alma">portfolio_baseStatus</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Contributed By (Electronic Portfolio)</ns:title>
+            <map>
+              <name set="alma">portfolio_contributedBy</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Creation Date (Electronic Portfolio)</ns:title>
+            <map>
+              <name set="alma">portfolio_creation_date</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Portfolio EBA ID</ns:title>
+            <map>
+              <name set="alma">portfolio_ebaId</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Has Local Coverage Information</ns:title>
+            <map>
+              <name set="alma">portfolio_has_local_coverage</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Interface Name (Electronic Portfolio)</ns:title>
+            <map>
+              <name set="alma">portfolio_interfaceName</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Internal Description (Electronic Portfolio)</ns:title>
+            <map>
+              <name set="alma">portfolio_internalDescription</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Is Local (Electronic Portfolio)</ns:title>
+            <map>
+              <name set="alma">portfolio_is_local</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>c.search.index_names.portfolioLibrary</ns:title>
+            <map>
+              <name set="alma">portfolio_Library</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Portfolio License ID</ns:title>
+            <map>
+              <name set="alma">portfolio_license_id</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Managed by Provider (Electronic Portfolio)</ns:title>
+            <map>
+              <name set="alma">portfolio_managed_by</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Material Type (Electronic Portfolio)</ns:title>
+            <map>
+              <name set="alma">portfolio_materialType</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Modification Date (Electronic Portfolio)</ns:title>
+            <map>
+              <name set="alma">portfolio_modification_date</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Notes tab</ns:title>
+            <map>
+              <name set="alma">portfolio_note_out</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Portfolio PDA ID</ns:title>
+            <map>
+              <name set="alma">portfolio_pdaId</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Portfolio PID</ns:title>
+            <map>
+              <name set="alma">portfolio_pid</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="relation">&gt;=</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&lt;=</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Portfolio PO Line ID</ns:title>
+            <map>
+              <name set="alma">portfolio_POLineID</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Proxy Enabled (Electronic Portfolio)</ns:title>
+            <map>
+              <name set="alma">portfolioProxyEnabled</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Proxy name (Electronic Portfolio)</ns:title>
+            <map>
+              <name set="alma">proxy</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Public Access Model</ns:title>
+            <map>
+              <name set="alma">publicAccessModel</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>ProQuest purchase model</ns:title>
+            <map>
+              <name set="alma">purchaseModel</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>URL (Electronic Portfolio)</ns:title>
+            <map>
+              <name set="alma">url</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Access Rights Policy Name</ns:title>
+            <map>
+              <name set="alma">ar_policy</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Copyrights Name</ns:title>
+            <map>
+              <name set="alma">copyrightsId</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Date</ns:title>
+            <map>
+              <name set="alma">date</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Deposit ID</ns:title>
+            <map>
+              <name set="alma">deposit_id</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Request ID</ns:title>
+            <map>
+              <name set="alma">digitization_request_id</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Issue</ns:title>
+            <map>
+              <name set="alma">issue</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Number</ns:title>
+            <map>
+              <name set="alma">number</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Usage Type</ns:title>
+            <map>
+              <name set="alma">preservationType</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Remote repository</ns:title>
+            <map>
+              <name set="alma">remote_representation_integration_system_code</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Linking Parameter 1</ns:title>
+            <map>
+              <name set="alma">remote_representation_linkingparameter1</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Linking Parameter 2</ns:title>
+            <map>
+              <name set="alma">remote_representation_linkingparameter2</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Linking Parameter 3</ns:title>
+            <map>
+              <name set="alma">remote_representation_linkingparameter3</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Linking Parameter 4</ns:title>
+            <map>
+              <name set="alma">remote_representation_linkingparameter4</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Linking Parameter 5</ns:title>
+            <map>
+              <name set="alma">remote_representation_linkingparameter5</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Originating Record ID</ns:title>
+            <map>
+              <name set="alma">remote_representation_originating_system_id</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Library</ns:title>
+            <map>
+              <name set="alma">rep_Library</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Public note (Physical Item)</ns:title>
+            <map>
+              <name set="alma">rep_public_note</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Creator (Title)</ns:title>
+            <map>
+              <name set="alma">repCreator</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>PO Line</ns:title>
+            <map>
+              <name set="alma">repPoLineId</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Representation Label</ns:title>
+            <map>
+              <name set="alma">representation_label</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Provenance ID</ns:title>
+            <map>
+              <name set="alma">representation_originating_system_id</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Representation PID</ns:title>
+            <map>
+              <name set="alma">representation_pid</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="relation">&gt;=</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&lt;=</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Entity type</ns:title>
+            <map>
+              <name set="alma">representationEntityType</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Title</ns:title>
+            <map>
+              <name set="alma">repTitle</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Tag Active (Representation)</ns:title>
+            <map>
+              <name set="alma">tagActive</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Volume</ns:title>
+            <map>
+              <name set="alma">volume</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Activate From</ns:title>
+            <map>
+              <name set="alma">activateFrom</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Activate To</ns:title>
+            <map>
+              <name set="alma">activateTo</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Electronic Collection Type</ns:title>
+            <map>
+              <name set="alma">aggregator</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Category</ns:title>
+            <map>
+              <name set="alma">category</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>CDI-only full text activation</ns:title>
+            <map>
+              <name set="alma">cdi_delivery</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Collection Available for group</ns:title>
+            <map>
+              <name set="alma">coll_available_for_group</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Collection available explicitly for group</ns:title>
+            <map>
+              <name set="alma">coll_available_only_for_group</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Creator Name (Electronic Collection)</ns:title>
+            <map>
+              <name set="alma">creatorName</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Crossref enabled</ns:title>
+            <map>
+              <name set="alma">crossrefenabled</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>CDI Collection ID (DB ID)</ns:title>
+            <map>
+              <name set="alma">db_id</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Collection Access Type</ns:title>
+            <map>
+              <name set="alma">iepa_accessType</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Activation Date (Electronic Collection)</ns:title>
+            <map>
+              <name set="alma">iepa_activationDate</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Authentication note (Electronic Collection)</ns:title>
+            <map>
+              <name set="alma">iepa_authenticationNote</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>CDI Fulltext rights</ns:title>
+            <map>
+              <name set="alma">iepa_cdi_fulltext_rights</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>CDI Fulltext Linking</ns:title>
+            <map>
+              <name set="alma">iepa_cdi_linking</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>CDI Newspapers</ns:title>
+            <map>
+              <name set="alma">iepa_cdi_newspaper_search</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>CDI Provider Coverage</ns:title>
+            <map>
+              <name set="alma">iepa_cdi_provider_coverage</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>CDI Search rights</ns:title>
+            <map>
+              <name set="alma">iepa_cdi_search_rights</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>CDI Type</ns:title>
+            <map>
+              <name set="alma">iepa_cdi_type</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Contributed By (Electronic Collection)</ns:title>
+            <map>
+              <name set="alma">iepa_contributedBy</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Is Local (Electronic Collection)</ns:title>
+            <map>
+              <name set="alma">iepa_is_local</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Free (Electronic Collection)</ns:title>
+            <map>
+              <name set="alma">iepa_isFree</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Language (Electronic Collection)</ns:title>
+            <map>
+              <name set="alma">iepa_language</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>c.search.index_names.iepaLibrary</ns:title>
+            <map>
+              <name set="alma">iepa_Library</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Electronic Collection ID</ns:title>
+            <map>
+              <name set="alma">iepa_pid</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="relation">&gt;=</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&lt;=</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Collection PO Line ID</ns:title>
+            <map>
+              <name set="alma">iepa_POLineID</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Proxy Enabled (Electronic Collection)</ns:title>
+            <map>
+              <name set="alma">iepa_proxyEnabled</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>We subscribe only to some titles in this collection</ns:title>
+            <map>
+              <name set="alma">iepa_selectiveIndication</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>CDI Suppress Full Text</ns:title>
+            <map>
+              <name set="alma">iepa_suppressFromCdi</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Interface Name (Electronic Collection)</ns:title>
+            <map>
+              <name set="alma">interfaceName</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Internal Description (Electronic Collection)</ns:title>
+            <map>
+              <name set="alma">internalDescription</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">==</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Free (Service)</ns:title>
+            <map>
+              <name set="alma">isFree</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Linking Level</ns:title>
+            <map>
+              <name set="alma">linkingLevel</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Link Resolver Plugin</ns:title>
+            <map>
+              <name set="alma">linkResolverPlugin</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Available for</ns:title>
+            <map>
+              <name set="alma">package_available_for</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Available for</ns:title>
+            <map>
+              <name set="alma">package_available_only_for</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Creation Date (Electronic Collection)</ns:title>
+            <map>
+              <name set="alma">package_creation_date</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Service Authentication Note</ns:title>
+            <map>
+              <name set="alma">package_license_id</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Modification Date (Electronic Collection)</ns:title>
+            <map>
+              <name set="alma">package_modification_date</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>URL (Electronic Collection)</ns:title>
+            <map>
+              <name set="alma">package_nativeInterfaceUrl</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Electronic Collection Name</ns:title>
+            <map>
+              <name set="alma">packageName</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Electronic Collection Content Type</ns:title>
+            <map>
+              <name set="alma">packageType</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Service Authentication Note</ns:title>
+            <map>
+              <name set="alma">pps_authenticationNote</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Availability (Electronic Collection)</ns:title>
+            <map>
+              <name set="alma">pps_baseStatus</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Proxy name (Electronic Collection)</ns:title>
+            <map>
+              <name set="alma">proxySelected</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Public note (Electronic Collection)</ns:title>
+            <map>
+              <name set="alma">publicNote</name>
+            </map>
+            <configInfo>
+              <supports type="relation">all</supports>
+              <supports type="relation">=</supports>
+              <supports type="emptyTerm"/>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Title Service PID</ns:title>
+            <map>
+              <name set="alma">service_pid</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="relation">&gt;=</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&lt;=</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Proxy Enabled (Service)</ns:title>
+            <map>
+              <name set="alma">service_proxyEnabled</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Service Type</ns:title>
+            <map>
+              <name set="alma">serviceType</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="emptyTerm"/>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Managed by Provider (Electronic Collection)</ns:title>
+            <map>
+              <name set="alma">tps_managed_by</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+          <index>
+            <ns:title>Record Identifier (MMS ID)</ns:title>
+        <map>
+          <name set="rec">id</name>
+            </map>
+            <configInfo>
+              <supports type="relation">==</supports>
+              <supports type="relation">&gt;</supports>
+              <supports type="relation">&gt;=</supports>
+              <supports type="relation">&lt;</supports>
+              <supports type="relation">&lt;=</supports>
+              <supports type="relation">&lt;&gt;</supports>
+              <supports type="relation">=</supports>
+              <supports type="relation">all</supports>
+            </configInfo>
+          </index>
+        </indexInfo>
+        <schemaInfo>
+          <schema identifier="http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd" name="marcxml" sort="true"/>
+          <schema identifier="info:srw/schema/1/dc-v1.1" name="dc" sort="true"/>
+          <schema identifier="info:srw/schema/1/mods-v3.5" name="mods" sort="true"/>
+          <schema identifier="info:srw/schema/1/dcx-v1.0" name="dcx" sort="true"/>
+          <schema identifier="info:srw/schema/8/unimarcxml-v0.1" name="unimarcxml" sort="true"/>
+          <schema identifier="http://www.nl.go.kr/kormarc/" name="kormarcxml" sort="true"/>
+          <schema identifier="http://www.nlc.cn/" name="cnmarcxml" sort="true"/>
+          <schema identifier="http://www.loc.gov/standards/iso20775/" name="isohold" sort="true"/>
+        </schemaInfo>
+        <configInfo>
+          <ns:default type="numberOfRecords">10</ns:default>
+          <ns:setting type="maximumRecords">50</ns:setting>
+          <ns:supports type="relation">=</ns:supports>
+          <ns:supports type="relation">all</ns:supports>
+          <ns:supports type="relation">==</ns:supports>
+          <ns:supports type="relation">&gt;</ns:supports>
+          <ns:supports type="relation">&lt;</ns:supports>
+          <ns:supports type="relation">&gt;=</ns:supports>
+          <ns:supports type="relation">&lt;=</ns:supports>
+          <ns:supports type="relation">&lt;&gt;</ns:supports>
+          <ns:supports type="emptyTerm"/>
+        </configInfo>
+      </explain>
+    </recordData>
+  </record>
+</explainResponse>
