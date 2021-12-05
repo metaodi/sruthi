@@ -13,18 +13,24 @@ Install the dependencies using `pip`:
 ```bash
 pip install -r requirements.txt
 pip install -r test-requirements.txt
+
+# or use make
+make deps
 ```
 
 Make sure the tests pass:
 
 ```bash
-pytest
+make test
 ```
 
 To ensure a good quality of the code use `flake8` to check the code style:
 
 ```bash
 flake8 --install-hook git
+
+# with make
+make lint
 ```
 
 ## Create a pull request

@@ -206,8 +206,27 @@ class ExplainResponse(Response):
 
     def _parse_server(self, xml):
         server_info = {
-            'host': self.xmlparser.find(xml, './/zr:serverInfo/zr:host').text,
-            'port': self.xmlparser.find(xml, './/zr:serverInfo/zr:port').text,
+            'host': self.xmlparser.find(
+                        xml,
+                        [
+                            './/zr:serverInfo/zr:host',
+                            './/zr2:serverInfo/zr:host'
+                        ]
+                    ).text,
+            'port': self.xmlparser.find(
+                        xml,
+                        [
+                            './/zr:serverInfo/zr:port',
+                            './/zr2:serverInfo/zr:port',
+                        ]
+                    ).text,
+            'database': self.xmlparser.find(
+                        xml,
+                        [
+                            './/zr:serverInfo/zr:database',
+                            './/zr2:serverInfo/zr:database',
+                        ]
+                    ).text,
         }
         server_info['port'] = self.maybe_int(server_info['port'])
         return server_info
@@ -230,7 +249,14 @@ class ExplainResponse(Response):
         }
 
         schemas = {}
-        for schema in self.xmlparser.findall(xml, './/zr:schemaInfo/zr:schema'):
+        xml_schemas = self.xmlparser.findall(
+            xml,
+            [
+                './/zr:schemaInfo/zr:schema',
+                './/zr2:schemaInfo/zr2:schema',
+            ]
+        )
+        for schema in xml_schemas:
             schema_info = {}
             for attr, fn in attributes.items():
                 xml_attr = schema.attrib.get(attr)
@@ -242,13 +268,27 @@ class ExplainResponse(Response):
 
     def _parse_config(self, xml):
         config = {}
-        for setting in self.xmlparser.findall(xml, './/zr:configInfo/zr:setting'):
+        settings = self.xmlparser.findall(
+            xml,
+            [
+                './/zr:configInfo/zr:setting',
+                './/zr2:configInfo/zr:setting',
+            ]
+        )
+        for setting in settings:
             t = setting.attrib['type']
             config[t] = self.maybe_int(setting.text)
 
         # defaults
+        xml_defaults = self.xmlparser.findall(
+            xml,
+            [
+                './/zr:configInfo/zr:default',
+                './/zr2:configInfo/zr:default',
+            ]
+        )
         defaults = {}
-        for default in self.xmlparser.findall(xml, './/zr:configInfo/zr:default'):
+        for default in xml_defaults:
             t = default.attrib['type']
             defaults[t] = self.maybe_int(default.text)
         config['defaults'] = defaults
@@ -256,6 +296,8 @@ class ExplainResponse(Response):
 
     def _parse_database(self, xml):
         db = self.xmlparser.find(xml, './/zr:databaseInfo')
+        if not db:
+            return {}
         db_info = {
             'title': self.xmlparser.find(db, ['./zr:title', './title']).text,
             'description': self.xmlparser.find(db, ['./zr:description', './description']).text,
@@ -266,15 +308,35 @@ class ExplainResponse(Response):
 
     def _parse_index(self, xml):
         index = defaultdict(defaultdict)
-        for index_set in self.xmlparser.findall(xml, './/zr:indexInfo/zr:set'):
+        index_sets = self.xmlparser.findall(
+            xml,
+            [
+                './/zr:indexInfo/zr:set',
+                './/zr2:indexInfo/zr2:set',
+            ]
+        )
+        for index_set in index_sets:
             index[index_set.attrib['name']] = defaultdict()
 
-        for index_field in self.xmlparser.findall(xml, './/zr:indexInfo/zr:index'):
-            title = self.xmlparser.find(index_field, './zr:title').text or \
-                    self.xmlparser.find(index_field, './title').text
+        index_fields = self.xmlparser.findall(
+            xml,
+            [
+                './/zr:indexInfo/zr:index',
+                './/zr2:indexInfo/zr2:index'
+            ]
+        )
+        for index_field in index_fields:
+            title = self.xmlparser.find(index_field, ['./zr:title', './title']).text
             if title:
                 title = title.strip()
-            for name in self.xmlparser.findall(index_field, './/zr:map/zr:name'):
+            names = self.xmlparser.findall(
+                index_field,
+                [
+                    './/zr:map/zr:name',
+                    './/zr2:map/zr2:name'
+                ]
+            )
+            for name in names:
                 index[name.attrib['set']][name.text.strip()] = title
 
         return {k: dict(v) for k, v in dict(index).items()}

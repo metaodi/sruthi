@@ -7,7 +7,7 @@ sru_endpoints = [
     'https://suche.staatsarchiv.djiktzh.ch/SRU/',
     'https://amsquery.stadt-zuerich.ch/SRU/',
     'http://lx2.loc.gov:210/LCDB?',
-    'https://sru.swissbib.ch/sru/explain',
+    'https://na01.alma.exlibrisgroup.com/view/sru/TR_INTEGRATION_INST',
 ]
 
 

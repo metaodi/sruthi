@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Changed
 - Add MarcXchange (ISO 25577) namespace [#35](https://github.com/metaodi/sruthi/pull/35) (thanks [danmichaelo](https://github.com/danmichaelo)!)
 
+### Fixed
+- Fix parsing of non-standard namespaces for explain response
+
 ## [0.1.2] - 2020-10-04
 ### Fixed
 - Fix missing dependencies in setup.py
