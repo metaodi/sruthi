@@ -71,6 +71,23 @@ class TestSruthiClient(SruthiTestCase):
         self.assertEqual(res[1]['id'], '075640988')
         self.assertEqual(res[2]['id'], '113008686')
 
+    def test_searchretrieve_sru11(self):
+        client = Client('http://my-param.com/sru', sru_version='1.1')
+
+        r = client.searchretrieve('test-query')
+        self.assertEqual(r.count, 790)
+        self.assertEqual(len(r.records), 12)
+        self.session_mock.return_value.get.assert_called_once_with(
+            'http://my-param.com/sru',
+            params={
+                'operation': 'searchRetrieve',
+                'version': '1.1',
+                'query': 'test-query',
+                'startRecord': 1,
+                'maximumRecords': 10,
+            }
+        )
+
     def test_explain(self):
         client = Client('https://test.com/sru')
         info = client.explain()
@@ -79,6 +96,7 @@ class TestSruthiClient(SruthiTestCase):
         server = info.server
         self.assertEqual(server['host'], 'https://test.com/sru')
         self.assertEqual(server['port'], 80)
+        self.assertEqual(server['database'], 'sru')
 
         # database
         db = info.database
@@ -122,6 +140,53 @@ class TestSruthiClient(SruthiTestCase):
             },
             verify=False
         )
+
+    def test_explain_with_zr2_namespace(self):
+        client = Client('https://example.com/sru')
+        info = client.explain()
+
+        # server
+        server = info.server
+        self.assertEqual(server['host'], 'example.com/sru')
+        self.assertEqual(server['port'], 443)
+
+        # index
+        index = info.index
+        self.assertEqual(len(index), 2)
+        self.assertEqual(list(index.keys()), ['alma', 'rec'])
+        self.assertIn('title', index['alma'])
+        self.assertIn('notes', index['alma'])
+        self.assertIn('date', index['alma'])
+        self.assertIn('description', index['alma'])
+        self.assertEqual(index['alma']['url'], 'URL (Electronic Portfolio)')
+
+        # schema
+        schema = info.schema
+        self.assertEqual(len(schema), 8)
+        self.assertEqual(
+            list(schema.keys()),
+            [
+                'marcxml',
+                'dc',
+                'mods',
+                'dcx',
+                'unimarcxml',
+                'kormarcxml',
+                'cnmarcxml',
+                'isohold',
+            ]
+        )
+        self.assertEqual(schema['marcxml']['name'], 'marcxml')
+        self.assertEqual(schema['marcxml']['sort'], True)
+        self.assertEqual(
+            schema['marcxml']['identifier'],
+            'http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd'
+        )
+
+        # config
+        config = info.config
+        self.assertEqual(config['maximumRecords'], 50)
+        self.assertEqual(config['defaults']['numberOfRecords'], 10)
 
     def test_passing_maximum_records(self):
         client = Client('http://my-param.com/sru', maximum_records=111)

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<searchRetrieveResponse xmlns="http://www.loc.gov/zing/srw/"><version>1.1</version><numberOfRecords>8985</numberOfRecords><records><record><recordSchema>oai_dc</recordSchema><recordPacking>xml</recordPacking><recordData><dc xmlns:dnb="http://d-nb.de/standards/dnbterms" xmlns:tel="http://krait.kb.nl/coop/tel/handbook/telterms.html" xmlns="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <dc:title>Moving Art : East Asian Objects and Their Journeys to the West</dc:title>
+  <dc:creator>Thomsen, Hans Bjarne</dc:creator>
+  <dc:publisher>Berlin : De Gruyter</dc:publisher>
+  <dc:date>2024</dc:date>
+  <dc:language>eng</dc:language>
+  <dc:identifier xsi:type="tel:ISBN">978-3-11-042629-8 : EUR 102.80 (AT) (freier Preis), EUR 99.95 (DE) (freier Preis), GBP 74.99 (GB) (freier Preis)</dc:identifier>
+  <dc:identifier xsi:type="tel:ISBN">3-11-042629-3</dc:identifier>
+  <dc:identifier xsi:type="tel:URL">http://www.degruyter.com/search?f_0=isbnissn&amp;q_0=9783110426298&amp;searchTitles=true</dc:identifier>
+  <dc:identifier xsi:type="dnb:IDN">1091078653</dc:identifier>
+  <dc:subject>700 Künste, Bildende Kunst allgemein</dc:subject>
+  <dc:format>336 Seiten</dc:format>
+</dc></recordData><recordPosition>1</recordPosition></record></records><nextRecordPosition>2</nextRecordPosition><echoedSearchRetrieveRequest><version>1.1</version><query>Zurich</query><xQuery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/><maximumRecords>1</maximumRecords><recordSchema>oai_dc</recordSchema></echoedSearchRetrieveRequest></searchRetrieveResponse>

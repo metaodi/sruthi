@@ -4,6 +4,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+## [1.0.0] - 2021-12-06
+### Added
+- Add support for SRU 1.1 by passing `sru_version='1.1'` to the client or the operation calls.
+
+### Changed
+- Add MarcXchange (ISO 25577) namespace [#35](https://github.com/metaodi/sruthi/pull/35) (thanks [danmichaelo](https://github.com/danmichaelo)!)
+- Moved `sru` module in `__init__`
+- `explain` now returns a dict-like object (still with backwards-compatible attribute-access)
+
+### Fixed
+- Fix parsing of non-standard namespaces for explain response
+
 ## [0.1.2] - 2020-10-04
 ### Fixed
 - Fix missing dependencies in setup.py
@@ -64,7 +76,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - `Fixed` for any bug fixes.
 - `Security` to invite users to upgrade in case of vulnerabilities.
 
-[Unreleased]: https://github.com/metaodi/sruthi/compare/v0.1.2...HEAD
+[Unreleased]: https://github.com/metaodi/sruthi/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/metaodi/sruthi/compare/v0.1.2...v1.0.0
 [0.1.2]: https://github.com/metaodi/sruthi/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/metaodi/sruthi/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/metaodi/sruthi/compare/v0.0.5...v0.1.0

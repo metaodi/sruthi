@@ -26,6 +26,7 @@ class XMLParser(object):
             'rel': 'info:srw/extension/2/relevancy-1.0',
             'ap': 'http://www.archivportal.ch/srw/extension/',
             'zr': 'http://explain.z3950.org/dtd/2.1/',
+            'zr2': 'http://explain.z3950.org/dtd/2.0/',
         }
         self.dict_namespaces = {
             'http://www.loc.gov/zing/srw/': 'sru',
@@ -33,6 +34,7 @@ class XMLParser(object):
             'info:srw/extension/2/relevancy-1.0': None,
             'http://www.archivportal.ch/srw/extension/': None,
             'http://www.loc.gov/MARC21/slim': None,
+            'info:lc/xmlns/marcxchange-v1': None,
             'http://www.loc.gov/mods/v3': None,
             'http://www.loc.gov/standards/mods/v3/mods-3-6.xsd': None,
             'http://www.loc.gov/standards/mods/v3/mods-3-6.xsd': None,
@@ -61,6 +63,12 @@ class XMLParser(object):
         return elem
 
     def findall(self, xml, path):
+        if isinstance(path, list):
+            for p in path:
+                elems = self.findall(xml, p)
+                if elems:
+                    return elems
+            return []
         return xml.findall(path, self.namespaces)
 
     def tostring(self, xml):
