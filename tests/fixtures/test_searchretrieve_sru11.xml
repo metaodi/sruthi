@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<searchRetrieveResponse xmlns="http://www.loc.gov/zing/srw/"><version>1.1</version><numberOfRecords>790</numberOfRecords><records><record><recordSchema>oai_dc</recordSchema><recordPacking>xml</recordPacking><recordData><dc xmlns:dnb="http://d-nb.de/standards/dnbterms" xmlns="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <dc:title>2021,Nr.1</dc:title>
+  <dc:date>2021</dc:date>
+  <dc:language>ger</dc:language>
+  <dc:identifier xsi:type="dnb:IDN">1229450084</dc:identifier>
+  <dc:relation>http://d-nb.info/102636051X</dc:relation>
+</dc></recordData><recordPosition>10</recordPosition></record><record><recordSchema>oai_dc</recordSchema><recordPacking>xml</recordPacking><recordData><dc xmlns:dnb="http://d-nb.de/standards/dnbterms" xmlns="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <dc:title>2021,Nr.2</dc:title>
+  <dc:date>2021</dc:date>
+  <dc:language>ger</dc:language>
+  <dc:identifier xsi:type="dnb:IDN">1234718057</dc:identifier>
+  <dc:relation>http://d-nb.info/102636051X</dc:relation>
+</dc></recordData><recordPosition>11</recordPosition></record><record><recordSchema>oai_dc</recordSchema><recordPacking>xml</recordPacking><recordData><dc xmlns:dnb="http://d-nb.de/standards/dnbterms" xmlns="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <dc:title>2021,Nr.3</dc:title>
+  <dc:date>2021</dc:date>
+  <dc:language>ger</dc:language>
+  <dc:identifier xsi:type="dnb:IDN">1238377068</dc:identifier>
+  <dc:relation>http://d-nb.info/102636051X</dc:relation>
+</dc></recordData><recordPosition>12</recordPosition></record><record><recordSchema>oai_dc</recordSchema><recordPacking>xml</recordPacking><recordData><dc xmlns:dnb="http://d-nb.de/standards/dnbterms" xmlns="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <dc:title>2021,Nr.4</dc:title>
+  <dc:date>2021</dc:date>
+  <dc:language>ger</dc:language>
+  <dc:identifier xsi:type="dnb:IDN">1241982570</dc:identifier>
+  <dc:relation>http://d-nb.info/102636051X</dc:relation>
+</dc></recordData><recordPosition>13</recordPosition></record><record><recordSchema>oai_dc</recordSchema><recordPacking>xml</recordPacking><recordData><dc xmlns:dnb="http://d-nb.de/standards/dnbterms" xmlns="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <dc:title>2021,Nr.5</dc:title>
+  <dc:date>2021</dc:date>
+  <dc:language>ger</dc:language>
+  <dc:identifier xsi:type="dnb:IDN">1245478710</dc:identifier>
+  <dc:relation>http://d-nb.info/102636051X</dc:relation>
+</dc></recordData><recordPosition>14</recordPosition></record><record><recordSchema>oai_dc</recordSchema><recordPacking>xml</recordPacking><recordData><dc xmlns:dnb="http://d-nb.de/standards/dnbterms" xmlns="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <dc:title>Seeuferweg : der Zürichsee im Brennpunkt gegensätzlicher Interessen / Willy A. Rüegg</dc:title>
+  <dc:creator>Rüegg, Willy A. [Verfasser]</dc:creator>
+  <dc:publisher>Wädenswil : Stutz Medien AG</dc:publisher>
+  <dc:date>2021</dc:date>
+  <dc:language>ger</dc:language>
+  <dc:identifier xmlns:tel="http://krait.kb.nl/coop/tel/handbook/telterms.html" xsi:type="tel:ISBN">978-3-85928-111-0 Festeinband : CHF 29.00 (freier Preis)</dc:identifier>
+  <dc:identifier xmlns:tel="http://krait.kb.nl/coop/tel/handbook/telterms.html" xsi:type="tel:ISBN">3-85928-111-9</dc:identifier>
+  <dc:identifier xsi:type="dnb:IDN">1231000384</dc:identifier>
+  <dc:subject>333.7 Natürliche Ressourcen, Energie und Umwelt</dc:subject>
+  <dc:format>230 Seiten</dc:format>
+</dc></recordData><recordPosition>15</recordPosition></record><record><recordSchema>oai_dc</recordSchema><recordPacking>xml</recordPacking><recordData><dc xmlns:dnb="http://d-nb.de/standards/dnbterms" xmlns="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <dc:title>Singletrail Book 13: Zentralschweiz : Die 25 besten Mountainbike-Touren zwischen Gotthardpass und Einsiedeln beim Zürichsee / Thomas Giger</dc:title>
+  <dc:creator>Giger, Thomas [Verfasser]</dc:creator>
+  <dc:publisher>Chur : Swiss Sports Publishing</dc:publisher>
+  <dc:date>2021</dc:date>
+  <dc:language>eng</dc:language>
+  <dc:identifier xmlns:tel="http://krait.kb.nl/coop/tel/handbook/telterms.html" xsi:type="tel:ISBN">978-3-905898-33-0 : EUR 25.00 (DE) (freier Preis), EUR 25.70 (AT) (freier Preis), CHF 29.00 (freier Preis)</dc:identifier>
+  <dc:identifier xmlns:tel="http://krait.kb.nl/coop/tel/handbook/telterms.html" xsi:type="tel:ISBN">3-905898-33-0</dc:identifier>
+  <dc:identifier xsi:type="dnb:IDN">1235086356</dc:identifier>
+  <dc:subject>796 Sport</dc:subject>
+  <dc:format>160 Seiten</dc:format>
+</dc></recordData><recordPosition>16</recordPosition></record><record><recordSchema>oai_dc</recordSchema><recordPacking>xml</recordPacking><recordData><dc xmlns:dnb="http://d-nb.de/standards/dnbterms" xmlns:tel="http://krait.kb.nl/coop/tel/handbook/telterms.html" xmlns="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <dc:title>Ulrich von Lilienfeld, "Concordantiae caritatis" / Martin Roland</dc:title>
+  <dc:creator>Roland, Martin [Verfasser]</dc:creator>
+  <dc:publisher>Heidelberg : arthistoricum.net</dc:publisher>
+  <dc:date>2021</dc:date>
+  <dc:language>ger</dc:language>
+  <dc:identifier xsi:type="tel:URN">urn:nbn:de:bsz:16-artdok-75206</dc:identifier>
+  <dc:identifier xsi:type="tel:URL">http://nbn-resolving.de/urn:nbn:de:bsz:16-artdok-75206</dc:identifier>
+  <dc:identifier xsi:type="tel:URL">http://d-nb.info/1246820757/34</dc:identifier>
+  <dc:identifier xsi:type="tel:URL">http://archiv.ub.uni-heidelberg.de/artdok/volltexte/2021/7520</dc:identifier>
+  <dc:identifier xsi:type="dnb:IDN">1246820757</dc:identifier>
+  <dc:subject>740 Grafik, angewandte Kunst</dc:subject>
+  <dc:rights>lizenzfrei</dc:rights>
+  <dc:type>Online-Ressource</dc:type>
+</dc></recordData><recordPosition>17</recordPosition></record><record><recordSchema>oai_dc</recordSchema><recordPacking>xml</recordPacking><recordData><dc xmlns:dnb="http://d-nb.de/standards/dnbterms" xmlns="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <dc:title>Vom Zürichsee / Peter Angst</dc:title>
+  <dc:creator>Angst, Peter [Verfasser]</dc:creator>
+  <dc:publisher>Münchenstein : Wolfbach</dc:publisher>
+  <dc:date>2021</dc:date>
+  <dc:language>ger</dc:language>
+  <dc:identifier xmlns:tel="http://krait.kb.nl/coop/tel/handbook/telterms.html" xsi:type="tel:ISBN">978-3-906929-52-1  (Preis in Vorbereitung)</dc:identifier>
+  <dc:identifier xmlns:tel="http://krait.kb.nl/coop/tel/handbook/telterms.html" xsi:type="tel:ISBN">3-906929-52-3</dc:identifier>
+  <dc:identifier xsi:type="dnb:IDN">123156251X</dc:identifier>
+  <dc:subject>830 Deutsche Literatur</dc:subject>
+  <dc:subject>B Belletristik</dc:subject>
+  <dc:format>184 Seiten</dc:format>
+</dc></recordData><recordPosition>18</recordPosition></record><record><recordSchema>oai_dc</recordSchema><recordPacking>xml</recordPacking><recordData><dc xmlns:dnb="http://d-nb.de/standards/dnbterms" xmlns="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <dc:title>Wanderparadies Schweiz Wanderführer : 100 Top Touren: Berner Oberland, Bodensee und Zürichsee, Vierwaldstättersee, Graubünden und Engadin, Tessin, Wallis, Jura und Seeland</dc:title>
+  <dc:creator>Hallwag Kümmerly + Frey</dc:creator>
+  <dc:creator>Kümmerly+Frey AG</dc:creator>
+  <dc:publisher>Urtenen-Schönbühl : Kümmerly + Frey</dc:publisher>
+  <dc:date>2021</dc:date>
+  <dc:language>ger</dc:language>
+  <dc:identifier xmlns:tel="http://krait.kb.nl/coop/tel/handbook/telterms.html" xsi:type="tel:ISBN">978-3-259-03766-9 Festeinband : EUR 24.90 (DE), EUR 24.90 (AT), CHF 24.90 (freier Preis)</dc:identifier>
+  <dc:identifier xmlns:tel="http://krait.kb.nl/coop/tel/handbook/telterms.html" xsi:type="tel:ISBN">3-259-03766-7</dc:identifier>
+  <dc:identifier xsi:type="dnb:IDN">1225885620</dc:identifier>
+  <dc:subject>796 Sport</dc:subject>
+  <dc:format>252 Seiten</dc:format>
+</dc></recordData><recordPosition>19</recordPosition></record><record><recordSchema>oai_dc</recordSchema><recordPacking>xml</recordPacking><recordData><dc xmlns:dnb="http://d-nb.de/standards/dnbterms" xmlns:tel="http://krait.kb.nl/coop/tel/handbook/telterms.html" xmlns="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <dc:title>Concordia / Tonio Hölscher</dc:title>
+  <dc:creator>Hölscher, Tonio [Verfasser]</dc:creator>
+  <dc:publisher>Heidelberg : Propylaeum</dc:publisher>
+  <dc:date>2020</dc:date>
+  <dc:language>ger</dc:language>
+  <dc:identifier xsi:type="tel:URN">urn:nbn:de:bsz:16-propylaeumdok-49654</dc:identifier>
+  <dc:identifier xsi:type="tel:URL">http://nbn-resolving.de/urn:nbn:de:bsz:16-propylaeumdok-49654</dc:identifier>
+  <dc:identifier xsi:type="tel:URL">http://d-nb.info/1236410505/34</dc:identifier>
+  <dc:identifier xsi:type="tel:URL">http://archiv.ub.uni-heidelberg.de/propylaeumdok/volltexte/2020/4965</dc:identifier>
+  <dc:identifier xsi:type="dnb:IDN">1236410505</dc:identifier>
+  <dc:subject>730 Plastik, Numismatik, Keramik, Metallkunst</dc:subject>
+  <dc:rights>lizenzfrei</dc:rights>
+  <dc:type>Online-Ressource</dc:type>
+</dc></recordData><recordPosition>20</recordPosition></record><record><recordSchema>oai_dc</recordSchema><recordPacking>xml</recordPacking><recordData><dc xmlns:dnb="http://d-nb.de/standards/dnbterms" xmlns:tel="http://krait.kb.nl/coop/tel/handbook/telterms.html" xmlns="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <dc:title>Concordia apostolorum - eine gotische Skulptur in Liegnitz / Andrzej Grzybkowski</dc:title>
+  <dc:creator>Grzybkowski, Andrzej [Verfasser]</dc:creator>
+  <dc:publisher>Heidelberg : arthistoricum.net</dc:publisher>
+  <dc:date>2020</dc:date>
+  <dc:language>ger</dc:language>
+  <dc:identifier xsi:type="tel:URN">urn:nbn:de:bsz:16-artdok-68892</dc:identifier>
+  <dc:identifier xsi:type="tel:URL">http://nbn-resolving.de/urn:nbn:de:bsz:16-artdok-68892</dc:identifier>
+  <dc:identifier xsi:type="tel:URL">http://d-nb.info/1211589692/34</dc:identifier>
+  <dc:identifier xsi:type="tel:URL">http://archiv.ub.uni-heidelberg.de/artdok/volltexte/2020/6889</dc:identifier>
+  <dc:identifier xsi:type="dnb:IDN">1211589692</dc:identifier>
+  <dc:subject>220 Bibel</dc:subject>
+  <dc:rights>lizenzfrei</dc:rights>
+  <dc:type>Online-Ressource</dc:type>
+</dc></recordData><recordPosition>21</recordPosition></record></records><nextRecordPosition>22</nextRecordPosition><echoedSearchRetrieveRequest><version>1.1</version><query>Zürichsee</query><xQuery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/><startRecord>10</startRecord><maximumRecords>12</maximumRecords><recordSchema>oai_dc</recordSchema></echoedSearchRetrieveRequest></searchRetrieveResponse>

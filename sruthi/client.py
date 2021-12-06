@@ -7,10 +7,10 @@ from . import response
 
 
 class Client(object):
-    def __init__(self, url=None, maximum_records=10, record_schema=None):
+    def __init__(self, url=None, maximum_records=10, record_schema=None, sru_version='1.2'):
         self.url = url
         self.maximum_records = maximum_records
-        self.sru_version = '1.2'
+        self.sru_version = sru_version
         self.record_schema = record_schema
 
     def searchretrieve(self, query, start_record=1, requests_kwargs=None):
@@ -34,7 +34,8 @@ class Client(object):
             'version': self.sru_version,
         }
         data_loader = DataLoader(self.url, params, requests_kwargs)
-        return response.ExplainResponse(data_loader)
+        explain_response = response.ExplainResponse(data_loader)
+        return explain_response.asdict()
 
 
 class DataLoader(object):

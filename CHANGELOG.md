@@ -3,8 +3,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project follows [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- Add support for SRU 1.1 by passing `sru_version='1.1'` to the client or the operation calls.
+
 ### Changed
 - Add MarcXchange (ISO 25577) namespace [#35](https://github.com/metaodi/sruthi/pull/35) (thanks [danmichaelo](https://github.com/danmichaelo)!)
+- Moved `sru` module in `__init__`
+- `explain` now returns a dict-like object (still with backwards-compatible attribute-access)
 
 ### Fixed
 - Fix parsing of non-standard namespaces for explain response
