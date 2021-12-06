@@ -71,6 +71,23 @@ class TestSruthiClient(SruthiTestCase):
         self.assertEqual(res[1]['id'], '075640988')
         self.assertEqual(res[2]['id'], '113008686')
 
+    def test_searchretrieve_sru11(self):
+        client = Client('http://my-param.com/sru', sru_version='1.1')
+
+        r = client.searchretrieve('test-query')
+        self.assertEqual(r.count, 790)
+        self.assertEqual(len(r.records), 12)
+        self.session_mock.return_value.get.assert_called_once_with(
+            'http://my-param.com/sru',
+            params={
+                'operation': 'searchRetrieve',
+                'version': '1.1',
+                'query': 'test-query',
+                'startRecord': 1,
+                'maximumRecords': 10,
+            }
+        )
+
     def test_explain(self):
         client = Client('https://test.com/sru')
         info = client.explain()

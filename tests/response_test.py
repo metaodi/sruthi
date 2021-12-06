@@ -20,6 +20,15 @@ class TestSearchRetrieveResponse(ResponseTestCase):
         self.assertEqual(res.sru_version, '1.2')
         self.assertIsNone(res.next_start_record)
 
+    def test_response_single_sru11(self):
+        data_loader = self._data_loader_mock(['response_single_sru11.xml'])
+        res = SearchRetrieveResponse(data_loader)
+
+        self.assertEqual(res.count, 8985)
+        self.assertEqual(res.__length_hint__(), 8985)
+        self.assertEqual(res.sru_version, '1.1')
+        self.assertEqual(res.next_start_record, 2)
+
     def test_response_multi(self):
         data_loader = self._data_loader_mock(['response_multiple_1.xml'])
         res = SearchRetrieveResponse(data_loader)
