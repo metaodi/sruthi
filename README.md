@@ -67,7 +67,8 @@ Verordnung der Stadt Zürich betreffend die Erfüllung von Amtspflichten durch d
 https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=3796980
 ```
 
-The return value of `searchretrieve` is iterable, so you can easily loop over it. Or you can use indices to access elements, e.g. `records[1]` to get the second elemenet, or `records[-1]` to get the last one.
+The return value of `searchretrieve` is iterable, so you can easily loop over it.
+Or you can use indices to access records, e.g. `records[1]` to get the second record, or `records[-1]` to get the last one.
 
 Even [slicing](https://python-reference.readthedocs.io/en/latest/docs/brackets/slicing.html) is supported, so you can do things like only iterate over the first 5 elements using
 
