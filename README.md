@@ -78,16 +78,21 @@ for records in records[:5]:
 
 ### `explain` operation
 
+The `explain` operation returns a dict-like object.
+The values can either be accessed as keys `info['sru_version']` or as attributes `info.sru_version`.
+
 ```python
 >>> import sruthi
 >>> info = sruthi.explain('https://suche.staatsarchiv.djiktzh.ch/SRU/')
+>>> info
+{'sru_version': '1.2', 'server': {'host': 'https://suche.staatsarchiv.djiktzh.ch/Sru', 'port': 80, 'database': 'sru'}, 'database': {'title': 'Staatsarchiv Zürich Online Search', 'description': 'Durchsuchen der Bestände des Staatsarchiv Zürichs.', 'contact': 'staatsarchivzh@ji.zh.ch'}, 'index': {'isad': {'title': 'Title', 'reference': 'Reference Code', 'date': 'Date', 'descriptionlevel': 'Level'}}, 'schema': {'isad': {'identifier': 'http://www.expertisecentrumdavid.be/xmlschemas/isad.xsd', 'name': 'isad', 'title': 'ISAD(G)'}}, 'config': {'maximumRecords': 99, 'defaults': {'numberOfRecords': 99}}}
 >>> info.server
 {'host': 'https://suche.staatsarchiv.djiktzh.ch/Sru', 'port': 80, 'database': 'sru'}
 >>> info.database
 {'title': 'Staatsarchiv Zürich Online Search', 'description': 'Durchsuchen der Bestände des Staatsarchiv Zürichs.', 'contact': 'staatsarchivzh@ji.zh.ch'}
->>> info.index
+>>> info['index']
 {'isad': {'title': 'Title', 'reference': 'Reference Code', 'date': 'Date', 'descriptionlevel': 'Level'}}
->>> info.schema
+>>> info['schema']
 {'isad': {'identifier': 'http://www.expertisecentrumdavid.be/xmlschemas/isad.xsd', 'name': 'isad', 'title': 'ISAD(G)'}}
 ```
 

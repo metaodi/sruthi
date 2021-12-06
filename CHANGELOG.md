@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### Changed
 - Add MarcXchange (ISO 25577) namespace [#35](https://github.com/metaodi/sruthi/pull/35) (thanks [danmichaelo](https://github.com/danmichaelo)!)
+- Moved `sru` module in `__init__`
+- `explain` now returns a dict-like object (still with backwards-compatible attribute-access)
 
 ### Fixed
 - Fix parsing of non-standard namespaces for explain response

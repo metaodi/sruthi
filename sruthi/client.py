@@ -34,7 +34,8 @@ class Client(object):
             'version': self.sru_version,
         }
         data_loader = DataLoader(self.url, params, requests_kwargs)
-        return response.ExplainResponse(data_loader)
+        explain_response = response.ExplainResponse(data_loader)
+        return explain_response.asdict()
 
 
 class DataLoader(object):

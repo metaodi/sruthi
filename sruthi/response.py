@@ -189,6 +189,16 @@ class ExplainResponse(Response):
                self.config,
             )
 
+    def asdict(self):
+        return AttributeDict({
+            'sru_version': self.sru_version,
+            'server': self.server,
+            'database': self.database,
+            'index': self.index,
+            'schema': self.schema,
+            'config': self.config,
+        })
+
     def _parse_content(self, xml):
         self._check_response_tag(xml, 'explainResponse')
 
@@ -340,3 +350,8 @@ class ExplainResponse(Response):
                 index[name.attrib['set']][name.text.strip()] = title
 
         return {k: dict(v) for k, v in dict(index).items()}
+
+
+class AttributeDict(dict):
+    def __getattr__(self, attr):
+        return self[attr]

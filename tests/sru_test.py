@@ -81,7 +81,9 @@ class TestSru(SruthiTestCase):
 
     def test_explain(self):
         info = sruthi.explain('http://test.com/sru/')
-        self.assertIsInstance(info, sruthi.response.ExplainResponse)
+        self.assertEqual(info.sru_version, '1.2'),
+        self.assertEqual(info['sru_version'], '1.2')
+        self.assertIsInstance(info, sruthi.response.AttributeDict)
         self.session_mock.return_value.get.assert_called_once_with(
             'http://test.com/sru/',
             params={
