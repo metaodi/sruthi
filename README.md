@@ -13,6 +13,7 @@ Currently only **SRU 1.1 and 1.2** is supported.
 * [Usage](#usage)
     * [`searchretrieve` operation](#searchretrieve-operation)
     * [`explain` operation](#explain-operation)
+    * [Request for SRU 1.1](#request-for-sru-11)
 * [Schemas](#schemas)
 * [Development](#development)
 * [Release](#release)
@@ -79,16 +80,41 @@ for records in records[:5]:
 
 ```python
 >>> import sruthi
->>>
 >>> info = sruthi.explain('https://suche.staatsarchiv.djiktzh.ch/SRU/')
->>> print(info.server)
+>>> info.server
 {'host': 'https://suche.staatsarchiv.djiktzh.ch/Sru', 'port': 80, 'database': 'sru'}
->>> print(info.database)
+>>> info.database
 {'title': 'Staatsarchiv Zürich Online Search', 'description': 'Durchsuchen der Bestände des Staatsarchiv Zürichs.', 'contact': 'staatsarchivzh@ji.zh.ch'}
->>> print(info.index)
+>>> info.index
 {'isad': {'title': 'Title', 'reference': 'Reference Code', 'date': 'Date', 'descriptionlevel': 'Level'}}
->>> print(info.schema)
+>>> info.schema
 {'isad': {'identifier': 'http://www.expertisecentrumdavid.be/xmlschemas/isad.xsd', 'name': 'isad', 'title': 'ISAD(G)'}}
+```
+
+### Request for SRU 1.1
+
+By default sruthi uses SRU 1.2 to make requests, but you can specify the SRU version for each call or when you create a new client instance:
+
+```python
+>>> import sruthi
+>>> # create a client
+>>> client = sruthi.Client(
+...     'https://services.dnb.de/sru/dnb',
+...     record_schema='oai_dc',
+...     sru_version='1.1'
+>>> )
+>>> records = client.searchretrieve(query="Zurich")
+>>> records.count
+8985
+>>> # ...or pass the version directly to the call
+>>> records = sruthi.searchretrieve(
+...     'https://services.dnb.de/sru/dnb',
+...     query="Zurich",
+...     record_schema='oai_dc',
+...     sru_version='1.1'
+>>> )
+>>> records.count
+8985
 ```
 
 ## Schemas
