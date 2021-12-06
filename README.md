@@ -32,30 +32,38 @@ See the [`examples` directory](https://github.com/metaodi/sruthi/tree/master/exa
 ### `searchretrieve` operation
 
 ```python
-import sruthi
-
-records = sruthi.searchretrieve('https://suche.staatsarchiv.djiktzh.ch/SRU/', query='Zurich')
-
-for record in records:
-    # print fields from schema
-    print(record['reference'])
-    print(record['title'])
-    print(record['date'])
-    print(record['extra']['link']) # extra record data is available at the 'extra' key
-```
-
-```python
-# you can get more information at each step
-import sruthi
-
-# note: records is an iterator
-records = sruthi.searchretrieve('https://suche.staatsarchiv.djiktzh.ch/SRU/', query='Human')
-print(records.sru_version)
-print(records.count)
-
-for record in records:
-    print(record)
-    print(record['schema'])
+>>> import sruthi
+>>> records = sruthi.searchretrieve('https://suche.staatsarchiv.djiktzh.ch/SRU/', query='Brettspiel')
+>>> print(records)
+SearchRetrieveResponse(sru_version='1.2',count=500,next_start_record=11)
+>>> print(records.count)
+4
+>>> print(record[0])
+{'schema': 'isad', 'reference': 'PAT 2, 54 d, Nr. 253492', 'title': 'Schlumberger, Jean, Zürich: Brettspiel', 'date': '08.03.1946', 'descriptionlevel': 'Dossier', 'extent': None, 'creator': None, 'extra': {'score': '0.4', 'link': 'https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=1114641', 'beginDateISO': '1946-03-08', 'beginApprox': '0', 'endDateISO': '1946-03-08', 'endApprox': '0', 'hasDigitizedItems': '0'}}
+>>>
+>>> for record in records:
+...    # print fields from schema
+...    print(record['reference'])
+...    print(record['title'])
+...    print(record['date'])
+...    print(record['extra']['link']) # extra record data is available at the 'extra' key
+PAT 2, 54 d, Nr. 253492
+Schlumberger, Jean, Zürich: Brettspiel
+08.03.1946
+https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=1114641
+PAT 2, 54 d, Nr. 246025
+Frei, K. H., Weisslingen: Brettspiel
+26.10.1945
+https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=1114639
+DS 107.2.37
+UZH Magazin
+Die Wissenschaftszeitschrift
+2019
+https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=4612939
+G I 1, Nr. 34
+Verordnung der Stadt Zürich betreffend die Erfüllung von Amtspflichten durch die Chorherren des Grossmünsterstifts
+24.09.1485
+https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=3796980
 ```
 
 The return value of `searchretrieve` is iterable, so you can easily loop over it. Or you can use indices to access elements, e.g. `records[1]` to get the second elemenet, or `records[-1]` to get the last one.
@@ -70,13 +78,17 @@ for records in records[:5]:
 ### `explain` operation
 
 ```python
-import sruthi
-
-info = sruthi.explain('https://suche.staatsarchiv.djiktzh.ch/SRU/')
-print(info.server)
-print(info.database)
-print(info.index)
-print(info.schema)
+>>> import sruthi
+>>>
+>>> info = sruthi.explain('https://suche.staatsarchiv.djiktzh.ch/SRU/')
+>>> print(info.server)
+{'host': 'https://suche.staatsarchiv.djiktzh.ch/Sru', 'port': 80, 'database': 'sru'}
+>>> print(info.database)
+{'title': 'Staatsarchiv Zürich Online Search', 'description': 'Durchsuchen der Bestände des Staatsarchiv Zürichs.', 'contact': 'staatsarchivzh@ji.zh.ch'}
+>>> print(info.index)
+{'isad': {'title': 'Title', 'reference': 'Reference Code', 'date': 'Date', 'descriptionlevel': 'Level'}}
+>>> print(info.schema)
+{'isad': {'identifier': 'http://www.expertisecentrumdavid.be/xmlschemas/isad.xsd', 'name': 'isad', 'title': 'ISAD(G)'}}
 ```
 
 ## Schemas
