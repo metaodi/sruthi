@@ -137,7 +137,7 @@ sruthi has been tested with the following schemas:
 
 To contribute to sruthi simply clone this repository and follow the instructions in [CONTRIBUTING.md](/CONTRIBUTING.md).
 
-This project ha a Makefile with the most common commands.
+This project has a `Makefile` with the most common commands.
 Type `make help` to get an overview.
 
 ## Release
