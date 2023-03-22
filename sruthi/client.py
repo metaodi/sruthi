@@ -7,11 +7,12 @@ from . import response
 
 
 class Client(object):
-    def __init__(self, url=None, maximum_records=10, record_schema=None, sru_version='1.2'):
+    def __init__(self, url=None, maximum_records=10, record_schema=None, sru_version='1.2', additional_params=None):
         self.url = url
         self.maximum_records = maximum_records
         self.sru_version = sru_version
         self.record_schema = record_schema
+        self.additional_params = additional_params
 
     def searchretrieve(self, query, start_record=1, requests_kwargs=None):
         params = {
@@ -21,6 +22,9 @@ class Client(object):
             'startRecord': start_record,
             'maximumRecords': self.maximum_records,
         }
+
+        if self.additional_params:
+            params.update(self.additional_params)
 
         if self.record_schema:
             params['recordSchema'] = self.record_schema
