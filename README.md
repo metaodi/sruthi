@@ -123,6 +123,23 @@ By default sruthi uses SRU 1.2 to make requests, but you can specify the SRU ver
 8985
 ```
 
+### Custom parameters and settings
+
+If an SRU endpoint needs additional (custom) parameters, you can create your own session object and pass it to the client.
+This is useful for adding authentication (username, password), custom headers or parameters, SSL verification settings etc.
+
+```python
+>>> import sruthi
+>>> import requests
+>>> # customize session
+>>> session = requests.Session()
+>>> session.params = {"x-collection": "GGC"}
+>>> # pass the customized session to sruthi
+>>> records = sruthi.searchretrieve("https://jsru.kb.nl/sru", query="gruninger", session=session)
+>>> records.count
+4
+```
+
 ## Schemas
 
 sruthi does not make any assumptions about the record data schema.
