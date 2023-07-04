@@ -7,7 +7,14 @@ from . import response
 
 
 class Client(object):
-    def __init__(self, url=None, maximum_records=10, record_schema=None, sru_version='1.2', session=None):
+    def __init__(
+        self,
+        url=None,
+        maximum_records=10,
+        record_schema=None,
+        sru_version='1.2',
+        session=None,
+    ):
         self.url = url
         self.maximum_records = maximum_records
         self.sru_version = sru_version
