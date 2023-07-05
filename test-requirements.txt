@@ -1,7 +1,8 @@
 # This file lists the dependencies of this extension.
-# Install with a command like: pip install -r pip-requirements.txt
+# Install with a command like: pip install -r test-requirements.txt
 flake8
 mock
 pytest
 pytest-cov
 coverage
+black
