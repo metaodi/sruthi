@@ -12,7 +12,11 @@ deps:  ## Install dependencies
 	python -m pip install -r test-requirements.txt
 
 lint:  ## Linting of source code
-	python -m flake8 --statistics --show-source tests sruthi examples
+	python -m black --check sruthi examples tests
+	python -m flake8 --statistics --show-source sruthi examples tests
+
+format:  ## Format source code (black codestyle)
+	python -m black sruthi examples tests
 
 test:  ## Run tests
 	python -m pytest --cov=sruthi tests/
