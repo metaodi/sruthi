@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Added
 - Pass in a custom requests session with the `session` parameter
 
+### Changed
+- Use `black` code style
+
 ### Removed
 - BC-break: `requests_kwargs` was removed since we can now pass in a custom requests session
 - BC-break: no more support for Python 3.6, minimum required version is now Python 3.7
