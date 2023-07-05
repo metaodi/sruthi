@@ -15,6 +15,7 @@ Currently only **SRU 1.1 and 1.2** is supported.
     * [`searchretrieve` operation](#searchretrieve-operation)
     * [`explain` operation](#explain-operation)
     * [Request for SRU 1.1](#request-for-sru-11)
+    * [Custom parameters and settings](#custom-parameters-and-settings)
 * [Schemas](#schemas)
 * [Development](#development)
 * [Release](#release)
