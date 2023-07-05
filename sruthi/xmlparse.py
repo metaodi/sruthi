@@ -21,27 +21,27 @@ class XMLNone(object):
 class XMLParser(object):
     def __init__(self):
         self.namespaces = {
-            'sru': 'http://www.loc.gov/zing/srw/',
-            'isad': 'http://www.expertisecentrumdavid.be/xmlschemas/isad.xsd',
-            'rel': 'info:srw/extension/2/relevancy-1.0',
-            'ap': 'http://www.archivportal.ch/srw/extension/',
-            'zr': 'http://explain.z3950.org/dtd/2.1/',
-            'zr2': 'http://explain.z3950.org/dtd/2.0/',
+            "sru": "http://www.loc.gov/zing/srw/",
+            "isad": "http://www.expertisecentrumdavid.be/xmlschemas/isad.xsd",
+            "rel": "info:srw/extension/2/relevancy-1.0",
+            "ap": "http://www.archivportal.ch/srw/extension/",
+            "zr": "http://explain.z3950.org/dtd/2.1/",
+            "zr2": "http://explain.z3950.org/dtd/2.0/",
         }
         self.dict_namespaces = {
-            'http://www.loc.gov/zing/srw/': 'sru',
-            'http://explain.z3950.org/dtd/2.1/': 'zr',
-            'info:srw/extension/2/relevancy-1.0': None,
-            'http://www.archivportal.ch/srw/extension/': None,
-            'http://www.loc.gov/MARC21/slim': None,
-            'info:lc/xmlns/marcxchange-v1': None,
-            'http://www.loc.gov/mods/v3': None,
-            'http://www.loc.gov/standards/mods/v3/mods-3-6.xsd': None,
-            'http://www.loc.gov/standards/mods/v3/mods-3-6.xsd': None,
-            'http://purl.org/dc/elements/1.1/': None,
-            'http://www.expertisecentrumdavid.be/xmlschemas/isad.xsd': None,
-            'http://www.w3.org/2001/XMLSchema-instance': None,
-            'http://www.w3.org/XML/1998/namespace': None,
+            "http://www.loc.gov/zing/srw/": "sru",
+            "http://explain.z3950.org/dtd/2.1/": "zr",
+            "info:srw/extension/2/relevancy-1.0": None,
+            "http://www.archivportal.ch/srw/extension/": None,
+            "http://www.loc.gov/MARC21/slim": None,
+            "info:lc/xmlns/marcxchange-v1": None,
+            "http://www.loc.gov/mods/v3": None,
+            "http://www.loc.gov/standards/mods/v3/mods-3-6.xsd": None,
+            "http://www.loc.gov/standards/mods/v3/mods-3-6.xsd": None,
+            "http://purl.org/dc/elements/1.1/": None,
+            "http://www.expertisecentrumdavid.be/xmlschemas/isad.xsd": None,
+            "http://www.w3.org/2001/XMLSchema-instance": None,
+            "http://www.w3.org/XML/1998/namespace": None,
         }
 
     def parse(self, content):
@@ -81,15 +81,15 @@ class XMLParser(object):
             xml = self.tostring(xml)
 
         dict_args = {
-            'dict_constructor': dict,
-            'process_namespaces': True,
-            'namespaces': self.dict_namespaces,
-            'attr_prefix': '',
-            'cdata_key': 'text',
+            "dict_constructor": dict,
+            "process_namespaces": True,
+            "namespaces": self.dict_namespaces,
+            "attr_prefix": "",
+            "cdata_key": "text",
         }
         dict_args.update(kwargs)
         return dict(xmltodict.parse(xml, **dict_args))
 
     def namespace(self, element):
-        m = re.match(r'\{(.*)\}', element.tag)
-        return m.group(1) if m else ''
+        m = re.match(r"\{(.*)\}", element.tag)
+        return m.group(1) if m else ""

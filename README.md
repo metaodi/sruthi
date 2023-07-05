@@ -1,5 +1,6 @@
 [![PyPI Version](https://img.shields.io/pypi/v/sruthi)](https://pypi.org/project/sruthi/)
 [![Tests + Linting Python](https://github.com/metaodi/sruthi/actions/workflows/lint_python.yml/badge.svg)](https://github.com/metaodi/sruthi/actions/workflows/lint_python.yml)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 # sruthi
 
@@ -67,7 +68,8 @@ Verordnung der Stadt Zürich betreffend die Erfüllung von Amtspflichten durch d
 https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=3796980
 ```
 
-The return value of `searchretrieve` is iterable, so you can easily loop over it. Or you can use indices to access elements, e.g. `records[1]` to get the second elemenet, or `records[-1]` to get the last one.
+The return value of `searchretrieve` is iterable, so you can easily loop over it.
+Or you can use indices to access records, e.g. `records[1]` to get the second record, or `records[-1]` to get the last one.
 
 Even [slicing](https://python-reference.readthedocs.io/en/latest/docs/brackets/slicing.html) is supported, so you can do things like only iterate over the first 5 elements using
 
@@ -122,6 +124,23 @@ By default sruthi uses SRU 1.2 to make requests, but you can specify the SRU ver
 8985
 ```
 
+### Custom parameters and settings
+
+If an SRU endpoint needs additional (custom) parameters, you can create your own session object and pass it to the client.
+This is useful for adding authentication (username, password), custom headers or parameters, SSL verification settings etc.
+
+```python
+>>> import sruthi
+>>> import requests
+>>> # customize session
+>>> session = requests.Session()
+>>> session.params = {"x-collection": "GGC"}
+>>> # pass the customized session to sruthi
+>>> records = sruthi.searchretrieve("https://jsru.kb.nl/sru", query="gruninger", session=session)
+>>> records.count
+4
+```
+
 ## Schemas
 
 sruthi does not make any assumptions about the record data schema.
@@ -136,7 +155,7 @@ sruthi has been tested with the following schemas:
 
 To contribute to sruthi simply clone this repository and follow the instructions in [CONTRIBUTING.md](/CONTRIBUTING.md).
 
-This project ha a Makefile with the most common commands.
+This project has a `Makefile` with the most common commands.
 Type `make help` to get an overview.
 
 ## Release

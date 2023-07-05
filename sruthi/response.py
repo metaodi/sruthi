@@ -23,20 +23,20 @@ class Response(object):
             return s
 
     def _check_response_tag(self, xml, tag):
-        sru = '{http://www.loc.gov/zing/srw/}'
+        sru = "{http://www.loc.gov/zing/srw/}"
         response = f"{sru}{tag}"
         if not xml.tag == response:
             # fix namespace for servers that provide the wrong namespace URI
             main_ns = self.xmlparser.namespace(xml)
-            if 'www.loc.gov/zing/srw' in main_ns:
+            if "www.loc.gov/zing/srw" in main_ns:
                 warnings.warn(
                     f"""
                     The server has the wrong namespace for SRU,
                     it should be {sru} but it's currently set to {{{main_ns}}}.
                     """,
-                    errors.WrongNamespaceWarning
+                    errors.WrongNamespaceWarning,
                 )
-                self.xmlparser.namespaces['sru'] = main_ns
+                self.xmlparser.namespaces["sru"] = main_ns
             else:
                 raise errors.ServerIncompatibleError(
                     f"Server response did not contain a {response} tag"
@@ -47,26 +47,28 @@ class SearchRetrieveResponse(Response):
     def __repr__(self):
         try:
             return (
-                'SearchRetrieveResponse('
-                'sru_version=%r,'
-                'count=%r,'
-                'next_start_record=%r)'
-                ) % (
-                   self.sru_version,
-                   self.count,
-                   self.next_start_record,
-                )
+                "SearchRetrieveResponse("
+                "sru_version=%r,"
+                "count=%r,"
+                "next_start_record=%r)"
+            ) % (
+                self.sru_version,
+                self.count,
+                self.next_start_record,
+            )
         except AttributeError:
-            return 'SearchRetrieveResponse(empty)'
+            return "SearchRetrieveResponse(empty)"
 
     def _parse_content(self, xml):
-        self._check_response_tag(xml, 'searchRetrieveResponse')
+        self._check_response_tag(xml, "searchRetrieveResponse")
 
-        self.sru_version = self.xmlparser.find(xml, './sru:version').text
-        self.count = self.maybe_int(self.xmlparser.find(xml, './sru:numberOfRecords').text)
+        self.sru_version = self.xmlparser.find(xml, "./sru:version").text
+        self.count = self.maybe_int(
+            self.xmlparser.find(xml, "./sru:numberOfRecords").text
+        )
         self._extract_records(xml)
 
-        next_start_record = self.xmlparser.find(xml, './sru:nextRecordPosition').text
+        next_start_record = self.xmlparser.find(xml, "./sru:nextRecordPosition").text
         if next_start_record:
             self.next_start_record = self.maybe_int(next_start_record)
         else:
@@ -121,15 +123,15 @@ class SearchRetrieveResponse(Response):
     def _extract_records(self, xml):
         new_records = []
 
-        xml_recs = self.xmlparser.findall(xml, './sru:records/sru:record')
+        xml_recs = self.xmlparser.findall(xml, "./sru:records/sru:record")
         for xml_rec in xml_recs:
             record = defaultdict()
-            record['schema'] = self.xmlparser.find(xml_rec, './sru:recordSchema').text
-            record_data = self.xmlparser.find(xml_rec, './sru:recordData')
-            extra_data = self.xmlparser.find(xml_rec, './sru:extraRecordData')
+            record["schema"] = self.xmlparser.find(xml_rec, "./sru:recordSchema").text
+            record_data = self.xmlparser.find(xml_rec, "./sru:recordData")
+            extra_data = self.xmlparser.find(xml_rec, "./sru:extraRecordData")
 
-            record.update(self._tag_data(record_data, 'sru:recordData') or {})
-            record['extra'] = self._tag_data(extra_data, 'sru:extraRecordData')
+            record.update(self._tag_data(record_data, "sru:recordData") or {})
+            record["extra"] = self._tag_data(extra_data, "sru:extraRecordData")
 
             record = dict(record)
             new_records.append(record)
@@ -148,8 +150,8 @@ class SearchRetrieveResponse(Response):
         if len(record_data) == 1 and len(keys) > 0 and len(record_data[keys[0]]) > 0:
             record_data = record_data[keys[0]]
 
-        record_data.pop('schemaLocation', None)
-        record_data.pop('xmlns', None)
+        record_data.pop("schemaLocation", None)
+        record_data.pop("xmlns", None)
 
         def leaf_reducer(k1, k2):
             # only use key of leaf element
@@ -165,48 +167,50 @@ class SearchRetrieveResponse(Response):
         return record_data
 
     def _remove_namespace(self, elem):
-        ns_pattern = re.compile('{.+}')
-        tag_name = ns_pattern.sub('', elem.tag)
+        ns_pattern = re.compile("{.+}")
+        tag_name = ns_pattern.sub("", elem.tag)
         return tag_name
 
 
 class ExplainResponse(Response):
     def __repr__(self):
         return (
-            'ExplainResponse('
-            'sru_version=%r,'
-            'server=%r,'
-            'database=%r'
-            'index=%r'
-            'schema=%r'
-            'config=%r)'
-            ) % (
-               self.sru_version,
-               self.server,
-               self.database,
-               self.index,
-               self.schema,
-               self.config,
-            )
+            "ExplainResponse("
+            "sru_version=%r,"
+            "server=%r,"
+            "database=%r"
+            "index=%r"
+            "schema=%r"
+            "config=%r)"
+        ) % (
+            self.sru_version,
+            self.server,
+            self.database,
+            self.index,
+            self.schema,
+            self.config,
+        )
 
     def asdict(self):
-        return AttributeDict({
-            'sru_version': self.sru_version,
-            'server': self.server,
-            'database': self.database,
-            'index': self.index,
-            'schema': self.schema,
-            'config': self.config,
-        })
+        return AttributeDict(
+            {
+                "sru_version": self.sru_version,
+                "server": self.server,
+                "database": self.database,
+                "index": self.index,
+                "schema": self.schema,
+                "config": self.config,
+            }
+        )
 
     def _parse_content(self, xml):
-        self._check_response_tag(xml, 'explainResponse')
+        self._check_response_tag(xml, "explainResponse")
 
-        record_schema = self.xmlparser.find(xml, './/sru:recordSchema').text
+        record_schema = self.xmlparser.find(xml, ".//sru:recordSchema").text
         if record_schema:
-            self.xmlparser.namespaces['zr'] = record_schema
+            self.xmlparser.namespaces["zr"] = record_schema
 
-        self.sru_version = self.xmlparser.find(xml, './sru:version').text
+        self.sru_version = self.xmlparser.find(xml, "./sru:version").text
 
         self.server = self._parse_server(xml)
         self.database = self._parse_database(xml)
@@ -216,29 +220,25 @@ class ExplainResponse(Response):
 
     def _parse_server(self, xml):
         server_info = {
-            'host': self.xmlparser.find(
-                        xml,
-                        [
-                            './/zr:serverInfo/zr:host',
-                            './/zr2:serverInfo/zr:host'
-                        ]
-                    ).text,
-            'port': self.xmlparser.find(
-                        xml,
-                        [
-                            './/zr:serverInfo/zr:port',
-                            './/zr2:serverInfo/zr:port',
-                        ]
-                    ).text,
-            'database': self.xmlparser.find(
-                        xml,
-                        [
-                            './/zr:serverInfo/zr:database',
-                            './/zr2:serverInfo/zr:database',
-                        ]
-                    ).text,
+            "host": self.xmlparser.find(
+                xml, [".//zr:serverInfo/zr:host", ".//zr2:serverInfo/zr:host"]
+            ).text,
+            "port": self.xmlparser.find(
+                xml,
+                [
+                    ".//zr:serverInfo/zr:port",
+                    ".//zr2:serverInfo/zr:port",
+                ],
+            ).text,
+            "database": self.xmlparser.find(
+                xml,
+                [
+                    ".//zr:serverInfo/zr:database",
+                    ".//zr2:serverInfo/zr:database",
+                ],
+            ).text,
         }
-        server_info['port'] = self.maybe_int(server_info['port'])
+        server_info["port"] = self.maybe_int(server_info["port"])
         return server_info
 
     def _parse_schema(self, xml):
@@ -251,20 +251,20 @@ class ExplainResponse(Response):
             return a
 
         attributes = {
-            'identifier': ident,
-            'name': ident,
-            'location': ident,
-            'sort': bool_or_none,
-            'retrieve': bool_or_none,
+            "identifier": ident,
+            "name": ident,
+            "location": ident,
+            "sort": bool_or_none,
+            "retrieve": bool_or_none,
         }
 
         schemas = {}
         xml_schemas = self.xmlparser.findall(
             xml,
             [
-                './/zr:schemaInfo/zr:schema',
-                './/zr2:schemaInfo/zr2:schema',
-            ]
+                ".//zr:schemaInfo/zr:schema",
+                ".//zr2:schemaInfo/zr2:schema",
+            ],
         )
         for schema in xml_schemas:
             schema_info = {}
@@ -272,8 +272,8 @@ class ExplainResponse(Response):
                 xml_attr = schema.attrib.get(attr)
                 if xml_attr:
                     schema_info[attr] = fn(xml_attr)
-            schema_info['title'] = self.xmlparser.find(schema, './zr:title').text
-            schemas[schema.attrib.get('name')] = schema_info
+            schema_info["title"] = self.xmlparser.find(schema, "./zr:title").text
+            schemas[schema.attrib.get("name")] = schema_info
         return schemas
 
     def _parse_config(self, xml):
@@ -281,37 +281,39 @@ class ExplainResponse(Response):
         settings = self.xmlparser.findall(
             xml,
             [
-                './/zr:configInfo/zr:setting',
-                './/zr2:configInfo/zr:setting',
-            ]
+                ".//zr:configInfo/zr:setting",
+                ".//zr2:configInfo/zr:setting",
+            ],
         )
         for setting in settings:
-            t = setting.attrib['type']
+            t = setting.attrib["type"]
             config[t] = self.maybe_int(setting.text)
 
         # defaults
         xml_defaults = self.xmlparser.findall(
             xml,
             [
-                './/zr:configInfo/zr:default',
-                './/zr2:configInfo/zr:default',
-            ]
+                ".//zr:configInfo/zr:default",
+                ".//zr2:configInfo/zr:default",
+            ],
         )
         defaults = {}
         for default in xml_defaults:
-            t = default.attrib['type']
+            t = default.attrib["type"]
             defaults[t] = self.maybe_int(default.text)
-        config['defaults'] = defaults
+        config["defaults"] = defaults
         return config
 
     def _parse_database(self, xml):
-        db = self.xmlparser.find(xml, './/zr:databaseInfo')
+        db = self.xmlparser.find(xml, ".//zr:databaseInfo")
         if not db:
             return {}
         db_info = {
-            'title': self.xmlparser.find(db, ['./zr:title', './title']).text,
-            'description': self.xmlparser.find(db, ['./zr:description', './description']).text,
-            'contact': self.xmlparser.find(db, ['./zr:contact', './contact']).text,
+            "title": self.xmlparser.find(db, ["./zr:title", "./title"]).text,
+            "description": self.xmlparser.find(
+                db, ["./zr:description", "./description"]
+            ).text,
+            "contact": self.xmlparser.find(db, ["./zr:contact", "./contact"]).text,
         }
         db_info = {k: v.strip() if v else v for (k, v) in db_info.items()}
         return db_info
@@ -321,33 +323,25 @@ class ExplainResponse(Response):
         index_sets = self.xmlparser.findall(
             xml,
             [
-                './/zr:indexInfo/zr:set',
-                './/zr2:indexInfo/zr2:set',
-            ]
+                ".//zr:indexInfo/zr:set",
+                ".//zr2:indexInfo/zr2:set",
+            ],
         )
         for index_set in index_sets:
-            index[index_set.attrib['name']] = defaultdict()
+            index[index_set.attrib["name"]] = defaultdict()
 
         index_fields = self.xmlparser.findall(
-            xml,
-            [
-                './/zr:indexInfo/zr:index',
-                './/zr2:indexInfo/zr2:index'
-            ]
+            xml, [".//zr:indexInfo/zr:index", ".//zr2:indexInfo/zr2:index"]
         )
         for index_field in index_fields:
-            title = self.xmlparser.find(index_field, ['./zr:title', './title']).text
+            title = self.xmlparser.find(index_field, ["./zr:title", "./title"]).text
             if title:
                 title = title.strip()
             names = self.xmlparser.findall(
-                index_field,
-                [
-                    './/zr:map/zr:name',
-                    './/zr2:map/zr2:name'
-                ]
+                index_field, [".//zr:map/zr:name", ".//zr2:map/zr2:name"]
             )
             for name in names:
-                index[name.attrib['set']][name.text.strip()] = title
+                index[name.attrib["set"]][name.text.strip()] = title
 
         return {k: dict(v) for k, v in dict(index).items()}
 

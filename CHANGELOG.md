@@ -4,6 +4,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+## [2.0.0] - 2023-07-06
+### Added
+- Pass in a custom requests session with the `session` parameter
+
+### Changed
+- Use `black` code style
+
+### Removed
+- BC-break: `requests_kwargs` was removed since we can now pass in a custom requests session
+- BC-break: no more support for Python 3.6, minimum required version is now Python 3.7
+
 ## [1.0.0] - 2021-12-06
 ### Added
 - Add support for SRU 1.1 by passing `sru_version='1.1'` to the client or the operation calls.
@@ -76,7 +87,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - `Fixed` for any bug fixes.
 - `Security` to invite users to upgrade in case of vulnerabilities.
 
-[Unreleased]: https://github.com/metaodi/sruthi/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/metaodi/sruthi/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/metaodi/sruthi/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/metaodi/sruthi/compare/v0.1.2...v1.0.0
 [0.1.2]: https://github.com/metaodi/sruthi/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/metaodi/sruthi/compare/v0.1.0...v0.1.1

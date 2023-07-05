@@ -1,7 +1,7 @@
 import sruthi
 import sys
 
-LOC_BASE = 'http://lx2.loc.gov:210/LCDB?'
+LOC_BASE = "http://lx2.loc.gov:210/LCDB?"
 
 
 def loc_search(isbn, sru_base):
@@ -9,12 +9,12 @@ def loc_search(isbn, sru_base):
     try:
         records = sruthi.searchretrieve(sru_base, query=isbn)
         record = records[0]
-        fields = record.get('datafield', [])
+        fields = record.get("datafield", [])
         for field in fields:
-            if field['tag'] != '050':
+            if field["tag"] != "050":
                 continue
-            if len(field.get('subfield', [])) > 0:
-                loc_lcc = (field['subfield'][0]['text'])
+            if len(field.get("subfield", [])) > 0:
+                loc_lcc = field["subfield"][0]["text"]
                 break
     except Exception as e:
         print("Error: %s" % e, file=sys.stderr)
@@ -22,6 +22,6 @@ def loc_search(isbn, sru_base):
     return loc_lcc
 
 
-isbn = '0062509470'
+isbn = "0062509470"
 result = loc_search(isbn, LOC_BASE)
 print(f"Tag 050 of ISBN '{isbn}': {result}")
