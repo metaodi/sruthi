@@ -3,17 +3,12 @@ import unittest
 import os
 from sruthi import xmlparse
 
-__location__ = os.path.realpath(
-    os.path.join(
-        os.getcwd(),
-        os.path.dirname(__file__)
-    )
-)
+__location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 
 class SruthiTestCase(unittest.TestCase):
     def setUp(self):
-        self.patcher = mock.patch('sruthi.client.requests.Session')
+        self.patcher = mock.patch("sruthi.client.requests.Session")
         self.session_mock = self.patcher.start()
         self._session_mock(self.session_mock)
 
@@ -32,13 +27,9 @@ class SruthiTestCase(unittest.TestCase):
         if not filename:
             filename = self._testMethodName + ".xml"
 
-        path = os.path.join(
-            __location__,
-            'fixtures',
-            filename
-        )
+        path = os.path.join(__location__, "fixtures", filename)
         if not os.path.exists(path):
-            return ('', None)
+            return ("", None)
 
         with open(path) as file:
             content = file.read()
@@ -56,11 +47,7 @@ class ResponseTestCase(SruthiTestCase):
         return m
 
     def _load_xml(self, filename):
-        path = os.path.join(
-            __location__,
-            'fixtures',
-            filename
-        )
+        path = os.path.join(__location__, "fixtures", filename)
         xmlparser = xmlparse.XMLParser()
         with open(path) as file:
             content = file.read()
