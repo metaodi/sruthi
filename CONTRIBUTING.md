@@ -24,14 +24,18 @@ Make sure the tests pass:
 make test
 ```
 
-To ensure a good quality of the code use `flake8` to check the code style:
+To ensure a good quality of the code use `flake8` to check the code style.
 
 ```bash
-flake8 --install-hook git
-
-# with make
 make lint
 ```
+
+Note that this repository uses the `black` code style, the reformat the code use:
+
+```bash
+make format
+```
+
 
 ## Create a pull request
 
