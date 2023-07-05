@@ -20,4 +20,3 @@ def fixture_content(filename):
 @pytest.fixture
 def valid_xml():
     return fixture_content("test_searchretrieve.xml")
-

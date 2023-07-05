@@ -1,4 +1,3 @@
-import unittest
 import mock
 from sruthi_test import SruthiTestCase
 from sruthi.client import Client
@@ -229,7 +228,7 @@ class TestSruthiClient(SruthiTestCase):
 class TestSruthiClientNoSession():
     def test_passing_session(self, valid_xml):
 
-        session_mock = mock.MagicMock(get=mock.MagicMock(return_value=mock.MagicMock(content=valid_xml)))
+        session_mock = mock.MagicMock(get=mock.MagicMock(return_value=mock.MagicMock(content=valid_xml)))  # noqa
 
         client = Client('http://my-param.com/sru', session=session_mock)
 

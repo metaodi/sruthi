@@ -41,10 +41,9 @@ class SruthiTestCase(unittest.TestCase):
             return ('', None)
 
         with open(path) as file:
-            content=file.read()
+            content = file.read()
 
         return (content, path)
-
 
 
 class ResponseTestCase(SruthiTestCase):

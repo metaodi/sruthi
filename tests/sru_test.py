@@ -63,7 +63,7 @@ class TestSru(SruthiTestCase):
 
     def test_searchretrieve_with_session(self):
         content, path = self._test_content()
-        session_mock = mock.MagicMock(get=mock.MagicMock(return_value=mock.MagicMock(content=content)))
+        session_mock = mock.MagicMock(get=mock.MagicMock(return_value=mock.MagicMock(content=content)))  # noqa
         # session_mock.verify = False
         r = sruthi.searchretrieve(
             'http://test.com/sru/',
