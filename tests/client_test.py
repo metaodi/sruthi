@@ -1,3 +1,5 @@
+import unittest
+import mock
 from sruthi_test import SruthiTestCase
 from sruthi.client import Client
 from sruthi.errors import WrongNamespaceWarning
@@ -128,19 +130,6 @@ class TestSruthiClient(SruthiTestCase):
         self.assertEqual(config['my-test-config'], 'test123')
         self.assertEqual(config['defaults']['numberOfRecords'], 99)
 
-    def test_explain_with_requests_kwargs(self):
-        client = Client('https://test.com/sru')
-        client.explain(requests_kwargs={'verify': False})
-
-        self.session_mock.return_value.get.assert_called_once_with(
-            'https://test.com/sru',
-            params={
-                'operation': 'explain',
-                'version': '1.2',
-            },
-            verify=False
-        )
-
     def test_explain_with_zr2_namespace(self):
         client = Client('https://example.com/sru')
         info = client.explain()
@@ -221,24 +210,6 @@ class TestSruthiClient(SruthiTestCase):
             }
         )
 
-    def test_passing_requests_kwargs(self):
-        client = Client('https://my-param.com/sru', record_schema='dc')
-        self.assertEqual(client.record_schema, 'dc')
-
-        client.searchretrieve('test-query', requests_kwargs={'verify': False})
-        self.session_mock.return_value.get.assert_called_once_with(
-            'https://my-param.com/sru',
-            params={
-                'operation': 'searchRetrieve',
-                'version': '1.2',
-                'query': 'test-query',
-                'startRecord': 1,
-                'recordSchema': 'dc',
-                'maximumRecords': 10,
-            },
-            verify=False
-        )
-
     def test_passing_start_record(self):
         client = Client('http://my-param.com/sru')
 
@@ -250,6 +221,26 @@ class TestSruthiClient(SruthiTestCase):
                 'version': '1.2',
                 'query': 'test-query',
                 'startRecord': 10,
+                'maximumRecords': 10,
+            }
+        )
+
+
+class TestSruthiClientNoSession():
+    def test_passing_session(self, valid_xml):
+
+        session_mock = mock.MagicMock(get=mock.MagicMock(return_value=mock.MagicMock(content=valid_xml)))
+
+        client = Client('http://my-param.com/sru', session=session_mock)
+
+        client.searchretrieve('test-query')
+        session_mock.get.assert_called_once_with(
+            'http://my-param.com/sru',
+            params={
+                'operation': 'searchRetrieve',
+                'version': '1.2',
+                'query': 'test-query',
+                'startRecord': 1,
                 'maximumRecords': 10,
             }
         )

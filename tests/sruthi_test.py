@@ -21,18 +21,30 @@ class SruthiTestCase(unittest.TestCase):
         self.patcher.stop()
 
     def _session_mock(self, session_mock, filename=None):
+        content, path = self._test_content(filename=filename)
+
+        if not path:
+            return
+
+        session_mock.return_value.get.return_value = mock.MagicMock(content=content)
+
+    def _test_content(self, filename=None):
         if not filename:
             filename = self._testMethodName + ".xml"
+
         path = os.path.join(
             __location__,
             'fixtures',
             filename
         )
         if not os.path.exists(path):
-            return
+            return ('', None)
 
         with open(path) as file:
-            session_mock.return_value.get.return_value = mock.MagicMock(content=file.read())  # noqa
+            content=file.read()
+
+        return (content, path)
+
 
 
 class ResponseTestCase(SruthiTestCase):

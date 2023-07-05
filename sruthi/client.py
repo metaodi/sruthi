@@ -21,7 +21,7 @@ class Client(object):
         self.record_schema = record_schema
         self.session = session or requests.Session()
 
-    def searchretrieve(self, query, start_record=1, requests_kwargs=None):
+    def searchretrieve(self, query, start_record=1):
         params = {
             'operation': 'searchRetrieve',
             'version': self.sru_version,
@@ -33,27 +33,26 @@ class Client(object):
         if self.record_schema:
             params['recordSchema'] = self.record_schema
 
-        data_loader = DataLoader(self.url, self.session, params, requests_kwargs)
+        data_loader = DataLoader(self.url, self.session, params)
         return response.SearchRetrieveResponse(data_loader)
 
-    def explain(self, requests_kwargs=None):
+    def explain(self):
         params = {
             'operation': 'explain',
             'version': self.sru_version,
         }
-        data_loader = DataLoader(self.url, self.session, params, requests_kwargs)
+        data_loader = DataLoader(self.url, self.session, params)
         explain_response = response.ExplainResponse(data_loader)
         return explain_response.asdict()
 
 
 class DataLoader(object):
-    def __init__(self, url, session, params, requests_kwargs=None):
+    def __init__(self, url, session, params):
         self.session = session
         self.url = url
         self.params = params
         self.response = None
         self.xmlparser = xmlparse.XMLParser()
-        self.requests_kwargs = requests_kwargs or {}
 
     def load(self, **kwargs):
         self.params.update(kwargs)
@@ -65,8 +64,7 @@ class DataLoader(object):
         try:
             res = self.session.get(
                 url,
-                params=params,
-                **self.requests_kwargs
+                params=params
             )
             res.raise_for_status()
         except requests.exceptions.HTTPError as e:

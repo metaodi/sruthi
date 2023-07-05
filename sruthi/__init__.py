@@ -7,7 +7,7 @@ from .client import Client # noqa
 
 
 def searchretrieve(url, query, **kwargs):
-    search_params = ['query', 'start_record', 'requests_kwargs']
+    search_params = ['query', 'start_record']
     search_kwargs = {k: v for k, v in kwargs.items() if k in search_params}
     search_kwargs['query'] = query
 
