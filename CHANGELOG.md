@@ -87,7 +87,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - `Fixed` for any bug fixes.
 - `Security` to invite users to upgrade in case of vulnerabilities.
 
-[Unreleased]: https://github.com/metaodi/sruthi/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/metaodi/sruthi/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/metaodi/sruthi/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/metaodi/sruthi/compare/v0.1.2...v1.0.0
 [0.1.2]: https://github.com/metaodi/sruthi/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/metaodi/sruthi/compare/v0.1.0...v0.1.1
