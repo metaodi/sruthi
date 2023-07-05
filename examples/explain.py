@@ -4,19 +4,19 @@ from termcolor import cprint
 import yaml
 
 sru_endpoints = [
-    'https://suche.staatsarchiv.djiktzh.ch/SRU/',
-    'https://amsquery.stadt-zuerich.ch/SRU/',
-    'http://lx2.loc.gov:210/LCDB?',
-    'https://na01.alma.exlibrisgroup.com/view/sru/TR_INTEGRATION_INST',
+    "https://suche.staatsarchiv.djiktzh.ch/SRU/",
+    "https://amsquery.stadt-zuerich.ch/SRU/",
+    "http://lx2.loc.gov:210/LCDB?",
+    "https://na01.alma.exlibrisgroup.com/view/sru/TR_INTEGRATION_INST",
 ]
 
 
 def print_header(s):
-    cprint(s, 'green', attrs=['bold'])
+    cprint(s, "green", attrs=["bold"])
 
 
 def print_title(s):
-    cprint(s, attrs=['bold'])
+    cprint(s, attrs=["bold"])
 
 
 def dump(d):
@@ -24,32 +24,32 @@ def dump(d):
 
 
 for endpoint in sru_endpoints:
-    print_header(20 * '=')
-    print_header('=')
-    print_header(f'= {endpoint}')
-    print_header('=')
-    print_header(20 * '=')
+    print_header(20 * "=")
+    print_header("=")
+    print_header(f"= {endpoint}")
+    print_header("=")
+    print_header(20 * "=")
     info = sruthi.explain(endpoint)
 
-    print_title('Server:')
+    print_title("Server:")
     dump(info.server)
-    print('')
+    print("")
 
-    print_title('Database:')
+    print_title("Database:")
     dump(info.database)
-    print('')
+    print("")
 
-    print_title('Index:')
+    print_title("Index:")
     dump(info.index)
-    print('')
+    print("")
 
-    print_title('Schema:')
+    print_title("Schema:")
     dump(info.schema)
-    print('')
+    print("")
 
-    print_title('Config:')
+    print_title("Config:")
     dump(info.config)
-    print('')
+    print("")
 
-    print('')
-    print('')
+    print("")
+    print("")
