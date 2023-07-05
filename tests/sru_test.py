@@ -1,3 +1,4 @@
+import mock
 from sruthi_test import SruthiTestCase
 import sruthi
 
@@ -60,14 +61,17 @@ class TestSru(SruthiTestCase):
             }
         )
 
-    def test_searchretrieve_with_requests_kwargs(self):
+    def test_searchretrieve_with_session(self):
+        content, path = self._test_content()
+        session_mock = mock.MagicMock(get=mock.MagicMock(return_value=mock.MagicMock(content=content)))  # noqa
+        # session_mock.verify = False
         r = sruthi.searchretrieve(
             'http://test.com/sru/',
             'Test-Query',
-            requests_kwargs={'verify': False}
+            session=session_mock
         )
         self.assertIsInstance(r, sruthi.response.SearchRetrieveResponse)
-        self.session_mock.return_value.get.assert_called_once_with(
+        session_mock.get.assert_called_once_with(
             'http://test.com/sru/',
             params={
                 'operation': 'searchRetrieve',
@@ -75,8 +79,7 @@ class TestSru(SruthiTestCase):
                 'query': 'Test-Query',
                 'startRecord': 1,
                 'maximumRecords': 10,
-            },
-            verify=False
+            }
         )
 
     def test_explain(self):
