@@ -5,7 +5,7 @@ import xmltodict
 from . import errors
 
 
-class XMLNone(object):
+class XMLNone:
     def __nonzero__(self):
         return False
 
@@ -18,7 +18,7 @@ class XMLNone(object):
     text = None
 
 
-class XMLParser(object):
+class XMLParser:
     def __init__(self):
         self.namespaces = {
             "sru": "http://www.loc.gov/zing/srw/",

@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from collections import defaultdict
 import re
 import warnings
@@ -8,7 +6,7 @@ from . import xmlparse
 from . import errors
 
 
-class Response(object):
+class Response:
     def __init__(self, data_loader):
         self.data_loader = data_loader
         self.xmlparser = xmlparse.XMLParser()

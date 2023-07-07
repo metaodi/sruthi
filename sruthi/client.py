@@ -1,12 +1,10 @@
-# -*- coding: utf-8 -*-
-
 import requests
 from . import errors
 from . import xmlparse
 from . import response
 
 
-class Client(object):
+class Client:
     def __init__(
         self,
         url=None,
@@ -46,7 +44,7 @@ class Client(object):
         return explain_response.asdict()
 
 
-class DataLoader(object):
+class DataLoader:
     def __init__(self, url, session, params):
         self.session = session
         self.url = url
