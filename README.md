@@ -40,7 +40,7 @@ See the [`examples` directory](https://github.com/metaodi/sruthi/tree/master/exa
 SearchRetrieveResponse(sru_version='1.2',count=500,next_start_record=11)
 >>> print(records.count)
 4
->>> print(record[0])
+>>> print(records[0])
 {'schema': 'isad', 'reference': 'PAT 2, 54 d, Nr. 253492', 'title': 'Schlumberger, Jean, Zürich: Brettspiel', 'date': '08.03.1946', 'descriptionlevel': 'Dossier', 'extent': None, 'creator': None, 'extra': {'score': '0.4', 'link': 'https://suche.staatsarchiv.djiktzh.ch/detail.aspx?Id=1114641', 'beginDateISO': '1946-03-08', 'beginApprox': '0', 'endDateISO': '1946-03-08', 'endApprox': '0', 'hasDigitizedItems': '0'}}
 >>>
 >>> for record in records:
@@ -74,7 +74,7 @@ Or you can use indices to access records, e.g. `records[1]` to get the second re
 Even [slicing](https://python-reference.readthedocs.io/en/latest/docs/brackets/slicing.html) is supported, so you can do things like only iterate over the first 5 elements using
 
 ```python
-for records in records[:5]:
+for record in records[:5]:
    print(record)
 ```
 
