@@ -17,7 +17,7 @@ def loc_search(isbn, sru_base):
                 loc_lcc = field["subfield"][0]["text"]
                 break
     except Exception as e:
-        print("Error: %s" % e, file=sys.stderr)
+        print(f"Error: {e}", file=sys.stderr)
         return None
     return loc_lcc
 

@@ -63,9 +63,9 @@ class DataLoader:
             res = self.session.get(url, params=params)
             res.raise_for_status()
         except requests.exceptions.HTTPError as e:
-            raise errors.SruthiError("HTTP error: %s" % e)
+            raise errors.SruthiError(f"HTTP error: {e}")
         except requests.exceptions.RequestException as e:
-            raise errors.SruthiError("Request error: %s" % e)
+            raise errors.SruthiError(f"Request error: {e}")
 
         return self.xmlparser.parse(res.content)
 

@@ -34,7 +34,7 @@ try:
         }
         writer.writerow(row)
 except Exception as e:
-    print("Error: %s" % e, file=sys.stderr)
+    print(f"Error: {e}", file=sys.stderr)
     print(traceback.format_exc(), file=sys.stderr)
     sys.exit(1)
 finally:
