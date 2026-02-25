@@ -45,14 +45,10 @@ class SearchRetrieveResponse(Response):
     def __repr__(self):
         try:
             return (
-                "SearchRetrieveResponse("
-                "sru_version=%r,"
-                "count=%r,"
-                "next_start_record=%r)"
-            ) % (
-                self.sru_version,
-                self.count,
-                self.next_start_record,
+                f"SearchRetrieveResponse("
+                f"sru_version={self.sru_version!r},"
+                f"count={self.count!r},"
+                f"next_start_record={self.next_start_record!r})"
             )
         except AttributeError:
             return "SearchRetrieveResponse(empty)"
@@ -173,20 +169,13 @@ class SearchRetrieveResponse(Response):
 class ExplainResponse(Response):
     def __repr__(self):
         return (
-            "ExplainResponse("
-            "sru_version=%r,"
-            "server=%r,"
-            "database=%r"
-            "index=%r"
-            "schema=%r"
-            "config=%r)"
-        ) % (
-            self.sru_version,
-            self.server,
-            self.database,
-            self.index,
-            self.schema,
-            self.config,
+            f"ExplainResponse("
+            f"sru_version={self.sru_version!r},"
+            f"server={self.server!r},"
+            f"database={self.database!r}"
+            f"index={self.index!r}"
+            f"schema={self.schema!r}"
+            f"config={self.config!r})"
         )
 
     def asdict(self):

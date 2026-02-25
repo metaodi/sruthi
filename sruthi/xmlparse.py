@@ -48,7 +48,7 @@ class XMLParser:
         try:
             return etree.fromstring(content)
         except Exception as e:
-            raise errors.SruError("Error while parsing XML: %s" % e)
+            raise errors.SruError(f"Error while parsing XML: {e}")
 
     def find(self, xml, path):
         if isinstance(path, list):
