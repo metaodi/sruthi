@@ -1,4 +1,7 @@
+from __future__ import annotations
+
 import re
+from typing import Any, Dict, Iterator, List, Optional, Union
 from xml.etree.ElementTree import Element
 import defusedxml.ElementTree as etree
 import xmltodict
@@ -6,21 +9,30 @@ from . import errors
 
 
 class XMLNone:
-    def __nonzero__(self):
+    text: Optional[str] = None
+
+    def __nonzero__(self) -> bool:
         return False
 
-    def __bool__(self):
+    def __bool__(self) -> bool:
         return False
 
-    def iter(self):
+    def iter(self) -> Iterator[Any]:
+        return iter([])
+
+    def __iter__(self) -> Iterator[Any]:
+        return iter([])
+
+    def find(self, path: str, namespaces: Any = None) -> None:
+        return None
+
+    def findall(self, path: str, namespaces: Any = None) -> List[Any]:
         return []
-
-    text = None
 
 
 class XMLParser:
-    def __init__(self):
-        self.namespaces = {
+    def __init__(self) -> None:
+        self.namespaces: Dict[str, str] = {
             "sru": "http://www.loc.gov/zing/srw/",
             "isad": "http://www.expertisecentrumdavid.be/xmlschemas/isad.xsd",
             "rel": "info:srw/extension/2/relevancy-1.0",
@@ -28,7 +40,7 @@ class XMLParser:
             "zr": "http://explain.z3950.org/dtd/2.1/",
             "zr2": "http://explain.z3950.org/dtd/2.0/",
         }
-        self.dict_namespaces = {
+        self.dict_namespaces: Dict[str, Optional[str]] = {
             "http://www.loc.gov/zing/srw/": "sru",
             "http://explain.z3950.org/dtd/2.1/": "zr",
             "info:srw/extension/2/relevancy-1.0": None,
@@ -44,25 +56,33 @@ class XMLParser:
             "http://www.w3.org/XML/1998/namespace": None,
         }
 
-    def parse(self, content):
+    def parse(self, content: bytes) -> Element:
         try:
             return etree.fromstring(content)
         except Exception as e:
             raise errors.SruError(f"Error while parsing XML: {e}")
 
-    def find(self, xml, path):
+    def find(
+        self,
+        xml: Union[Element, XMLNone],
+        path: Union[str, List[str]],
+    ) -> Union[Element, XMLNone]:
         if isinstance(path, list):
             for p in path:
-                elem = self.find(xml, p)
-                if not isinstance(elem, XMLNone):
-                    return elem
+                result = self.find(xml, p)
+                if not isinstance(result, XMLNone):
+                    return result
             return XMLNone()
-        elem = xml.find(path, self.namespaces)
-        if elem is None:
+        found = xml.find(path, self.namespaces)
+        if found is None:
             return XMLNone()
-        return elem
+        return found
 
-    def findall(self, xml, path):
+    def findall(
+        self,
+        xml: Union[Element, XMLNone],
+        path: Union[str, List[str]],
+    ) -> List[Element]:
         if isinstance(path, list):
             for p in path:
                 elems = self.findall(xml, p)
@@ -71,16 +91,17 @@ class XMLParser:
             return []
         return xml.findall(path, self.namespaces)
 
-    def tostring(self, xml):
+    def tostring(self, xml: Element) -> bytes:
         return etree.tostring(xml)
 
-    def todict(self, xml, **kwargs):
+    def todict(
+        self, xml: Union[Element, XMLNone], **kwargs: Any
+    ) -> Optional[Dict[str, Any]]:
         if isinstance(xml, XMLNone):
             return None
-        if isinstance(xml, Element):
-            xml = self.tostring(xml)
+        xml_bytes: bytes = self.tostring(xml)
 
-        dict_args = {
+        dict_args: Dict[str, Any] = {
             "dict_constructor": dict,
             "process_namespaces": True,
             "namespaces": self.dict_namespaces,
@@ -88,8 +109,8 @@ class XMLParser:
             "cdata_key": "text",
         }
         dict_args.update(kwargs)
-        return dict(xmltodict.parse(xml, **dict_args))
+        return dict(xmltodict.parse(xml_bytes, **dict_args))
 
-    def namespace(self, element):
+    def namespace(self, element: Element) -> str:
         m = re.match(r"\{(.*)\}", element.tag)
         return m.group(1) if m else ""

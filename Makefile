@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-.PHONY: coverage deps help lint test
+.PHONY: coverage deps help lint test typecheck
 
 coverage:  ## Run tests with coverage
 	python -m coverage erase
@@ -17,6 +17,9 @@ lint:  ## Linting of source code
 
 format:  ## Format source code (black codestyle)
 	python -m black sruthi examples tests
+
+typecheck:  ## Run mypy type checker
+	python -m mypy sruthi/
 
 test:  ## Run tests
 	python -m pytest --cov=sruthi tests/

@@ -6,3 +6,5 @@ pytest
 pytest-cov
 coverage
 black
+mypy
+types-requests

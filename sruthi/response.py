@@ -1,26 +1,43 @@
+from __future__ import annotations
+
 from collections import defaultdict
 import re
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    DefaultDict,
+    Dict,
+    Iterator,
+    List,
+    Optional,
+    Union,
+)
 import warnings
 from flatten_dict import flatten
 from . import xmlparse
 from . import errors
 
+if TYPE_CHECKING:
+    from .client import DataLoader
+
 
 class Response:
-    def __init__(self, data_loader):
+    def __init__(self, data_loader: DataLoader) -> None:
         self.data_loader = data_loader
         self.xmlparser = xmlparse.XMLParser()
-        self.records = []
+        self.records: List[Dict[str, Any]] = []
         xml = self.data_loader.load()
         self._parse_content(xml)
 
-    def maybe_int(self, s):
+    def maybe_int(self, s: Optional[str]) -> Union[int, str, None]:
+        if s is None:
+            return None
         try:
             return int(s)
-        except (ValueError, TypeError):
+        except ValueError:
             return s
 
-    def _check_response_tag(self, xml, tag):
+    def _check_response_tag(self, xml: Any, tag: str) -> None:
         sru = "{http://www.loc.gov/zing/srw/}"
         response = f"{sru}{tag}"
         if not xml.tag == response:
@@ -40,9 +57,16 @@ class Response:
                     f"Server response did not contain a {response} tag"
                 )
 
+    def _parse_content(self, xml: Any) -> None:
+        raise NotImplementedError
+
 
 class SearchRetrieveResponse(Response):
-    def __repr__(self):
+    sru_version: Optional[str]
+    count: Union[int, str, None]
+    next_start_record: Union[int, str, None]
+
+    def __repr__(self) -> str:
         try:
             return (
                 f"SearchRetrieveResponse("
@@ -53,7 +77,7 @@ class SearchRetrieveResponse(Response):
         except AttributeError:
             return "SearchRetrieveResponse(empty)"
 
-    def _parse_content(self, xml):
+    def _parse_content(self, xml: Any) -> None:
         self._check_response_tag(xml, "searchRetrieveResponse")
 
         self.sru_version = self.xmlparser.find(xml, "./sru:version").text
@@ -68,10 +92,10 @@ class SearchRetrieveResponse(Response):
         else:
             self.next_start_record = None
 
-    def __length_hint__(self):
+    def __length_hint__(self) -> Union[int, str, None]:
         return self.count
 
-    def __iter__(self):
+    def __iter__(self) -> Iterator[Dict[str, Any]]:
         # use while loop since self.records could grow while iterating
         i = 0
         while True:
@@ -84,9 +108,11 @@ class SearchRetrieveResponse(Response):
             yield self.records[i]
             i += 1
 
-    def __getitem__(self, key):
+    def __getitem__(self, key: Union[int, slice]) -> Any:
         if isinstance(key, slice):
-            limit = max(key.start or 0, key.stop or self.count)
+            limit: Any = max(  # type: ignore[type-var]
+                key.start or 0, key.stop or self.count
+            )
             self._load_new_data_until(limit)
             count = len(self.records)
             return [self.records[k] for k in range(*key.indices(count))]
@@ -101,25 +127,25 @@ class SearchRetrieveResponse(Response):
         self._load_new_data_until(limit)
         return self.records[key]
 
-    def _load_new_data_until(self, limit):
+    def _load_new_data_until(self, limit: Any) -> None:
         while limit >= len(self.records):
             try:
                 self._load_new_data()
             except errors.NoMoreRecordsError:
                 break
 
-    def _load_new_data(self):
+    def _load_new_data(self) -> None:
         if self.next_start_record is None:
             raise errors.NoMoreRecordsError()
         xml = self.data_loader.load(startRecord=self.next_start_record)
         self._parse_content(xml)
 
-    def _extract_records(self, xml):
-        new_records = []
+    def _extract_records(self, xml: Any) -> None:
+        new_records: List[Dict[str, Any]] = []
 
         xml_recs = self.xmlparser.findall(xml, "./sru:records/sru:record")
         for xml_rec in xml_recs:
-            record = defaultdict()
+            record: Any = defaultdict()
             record["schema"] = self.xmlparser.find(xml_rec, "./sru:recordSchema").text
             record_data = self.xmlparser.find(xml_rec, "./sru:recordData")
             extra_data = self.xmlparser.find(xml_rec, "./sru:extraRecordData")
@@ -131,11 +157,18 @@ class SearchRetrieveResponse(Response):
             new_records.append(record)
         self.records.extend(new_records)
 
-    def _tag_data(self, elem, parent):
+    def _tag_data(
+        self,
+        elem: Any,
+        parent: str,
+    ) -> Optional[Dict[str, Any]]:
         if not elem:
             return None
 
-        record_data = self.xmlparser.todict(elem, xml_attribs=True).get(parent)
+        todict_result = self.xmlparser.todict(elem, xml_attribs=True)
+        if todict_result is None:
+            return None
+        record_data = todict_result.get(parent)
         if not record_data:
             return None
 
@@ -147,7 +180,7 @@ class SearchRetrieveResponse(Response):
         record_data.pop("schemaLocation", None)
         record_data.pop("xmlns", None)
 
-        def leaf_reducer(k1, k2):
+        def leaf_reducer(k1: Any, k2: Any) -> Any:
             # only use key of leaf element
             return k2
 
@@ -160,14 +193,21 @@ class SearchRetrieveResponse(Response):
 
         return record_data
 
-    def _remove_namespace(self, elem):
+    def _remove_namespace(self, elem: Any) -> str:
         ns_pattern = re.compile("{.+}")
         tag_name = ns_pattern.sub("", elem.tag)
         return tag_name
 
 
 class ExplainResponse(Response):
-    def __repr__(self):
+    sru_version: Optional[str]
+    server: Dict[str, Any]
+    database: Dict[str, Any]
+    index: Dict[str, Any]
+    schema: Dict[str, Any]
+    config: Dict[str, Any]
+
+    def __repr__(self) -> str:
         return (
             f"ExplainResponse("
             f"sru_version={self.sru_version!r},"
@@ -178,7 +218,7 @@ class ExplainResponse(Response):
             f"config={self.config!r})"
         )
 
-    def asdict(self):
+    def asdict(self) -> AttributeDict:
         return AttributeDict(
             {
                 "sru_version": self.sru_version,
@@ -190,7 +230,7 @@ class ExplainResponse(Response):
             }
         )
 
-    def _parse_content(self, xml):
+    def _parse_content(self, xml: Any) -> None:
         self._check_response_tag(xml, "explainResponse")
 
         record_schema = self.xmlparser.find(xml, ".//sru:recordSchema").text
@@ -205,8 +245,8 @@ class ExplainResponse(Response):
         self.schema = self._parse_schema(xml)
         self.config = self._parse_config(xml)
 
-    def _parse_server(self, xml):
-        server_info = {
+    def _parse_server(self, xml: Any) -> Dict[str, Any]:
+        server_info: Dict[str, Any] = {
             "host": self.xmlparser.find(
                 xml, [".//zr:serverInfo/zr:host", ".//zr2:serverInfo/zr:host"]
             ).text,
@@ -228,16 +268,16 @@ class ExplainResponse(Response):
         server_info["port"] = self.maybe_int(server_info["port"])
         return server_info
 
-    def _parse_schema(self, xml):
-        def bool_or_none(v):
+    def _parse_schema(self, xml: Any) -> Dict[str, Any]:
+        def bool_or_none(v: Optional[str]) -> Optional[bool]:
             if v is None:
                 return None
             return bool(v)
 
-        def ident(a):
+        def ident(a: Any) -> Any:
             return a
 
-        attributes = {
+        attributes: Dict[str, Any] = {
             "identifier": ident,
             "name": ident,
             "location": ident,
@@ -245,7 +285,7 @@ class ExplainResponse(Response):
             "retrieve": bool_or_none,
         }
 
-        schemas = {}
+        schemas: Dict[str, Any] = {}
         xml_schemas = self.xmlparser.findall(
             xml,
             [
@@ -254,17 +294,19 @@ class ExplainResponse(Response):
             ],
         )
         for schema in xml_schemas:
-            schema_info = {}
+            schema_info: Dict[str, Any] = {}
             for attr, fn in attributes.items():
                 xml_attr = schema.attrib.get(attr)
                 if xml_attr:
                     schema_info[attr] = fn(xml_attr)
             schema_info["title"] = self.xmlparser.find(schema, "./zr:title").text
-            schemas[schema.attrib.get("name")] = schema_info
+            schema_name = schema.attrib.get("name")
+            if schema_name is not None:
+                schemas[schema_name] = schema_info
         return schemas
 
-    def _parse_config(self, xml):
-        config = {}
+    def _parse_config(self, xml: Any) -> Dict[str, Any]:
+        config: Dict[str, Any] = {}
         settings = self.xmlparser.findall(
             xml,
             [
@@ -284,18 +326,18 @@ class ExplainResponse(Response):
                 ".//zr2:configInfo/zr:default",
             ],
         )
-        defaults = {}
+        defaults: Dict[str, Any] = {}
         for default in xml_defaults:
             t = default.attrib["type"]
             defaults[t] = self.maybe_int(default.text)
         config["defaults"] = defaults
         return config
 
-    def _parse_database(self, xml):
+    def _parse_database(self, xml: Any) -> Dict[str, Any]:
         db = self.xmlparser.find(xml, ".//zr:databaseInfo")
         if not db:
             return {}
-        db_info = {
+        db_info: Dict[str, Any] = {
             "title": self.xmlparser.find(db, ["./zr:title", "./title"]).text,
             "description": self.xmlparser.find(
                 db, ["./zr:description", "./description"]
@@ -305,8 +347,8 @@ class ExplainResponse(Response):
         db_info = {k: v.strip() if v else v for (k, v) in db_info.items()}
         return db_info
 
-    def _parse_index(self, xml):
-        index = defaultdict(defaultdict)
+    def _parse_index(self, xml: Any) -> Dict[str, Any]:
+        index: DefaultDict[str, Any] = defaultdict(defaultdict)
         index_sets = self.xmlparser.findall(
             xml,
             [
@@ -328,11 +370,12 @@ class ExplainResponse(Response):
                 index_field, [".//zr:map/zr:name", ".//zr2:map/zr2:name"]
             )
             for name in names:
-                index[name.attrib["set"]][name.text.strip()] = title
+                if name.text and name.attrib.get("set"):
+                    index[name.attrib["set"]][name.text.strip()] = title
 
         return {k: dict(v) for k, v in dict(index).items()}
 
 
-class AttributeDict(dict):
-    def __getattr__(self, attr):
+class AttributeDict(dict):  # type: ignore[type-arg]
+    def __getattr__(self, attr: str) -> Any:
         return self[attr]
