@@ -277,6 +277,37 @@ class TestSruthiClient(SruthiTestCase):
             },
         )
 
+    def test_passing_sort_keys(self):
+        client = Client("http://my-param.com/sru")
+
+        client.searchretrieve("test-query", sort_keys="title,,0")
+        self.session_mock.return_value.get.assert_called_once_with(
+            "http://my-param.com/sru",
+            params={
+                "operation": "searchRetrieve",
+                "version": "1.2",
+                "query": "test-query",
+                "startRecord": 1,
+                "maximumRecords": 10,
+                "sortKeys": "title,,0",
+            },
+        )
+
+    def test_sort_keys_not_sent_for_sru20(self):
+        client = Client("http://my-param.com/sru", sru_version="2.0")
+
+        client.searchretrieve("test-query sortby title/sort.ascending", sort_keys="title,,0")
+        self.session_mock.return_value.get.assert_called_once_with(
+            "http://my-param.com/sru",
+            params={
+                "operation": "searchRetrieve",
+                "version": "2.0",
+                "query": "test-query sortby title/sort.ascending",
+                "startRecord": 1,
+                "maximumRecords": 10,
+            },
+        )
+
 
 class TestSruthiClientNoSession:
     def test_passing_session(self, valid_xml):
