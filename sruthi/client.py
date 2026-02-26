@@ -73,6 +73,12 @@ class DataLoader:
         sru = "{http://www.loc.gov/zing/srw/}"
         diag = "{http://www.loc.gov/zing/srw/diagnostic/}"
         diagnostics = self.xmlparser.find(xml, f"{sru}diagnostics/{diag}diagnostic")
+        if not diagnostics:
+            sru20 = "{http://docs.oasis-open.org/ns/search-ws/sruResponse}"
+            diag20 = "{http://docs.oasis-open.org/ns/search-ws/diagnostic}"
+            diagnostics = self.xmlparser.find(
+                xml, f"{sru20}diagnostics/{diag20}diagnostic"
+            )
         if diagnostics:
             error_msg = ", ".join([d.text for d in diagnostics])
             raise errors.SruError(error_msg)

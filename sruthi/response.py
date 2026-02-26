@@ -23,22 +23,34 @@ class Response:
     def _check_response_tag(self, xml, tag):
         sru = "{http://www.loc.gov/zing/srw/}"
         response = f"{sru}{tag}"
-        if not xml.tag == response:
-            # fix namespace for servers that provide the wrong namespace URI
-            main_ns = self.xmlparser.namespace(xml)
-            if "www.loc.gov/zing/srw" in main_ns:
-                warnings.warn(
-                    f"""
+        if xml.tag == response:
+            return
+
+        # Support SRU 2.0 namespaces
+        sru20_namespaces = [
+            "http://docs.oasis-open.org/ns/search-ws/sruResponse",
+            "http://docs.oasis-open.org/ns/search-ws/sruExplain",
+        ]
+        for ns in sru20_namespaces:
+            if xml.tag == f"{{{ns}}}{tag}":
+                self.xmlparser.namespaces["sru"] = ns
+                return
+
+        # fix namespace for servers that provide the wrong namespace URI
+        main_ns = self.xmlparser.namespace(xml)
+        if "www.loc.gov/zing/srw" in main_ns:
+            warnings.warn(
+                f"""
                     The server has the wrong namespace for SRU,
                     it should be {sru} but it's currently set to {{{main_ns}}}.
                     """,
-                    errors.WrongNamespaceWarning,
-                )
-                self.xmlparser.namespaces["sru"] = main_ns
-            else:
-                raise errors.ServerIncompatibleError(
-                    f"Server response did not contain a {response} tag"
-                )
+                errors.WrongNamespaceWarning,
+            )
+            self.xmlparser.namespaces["sru"] = main_ns
+        else:
+            raise errors.ServerIncompatibleError(
+                f"Server response did not contain a {response} tag"
+            )
 
 
 class SearchRetrieveResponse(Response):

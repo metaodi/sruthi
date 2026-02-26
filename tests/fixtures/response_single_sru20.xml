@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<searchRetrieveResponse xmlns="http://docs.oasis-open.org/ns/search-ws/sruResponse">
+  <version>2.0</version>
+  <numberOfRecords>1</numberOfRecords>
+  <records>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordXMLEscaping>xml</recordXMLEscaping>
+      <recordData>
+        <isad:archivaldescription xmlns:isad="http://www.expertisecentrumdavid.be/xmlschemas/isad.xsd">
+          <isad:identity>
+            <isad:reference>VII.8802-Test.</isad:reference>
+            <isad:title>Test-Title SRU 2.0</isad:title>
+            <isad:date>2020</isad:date>
+            <isad:descriptionlevel>Dossier</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>1</recordPosition>
+    </record>
+  </records>
+</searchRetrieveResponse>
