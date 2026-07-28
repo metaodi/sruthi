@@ -1,26 +1,41 @@
-from collections import defaultdict
-import re
 import warnings
+from collections import defaultdict
+from collections.abc import Callable, Iterator
+from typing import TYPE_CHECKING, Any, overload
+from xml.etree.ElementTree import Element
+
 from flatten_dict import flatten
-from . import xmlparse
-from . import errors
+
+from . import errors, xmlparse
+
+if TYPE_CHECKING:  # pragma: no cover - import cycle, only needed for annotations
+    from .client import DataLoader
+
+#: A single, flattened SRU record.
+Record = dict[str, Any]
 
 
 class Response:
-    def __init__(self, data_loader):
+    #: Set by ``_parse_content()``, i.e. only after ``__init__()`` has run.
+    sru_version: str | None
+
+    def __init__(self, data_loader: "DataLoader") -> None:
         self.data_loader = data_loader
         self.xmlparser = xmlparse.XMLParser()
-        self.records = []
+        self.records: list[Record] = []
         xml = self.data_loader.load()
         self._parse_content(xml)
 
-    def maybe_int(self, s):
+    def _parse_content(self, xml: Element) -> None:
+        raise NotImplementedError
+
+    def maybe_int(self, s: Any) -> Any:
         try:
             return int(s)
         except (ValueError, TypeError):
             return s
 
-    def _check_response_tag(self, xml, tag):
+    def _check_response_tag(self, xml: Element, tag: str) -> None:
         sru = "{http://www.loc.gov/zing/srw/}"
         response = f"{sru}{tag}"
         if not xml.tag == response:
@@ -33,6 +48,7 @@ class Response:
                     it should be {sru} but it's currently set to {{{main_ns}}}.
                     """,
                     errors.WrongNamespaceWarning,
+                    stacklevel=2,
                 )
                 self.xmlparser.namespaces["sru"] = main_ns
             else:
@@ -42,7 +58,11 @@ class Response:
 
 
 class SearchRetrieveResponse(Response):
-    def __repr__(self):
+    #: Set by ``_parse_content()``, i.e. only after ``__init__()`` has run.
+    count: int
+    next_start_record: int | None
+
+    def __repr__(self) -> str:
         try:
             return (
                 f"SearchRetrieveResponse("
@@ -53,7 +73,7 @@ class SearchRetrieveResponse(Response):
         except AttributeError:
             return "SearchRetrieveResponse(empty)"
 
-    def _parse_content(self, xml):
+    def _parse_content(self, xml: Element) -> None:
         self._check_response_tag(xml, "searchRetrieveResponse")
 
         self.sru_version = self.xmlparser.find(xml, "./sru:version").text
@@ -68,10 +88,10 @@ class SearchRetrieveResponse(Response):
         else:
             self.next_start_record = None
 
-    def __length_hint__(self):
+    def __length_hint__(self) -> int:
         return self.count
 
-    def __iter__(self):
+    def __iter__(self) -> Iterator[Record]:
         # use while loop since self.records could grow while iterating
         i = 0
         while True:
@@ -84,7 +104,13 @@ class SearchRetrieveResponse(Response):
             yield self.records[i]
             i += 1
 
-    def __getitem__(self, key):
+    @overload
+    def __getitem__(self, key: int) -> Record: ...
+
+    @overload
+    def __getitem__(self, key: slice) -> list[Record]: ...
+
+    def __getitem__(self, key: int | slice) -> Record | list[Record]:
         if isinstance(key, slice):
             limit = max(key.start or 0, key.stop or self.count)
             self._load_new_data_until(limit)
@@ -101,25 +127,25 @@ class SearchRetrieveResponse(Response):
         self._load_new_data_until(limit)
         return self.records[key]
 
-    def _load_new_data_until(self, limit):
+    def _load_new_data_until(self, limit: int) -> None:
         while limit >= len(self.records):
             try:
                 self._load_new_data()
             except errors.NoMoreRecordsError:
                 break
 
-    def _load_new_data(self):
+    def _load_new_data(self) -> None:
         if self.next_start_record is None:
             raise errors.NoMoreRecordsError()
         xml = self.data_loader.load(startRecord=self.next_start_record)
         self._parse_content(xml)
 
-    def _extract_records(self, xml):
+    def _extract_records(self, xml: Element) -> None:
         new_records = []
 
         xml_recs = self.xmlparser.findall(xml, "./sru:records/sru:record")
         for xml_rec in xml_recs:
-            record = defaultdict()
+            record: defaultdict[str, Any] = defaultdict()
             record["schema"] = self.xmlparser.find(xml_rec, "./sru:recordSchema").text
             record_data = self.xmlparser.find(xml_rec, "./sru:recordData")
             extra_data = self.xmlparser.find(xml_rec, "./sru:extraRecordData")
@@ -127,15 +153,17 @@ class SearchRetrieveResponse(Response):
             record.update(self._tag_data(record_data, "sru:recordData") or {})
             record["extra"] = self._tag_data(extra_data, "sru:extraRecordData")
 
-            record = dict(record)
-            new_records.append(record)
+            new_records.append(dict(record))
         self.records.extend(new_records)
 
-    def _tag_data(self, elem, parent):
-        if not elem:
+    def _tag_data(
+        self, elem: xmlparse.FoundElement, parent: str
+    ) -> dict[str, Any] | None:
+        if isinstance(elem, xmlparse.XMLNone) or not len(elem):
             return None
 
-        record_data = self.xmlparser.todict(elem, xml_attribs=True).get(parent)
+        todict = self.xmlparser.todict(elem, xml_attribs=True)
+        record_data: Any = todict.get(parent) if todict else None
         if not record_data:
             return None
 
@@ -147,7 +175,7 @@ class SearchRetrieveResponse(Response):
         record_data.pop("schemaLocation", None)
         record_data.pop("xmlns", None)
 
-        def leaf_reducer(k1, k2):
+        def leaf_reducer(k1: str | None, k2: str) -> str:
             # only use key of leaf element
             return k2
 
@@ -158,16 +186,19 @@ class SearchRetrieveResponse(Response):
             # the dict will not be flattened
             pass
 
-        return record_data
-
-    def _remove_namespace(self, elem):
-        ns_pattern = re.compile("{.+}")
-        tag_name = ns_pattern.sub("", elem.tag)
-        return tag_name
+        flattened: dict[str, Any] = record_data
+        return flattened
 
 
 class ExplainResponse(Response):
-    def __repr__(self):
+    #: Set by ``_parse_content()``, i.e. only after ``__init__()`` has run.
+    server: dict[str, Any]
+    database: dict[str, str | None]
+    index: dict[str, dict[str, str | None]]
+    schema: dict[str, dict[str, Any]]
+    config: dict[str, Any]
+
+    def __repr__(self) -> str:
         return (
             f"ExplainResponse("
             f"sru_version={self.sru_version!r},"
@@ -178,7 +209,7 @@ class ExplainResponse(Response):
             f"config={self.config!r})"
         )
 
-    def asdict(self):
+    def asdict(self) -> "AttributeDict":
         return AttributeDict(
             {
                 "sru_version": self.sru_version,
@@ -190,7 +221,7 @@ class ExplainResponse(Response):
             }
         )
 
-    def _parse_content(self, xml):
+    def _parse_content(self, xml: Element) -> None:
         self._check_response_tag(xml, "explainResponse")
 
         record_schema = self.xmlparser.find(xml, ".//sru:recordSchema").text
@@ -205,8 +236,8 @@ class ExplainResponse(Response):
         self.schema = self._parse_schema(xml)
         self.config = self._parse_config(xml)
 
-    def _parse_server(self, xml):
-        server_info = {
+    def _parse_server(self, xml: Element) -> dict[str, Any]:
+        server_info: dict[str, Any] = {
             "host": self.xmlparser.find(
                 xml, [".//zr:serverInfo/zr:host", ".//zr2:serverInfo/zr:host"]
             ).text,
@@ -228,16 +259,16 @@ class ExplainResponse(Response):
         server_info["port"] = self.maybe_int(server_info["port"])
         return server_info
 
-    def _parse_schema(self, xml):
-        def bool_or_none(v):
+    def _parse_schema(self, xml: Element) -> dict[str, dict[str, Any]]:
+        def bool_or_none(v: str | None) -> bool | None:
             if v is None:
                 return None
             return bool(v)
 
-        def ident(a):
+        def ident(a: str | None) -> str | None:
             return a
 
-        attributes = {
+        attributes: dict[str, Callable[[Any], Any]] = {
             "identifier": ident,
             "name": ident,
             "location": ident,
@@ -245,7 +276,7 @@ class ExplainResponse(Response):
             "retrieve": bool_or_none,
         }
 
-        schemas = {}
+        schemas: dict[str, dict[str, Any]] = {}
         xml_schemas = self.xmlparser.findall(
             xml,
             [
@@ -254,17 +285,17 @@ class ExplainResponse(Response):
             ],
         )
         for schema in xml_schemas:
-            schema_info = {}
+            schema_info: dict[str, Any] = {}
             for attr, fn in attributes.items():
                 xml_attr = schema.attrib.get(attr)
                 if xml_attr:
                     schema_info[attr] = fn(xml_attr)
             schema_info["title"] = self.xmlparser.find(schema, "./zr:title").text
-            schemas[schema.attrib.get("name")] = schema_info
+            schemas[schema.attrib.get("name", "")] = schema_info
         return schemas
 
-    def _parse_config(self, xml):
-        config = {}
+    def _parse_config(self, xml: Element) -> dict[str, Any]:
+        config: dict[str, Any] = {}
         settings = self.xmlparser.findall(
             xml,
             [
@@ -284,29 +315,28 @@ class ExplainResponse(Response):
                 ".//zr2:configInfo/zr:default",
             ],
         )
-        defaults = {}
+        defaults: dict[str, Any] = {}
         for default in xml_defaults:
             t = default.attrib["type"]
             defaults[t] = self.maybe_int(default.text)
         config["defaults"] = defaults
         return config
 
-    def _parse_database(self, xml):
+    def _parse_database(self, xml: Element) -> dict[str, str | None]:
         db = self.xmlparser.find(xml, ".//zr:databaseInfo")
-        if not db:
+        if isinstance(db, xmlparse.XMLNone) or not len(db):
             return {}
-        db_info = {
+        db_info: dict[str, str | None] = {
             "title": self.xmlparser.find(db, ["./zr:title", "./title"]).text,
             "description": self.xmlparser.find(
                 db, ["./zr:description", "./description"]
             ).text,
             "contact": self.xmlparser.find(db, ["./zr:contact", "./contact"]).text,
         }
-        db_info = {k: v.strip() if v else v for (k, v) in db_info.items()}
-        return db_info
+        return {k: v.strip() if v else v for (k, v) in db_info.items()}
 
-    def _parse_index(self, xml):
-        index = defaultdict(defaultdict)
+    def _parse_index(self, xml: Element) -> dict[str, dict[str, str | None]]:
+        index: defaultdict[str, dict[str, str | None]] = defaultdict(dict)
         index_sets = self.xmlparser.findall(
             xml,
             [
@@ -315,7 +345,7 @@ class ExplainResponse(Response):
             ],
         )
         for index_set in index_sets:
-            index[index_set.attrib["name"]] = defaultdict()
+            index[index_set.attrib["name"]] = {}
 
         index_fields = self.xmlparser.findall(
             xml, [".//zr:indexInfo/zr:index", ".//zr2:indexInfo/zr2:index"]
@@ -328,11 +358,11 @@ class ExplainResponse(Response):
                 index_field, [".//zr:map/zr:name", ".//zr2:map/zr2:name"]
             )
             for name in names:
-                index[name.attrib["set"]][name.text.strip()] = title
+                index[name.attrib["set"]][(name.text or "").strip()] = title
 
-        return {k: dict(v) for k, v in dict(index).items()}
+        return dict(index)
 
 
-class AttributeDict(dict):
-    def __getattr__(self, attr):
+class AttributeDict(dict[str, Any]):
+    def __getattr__(self, attr: str) -> Any:
         return self[attr]

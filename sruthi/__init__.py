@@ -1,29 +1,68 @@
 __version__ = "2.0.0"
-__all__ = ["client", "errors", "response", "xmlparse"]
+__all__ = [
+    # public API
+    "Client",
+    "searchretrieve",
+    "explain",
+    "SruthiError",
+    "ServerIncompatibleError",
+    "SruError",
+    "NoMoreRecordsError",
+    "SruthiWarning",
+    "WrongNamespaceWarning",
+    # submodules
+    "client",
+    "errors",
+    "response",
+    "xmlparse",
+]
 
-from .errors import (  # noqa
-    SruthiError,
+import requests
+
+from . import client, errors, response, xmlparse
+from .client import Client
+from .errors import (
+    NoMoreRecordsError,
     ServerIncompatibleError,
     SruError,
-    NoMoreRecordsError,
+    SruthiError,
+    SruthiWarning,
+    WrongNamespaceWarning,
 )
-from .errors import SruthiWarning, WrongNamespaceWarning  # noqa
-from .client import Client  # noqa
+from .response import AttributeDict, SearchRetrieveResponse
 
 
-def searchretrieve(url, query, **kwargs):
-    search_params = ["query", "start_record"]
-    search_kwargs = {k: v for k, v in kwargs.items() if k in search_params}
-    search_kwargs["query"] = query
+def searchretrieve(
+    url: str,
+    query: str,
+    start_record: int = 1,
+    maximum_records: int = 10,
+    record_schema: str | None = None,
+    sru_version: str = "1.2",
+    session: requests.Session | None = None,
+) -> SearchRetrieveResponse:
+    c = Client(
+        url=url,
+        maximum_records=maximum_records,
+        record_schema=record_schema,
+        sru_version=sru_version,
+        session=session,
+    )
+    return c.searchretrieve(query=query, start_record=start_record)
 
-    # assume all others kwargs are for the client
-    client_kwargs = {k: v for k, v in kwargs.items() if k not in search_params}
-    client_kwargs["url"] = url
 
-    c = Client(**client_kwargs)
-    return c.searchretrieve(**search_kwargs)
-
-
-def explain(url, **kwargs):
-    c = Client(url, **kwargs)
+def explain(
+    url: str,
+    maximum_records: int = 10,
+    record_schema: str | None = None,
+    sru_version: str = "1.2",
+    session: requests.Session | None = None,
+) -> AttributeDict:
+    c = Client(
+        url=url,
+        maximum_records=maximum_records,
+        record_schema=record_schema,
+        sru_version=sru_version,
+        session=session,
+    )
     return c.explain()
