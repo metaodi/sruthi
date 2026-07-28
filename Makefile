@@ -1,25 +1,27 @@
 .DEFAULT_GOAL := help
-.PHONY: coverage deps help lint test
+.PHONY: coverage deps format help lint test typecheck
 
 coverage:  ## Run tests with coverage
-	python -m coverage erase
-	python -m coverage run --include=sruthi/* -m pytest -ra
-	python -m coverage report -m
+	uv run coverage erase
+	uv run coverage run -m pytest -ra
+	uv run coverage report -m
 
 deps:  ## Install dependencies
-	python -m pip install --upgrade pip
-	python -m pip install -r requirements.txt
-	python -m pip install -r test-requirements.txt
+	uv sync
 
 lint:  ## Linting of source code
-	python -m black --check sruthi examples tests
-	python -m flake8 --statistics --show-source sruthi examples tests
+	uv run black --check sruthi examples tests
+	uv run ruff check sruthi examples tests
 
-format:  ## Format source code (black codestyle)
-	python -m black sruthi examples tests
+typecheck:  ## Static type checking of source code
+	uv run mypy
+
+format:  ## Format source code (black codestyle) and apply lint fixes
+	uv run black sruthi examples tests
+	uv run ruff check --fix sruthi examples tests
 
 test:  ## Run tests
-	python -m pytest --cov=sruthi tests/
+	uv run pytest --cov=sruthi tests/
 
 help: SHELL := /bin/bash
 help: ## Show help message

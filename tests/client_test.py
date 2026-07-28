@@ -1,5 +1,7 @@
-import mock
+from unittest import mock
+
 from sruthi_test import SruthiTestCase
+
 from sruthi.client import Client
 from sruthi.errors import WrongNamespaceWarning
 

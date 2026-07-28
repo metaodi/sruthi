@@ -1,5 +1,6 @@
-import sruthi
 import sys
+
+import sruthi
 
 LOC_BASE = "http://lx2.loc.gov:210/LCDB?"
 

@@ -1,7 +1,8 @@
 # make sure you have termcolor and yaml installed: pip install termcolor pyyaml
-import sruthi
-from termcolor import cprint
 import yaml
+from termcolor import cprint
+
+import sruthi
 
 sru_endpoints = [
     "https://suche.staatsarchiv.djiktzh.ch/SRU/",

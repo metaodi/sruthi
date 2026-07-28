@@ -1,7 +1,8 @@
-import sruthi
 import csv
 import sys
 import traceback
+
+import sruthi
 
 records = sruthi.searchretrieve(
     "https://amsquery.stadt-zuerich.ch/SRU/",

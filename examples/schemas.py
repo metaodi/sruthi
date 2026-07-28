@@ -1,5 +1,6 @@
-import sruthi
 from pprint import pprint
+
+import sruthi
 
 # check supported schemas of server
 server = sruthi.explain("http://lx2.loc.gov:210/LCDB?")

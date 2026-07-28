@@ -1,6 +1,8 @@
-import requests
-import sruthi
 from pprint import pprint
+
+import requests
+
+import sruthi
 
 
 def print_url(r, *args, **kwargs):
