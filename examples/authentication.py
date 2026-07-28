@@ -1,5 +1,7 @@
 import os
+
 import requests
+
 from sruthi import Client
 
 # create authenticated session

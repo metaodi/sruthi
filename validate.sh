@@ -8,8 +8,11 @@ function cleanup {
 
 trap "cleanup" EXIT
 
-# Check PEP-8 code style and McCabe complexity
+# Check code style and McCabe complexity
 make lint
+
+# Check type annotations
+make typecheck
 
 # run tests with test coverage
 make test

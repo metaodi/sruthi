@@ -28,6 +28,9 @@ Currently only **SRU 1.1 and 1.2** is supported.
 $ pip install sruthi
 ```
 
+sruthi requires Python 3.10 or newer and ships type information (`py.typed`),
+so type checkers such as mypy pick up its annotations automatically.
+
 ## Usage
 
 See the [`examples` directory](https://github.com/metaodi/sruthi/tree/master/examples) for more scripts.
@@ -156,15 +159,17 @@ sruthi has been tested with the following schemas:
 
 To contribute to sruthi simply clone this repository and follow the instructions in [CONTRIBUTING.md](/CONTRIBUTING.md).
 
-This project has a `Makefile` with the most common commands.
+This project uses [uv](https://docs.astral.sh/uv/) to manage its development environment, run `uv sync` to get started.
+
+This project has a `Makefile` with the most common commands (`make test`, `make lint`, `make typecheck`, `make format`).
 Type `make help` to get an overview.
 
 ## Release
 
 To create a new release, follow these steps (please respect [Semantic Versioning](http://semver.org/)):
 
-1. Adapt the version number in `sruthi/__init__.py`
+1. Adapt the version number in `sruthi/__init__.py` (this is the single source of truth, the build reads it from there)
 1. Update the CHANGELOG with the version
 1. Create a pull request to merge `develop` into `master` (make sure the tests pass!)
 1. Create a [new release/tag on GitHub](https://github.com/metaodi/sruthi/releases) (on the master branch)
-1. The [publication on PyPI](https://pypi.python.org/pypi/sruthi) happens via [GitHub Actions](https://github.com/metaodi/sruthi/actions?query=workflow%3A%22Upload+Python+Package%22) on every tagged commit
+1. The [publication on PyPI](https://pypi.python.org/pypi/sruthi) happens via [GitHub Actions](https://github.com/metaodi/sruthi/actions?query=workflow%3A%22Upload+Python+Package%22) on every tagged commit, using [PyPI Trusted Publishing](https://docs.pypi.org/trusted-publishers/)

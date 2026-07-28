@@ -1,6 +1,7 @@
-import mock
-import unittest
 import os
+import unittest
+from unittest import mock
+
 from sruthi import xmlparse
 
 __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))

@@ -1,6 +1,8 @@
-from sruthi_test import ResponseTestCase
-from sruthi.response import SearchRetrieveResponse, ExplainResponse
 import os
+
+from sruthi_test import ResponseTestCase
+
+from sruthi.response import ExplainResponse, SearchRetrieveResponse
 
 __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 

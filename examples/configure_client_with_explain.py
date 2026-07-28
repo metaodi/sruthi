@@ -4,7 +4,7 @@ from sruthi import Client
 sru_client = Client("https://suche.staatsarchiv.djiktzh.ch/SRU/")
 info = sru_client.explain()
 
-for name, details in info.schema.items():
+for details in info.schema.values():
     print(f"This SRU endpoint supports the metadata schema {details['title']}.")
 
 # configure the maximum records based on the config

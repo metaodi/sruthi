@@ -1,5 +1,6 @@
-import sruthi
 from pprint import pprint
+
+import sruthi
 
 # check supported schemas of server
 server_url = "https://services.dnb.de/sru/dnb"

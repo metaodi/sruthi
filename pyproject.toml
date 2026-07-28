@@ -1,0 +1,87 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sruthi"
+dynamic = ["version"]
+description = "SRU client for Python"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE.md"]
+authors = [{ name = "Stefan Oderbolz", email = "odi@metaodi.ch" }]
+maintainers = [{ name = "Stefan Oderbolz", email = "odi@metaodi.ch" }]
+keywords = ["sru", "search", "retrieve", "archive", "library"]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries",
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Typing :: Typed",
+]
+dependencies = [
+    "requests",
+    "defusedxml",
+    "xmltodict",
+    "flatten-dict",
+]
+
+[project.urls]
+Homepage = "https://github.com/metaodi/sruthi"
+Source = "https://github.com/metaodi/sruthi"
+Changelog = "https://github.com/metaodi/sruthi/blob/master/CHANGELOG.md"
+Issues = "https://github.com/metaodi/sruthi/issues"
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "coverage",
+    "black",
+    "ruff",
+    "mypy",
+    "types-defusedxml",
+    "types-xmltodict",
+]
+
+# __version__ in sruthi/__init__.py stays the single source of truth
+[tool.hatch.version]
+path = "sruthi/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["sruthi"]
+
+[tool.black]
+target-version = ["py310"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "C90", "I", "UP", "B"]
+# E203 is incompatible with black
+ignore = ["E203"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+files = ["sruthi"]
+
+[[tool.mypy.overrides]]
+module = ["flatten_dict.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["*_test.py", "test_*.py"]
+
+[tool.coverage.run]
+source = ["sruthi"]
