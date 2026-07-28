@@ -3,8 +3,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project follows [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- Type hints for the whole package, checked with `mypy` in strict mode, and a `py.typed` marker so the type information is available to users of sruthi
+- `pyproject.toml` as the single source of truth for project metadata, dependencies and tool configuration
+- `uv.lock` for reproducible development and CI environments
+- `make typecheck` target, which is also part of `validate.sh` and therefore of CI
+
 ### Changed
 - Adapt python syntax to Python 3.7 using pyupgrade
+- Build the package with `hatchling` and manage the development environment with `uv`
+- Use `ruff` instead of `flake8` for linting (`black` remains the code style)
+- `sruthi.searchretrieve()` and `sruthi.explain()` declare their keyword arguments explicitly instead of forwarding `**kwargs` to `Client`. Unknown keywords now raise a `TypeError` at the call site
+- `__all__` of the `sruthi` package now also lists the re-exported names (`Client`, `searchretrieve`, `explain` and the errors), not just the submodules
+- Publish to PyPI using Trusted Publishing (OIDC) instead of username/password secrets
+- Chain the original exception (`raise ... from e`) when wrapping request and XML parsing errors
+- Fix a duplicated key in the XML namespace map
+- Don't rely on the truth value of an `xml.etree.ElementTree.Element`, which is deprecated since Python 3.12
+- Raise a `SruthiError` with a clear message when a request is made without a URL
+- A diagnostic or index name without text no longer raises a `TypeError`/`AttributeError` but is treated as an empty string
+
+### Removed
+- BC-break: no more support for Python 3.7, 3.8 and 3.9, minimum required version is now Python 3.10
+- `setup.py`, `setup.cfg`, `setup.sh`, `requirements.txt` and `test-requirements.txt`, all replaced by `pyproject.toml` and `uv`
+- `flake8` and the `mock` backport as development dependencies
+- Unused code: `XMLNone.__nonzero__()`, `DataLoader.response` and `SearchRetrieveResponse._remove_namespace()`
 
 ## [2.0.0] - 2023-07-06
 ### Added

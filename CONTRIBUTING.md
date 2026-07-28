@@ -8,15 +8,19 @@ Fork and clone this repository:
 git clone git@github.com:your-username/sruthi.git
 ```
 
-Install the dependencies using `pip`:
+This project uses [uv](https://docs.astral.sh/uv/) to manage the development
+environment. Install the dependencies with:
 
 ```bash
-pip install -r requirements.txt
-pip install -r test-requirements.txt
+uv sync
 
 # or use make
 make deps
 ```
+
+This creates a virtualenv in `.venv` with sruthi and all development tools
+installed. Every `make` target runs through `uv run`, so there is nothing to
+activate manually.
 
 Make sure the tests pass:
 
@@ -24,17 +28,26 @@ Make sure the tests pass:
 make test
 ```
 
-To ensure a good quality of the code use `flake8` to check the code style.
+To ensure a good quality of the code use `ruff` to check the code style.
 
 ```bash
 make lint
 ```
 
-Note that this repository uses the `black` code style, the reformat the code use:
+The public API is fully type annotated, checked with `mypy` in strict mode:
+
+```bash
+make typecheck
+```
+
+Note that this repository uses the `black` code style. To reformat the code and
+apply the automatic lint fixes, use:
 
 ```bash
 make format
 ```
+
+`./validate.sh` runs all three checks in the same way CI does.
 
 
 ## Create a pull request
