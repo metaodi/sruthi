@@ -1,5 +1,11 @@
-sruthi.egg-info
+*.egg-info
 *.pyc
 *.swp
+__pycache__/
 .coverage
-pyenv
+.venv/
+build/
+dist/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
