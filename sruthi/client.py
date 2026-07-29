@@ -19,7 +19,7 @@ class Client:
         self.record_schema = record_schema
         self.session = session or requests.Session()
 
-    def searchretrieve(self, query, start_record=1):
+    def searchretrieve(self, query, start_record=1, sort_keys=None):
         params = {
             "operation": "searchRetrieve",
             "version": self.sru_version,
@@ -30,6 +30,9 @@ class Client:
 
         if self.record_schema:
             params["recordSchema"] = self.record_schema
+
+        if sort_keys and not self.sru_version.startswith("2"):
+            params["sortKeys"] = sort_keys
 
         data_loader = DataLoader(self.url, self.session, params)
         return response.SearchRetrieveResponse(data_loader)
@@ -73,6 +76,12 @@ class DataLoader:
         sru = "{http://www.loc.gov/zing/srw/}"
         diag = "{http://www.loc.gov/zing/srw/diagnostic/}"
         diagnostics = self.xmlparser.find(xml, f"{sru}diagnostics/{diag}diagnostic")
+        if not diagnostics:
+            sru20 = "{http://docs.oasis-open.org/ns/search-ws/sruResponse}"
+            diag20 = "{http://docs.oasis-open.org/ns/search-ws/diagnostic}"
+            diagnostics = self.xmlparser.find(
+                xml, f"{sru20}diagnostics/{diag20}diagnostic"
+            )
         if diagnostics:
             error_msg = ", ".join([d.text for d in diagnostics])
             raise errors.SruError(error_msg)

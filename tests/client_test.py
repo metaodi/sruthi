@@ -89,6 +89,23 @@ class TestSruthiClient(SruthiTestCase):
             },
         )
 
+    def test_searchretrieve_sru20(self):
+        client = Client("http://my-param.com/sru", sru_version="2.0")
+
+        r = client.searchretrieve("test-query")
+        self.assertEqual(r.count, 5)
+        self.assertEqual(r.sru_version, "2.0")
+        self.session_mock.return_value.get.assert_called_once_with(
+            "http://my-param.com/sru",
+            params={
+                "operation": "searchRetrieve",
+                "version": "2.0",
+                "query": "test-query",
+                "startRecord": 1,
+                "maximumRecords": 10,
+            },
+        )
+
     def test_explain(self):
         client = Client("https://test.com/sru")
         info = client.explain()
@@ -176,6 +193,42 @@ class TestSruthiClient(SruthiTestCase):
         self.assertEqual(config["maximumRecords"], 50)
         self.assertEqual(config["defaults"]["numberOfRecords"], 10)
 
+    def test_explain_sru20(self):
+        client = Client("https://test.com/sru20", sru_version="2.0")
+        info = client.explain()
+
+        self.assertEqual(info.sru_version, "2.0")
+
+        # server
+        server = info.server
+        self.assertEqual(server["host"], "https://test.com/sru20")
+        self.assertEqual(server["port"], 80)
+        self.assertEqual(server["database"], "sru20")
+
+        # database
+        db = info.database
+        self.assertEqual(db["title"], "Testarchiv SRU 2.0")
+
+        # index
+        index = info.index
+        self.assertEqual(len(index), 1)
+        self.assertEqual(list(index.keys()), ["isad"])
+        self.assertIn("title", index["isad"])
+        self.assertIn("reference", index["isad"])
+        self.assertEqual(index["isad"]["reference"], "Reference Code")
+
+        # schema
+        schema = info.schema
+        self.assertEqual(len(schema), 1)
+        self.assertEqual(list(schema.keys()), ["isad"])
+        self.assertEqual(schema["isad"]["name"], "isad")
+        self.assertEqual(schema["isad"]["title"], "ISAD(G)")
+
+        # config
+        config = info.config
+        self.assertEqual(config["maximumRecords"], 50)
+        self.assertEqual(config["defaults"]["numberOfRecords"], 10)
+
     def test_passing_maximum_records(self):
         client = Client("http://my-param.com/sru", maximum_records=111)
         self.assertEqual(client.maximum_records, 111)
@@ -220,6 +273,37 @@ class TestSruthiClient(SruthiTestCase):
                 "version": "1.2",
                 "query": "test-query",
                 "startRecord": 10,
+                "maximumRecords": 10,
+            },
+        )
+
+    def test_passing_sort_keys(self):
+        client = Client("http://my-param.com/sru")
+
+        client.searchretrieve("test-query", sort_keys="title,,0")
+        self.session_mock.return_value.get.assert_called_once_with(
+            "http://my-param.com/sru",
+            params={
+                "operation": "searchRetrieve",
+                "version": "1.2",
+                "query": "test-query",
+                "startRecord": 1,
+                "maximumRecords": 10,
+                "sortKeys": "title,,0",
+            },
+        )
+
+    def test_sort_keys_not_sent_for_sru20(self):
+        client = Client("http://my-param.com/sru", sru_version="2.0")
+
+        client.searchretrieve("test-query sortby title/sort.ascending", sort_keys="title,,0")
+        self.session_mock.return_value.get.assert_called_once_with(
+            "http://my-param.com/sru",
+            params={
+                "operation": "searchRetrieve",
+                "version": "2.0",
+                "query": "test-query sortby title/sort.ascending",
+                "startRecord": 1,
                 "maximumRecords": 10,
             },
         )

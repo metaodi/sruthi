@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<searchRetrieveResponse xmlns="http://docs.oasis-open.org/ns/search-ws/sruResponse">
+  <version>2.0</version>
+  <numberOfRecords>5</numberOfRecords>
+  <records>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordXMLEscaping>xml</recordXMLEscaping>
+      <recordData>
+        <isad:archivaldescription xmlns:isad="http://www.expertisecentrumdavid.be/xmlschemas/isad.xsd">
+          <isad:identity>
+            <isad:reference>VII.335.:2.34.8.</isad:reference>
+            <isad:title>Test Record 1</isad:title>
+            <isad:date>2020</isad:date>
+            <isad:descriptionlevel>Dossier</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>1</recordPosition>
+    </record>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordXMLEscaping>xml</recordXMLEscaping>
+      <recordData>
+        <isad:archivaldescription xmlns:isad="http://www.expertisecentrumdavid.be/xmlschemas/isad.xsd">
+          <isad:identity>
+            <isad:reference>VII.335.:2.34.9.</isad:reference>
+            <isad:title>Test Record 2</isad:title>
+            <isad:date>2021</isad:date>
+            <isad:descriptionlevel>Dossier</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>2</recordPosition>
+    </record>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordXMLEscaping>xml</recordXMLEscaping>
+      <recordData>
+        <isad:archivaldescription xmlns:isad="http://www.expertisecentrumdavid.be/xmlschemas/isad.xsd">
+          <isad:identity>
+            <isad:reference>VII.335.:2.34.10.</isad:reference>
+            <isad:title>Test Record 3</isad:title>
+            <isad:date>2022</isad:date>
+            <isad:descriptionlevel>Dossier</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>3</recordPosition>
+    </record>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordXMLEscaping>xml</recordXMLEscaping>
+      <recordData>
+        <isad:archivaldescription xmlns:isad="http://www.expertisecentrumdavid.be/xmlschemas/isad.xsd">
+          <isad:identity>
+            <isad:reference>VII.335.:2.34.11.</isad:reference>
+            <isad:title>Test Record 4</isad:title>
+            <isad:date>2023</isad:date>
+            <isad:descriptionlevel>Dossier</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>4</recordPosition>
+    </record>
+    <record>
+      <recordSchema>isad</recordSchema>
+      <recordXMLEscaping>xml</recordXMLEscaping>
+      <recordData>
+        <isad:archivaldescription xmlns:isad="http://www.expertisecentrumdavid.be/xmlschemas/isad.xsd">
+          <isad:identity>
+            <isad:reference>VII.335.:2.34.12.</isad:reference>
+            <isad:title>Test Record 5</isad:title>
+            <isad:date>2024</isad:date>
+            <isad:descriptionlevel>Dossier</isad:descriptionlevel>
+            <isad:extent />
+          </isad:identity>
+          <isad:context>
+            <isad:creator />
+          </isad:context>
+        </isad:archivaldescription>
+      </recordData>
+      <recordPosition>5</recordPosition>
+    </record>
+  </records>
+</searchRetrieveResponse>

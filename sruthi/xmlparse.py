@@ -22,6 +22,8 @@ class XMLParser:
     def __init__(self):
         self.namespaces = {
             "sru": "http://www.loc.gov/zing/srw/",
+            "sru20": "http://docs.oasis-open.org/ns/search-ws/sruResponse",
+            "sru20explain": "http://docs.oasis-open.org/ns/search-ws/sruExplain",
             "isad": "http://www.expertisecentrumdavid.be/xmlschemas/isad.xsd",
             "rel": "info:srw/extension/2/relevancy-1.0",
             "ap": "http://www.archivportal.ch/srw/extension/",
@@ -30,6 +32,8 @@ class XMLParser:
         }
         self.dict_namespaces = {
             "http://www.loc.gov/zing/srw/": "sru",
+            "http://docs.oasis-open.org/ns/search-ws/sruResponse": "sru",
+            "http://docs.oasis-open.org/ns/search-ws/sruExplain": "sru",
             "http://explain.z3950.org/dtd/2.1/": "zr",
             "info:srw/extension/2/relevancy-1.0": None,
             "http://www.archivportal.ch/srw/extension/": None,

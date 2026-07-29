@@ -71,12 +71,34 @@ class TestSearchRetrieveResponse(ResponseTestCase):
         self.assertEqual(data_loader.load.call_count, 3)
 
 
+    def test_response_single_sru20(self):
+        data_loader = self._data_loader_mock(["response_single_sru20.xml"])
+        res = SearchRetrieveResponse(data_loader)
+
+        self.assertEqual(res.count, 1)
+        self.assertEqual(res.__length_hint__(), 1)
+        self.assertEqual(res.sru_version, "2.0")
+        self.assertIsNone(res.next_start_record)
+
+
 class TestExplainResponse(ResponseTestCase):
     def test_response_simple(self):
         data_loader = self._data_loader_mock(["test_explain.xml"])
         res = ExplainResponse(data_loader)
         self.assertEqual(data_loader.load.call_count, 1)
 
+        self.assertIsNotNone(res.server)
+        self.assertIsNotNone(res.index)
+        self.assertIsNotNone(res.schema)
+        self.assertIsNotNone(res.database)
+        self.assertIsNotNone(res.config)
+
+    def test_response_simple_sru20(self):
+        data_loader = self._data_loader_mock(["test_explain_sru20.xml"])
+        res = ExplainResponse(data_loader)
+        self.assertEqual(data_loader.load.call_count, 1)
+
+        self.assertEqual(res.sru_version, "2.0")
         self.assertIsNotNone(res.server)
         self.assertIsNotNone(res.index)
         self.assertIsNotNone(res.schema)

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sru:explainResponse xmlns:sru="http://docs.oasis-open.org/ns/search-ws/sruExplain">
+  <sru:version>2.0</sru:version>
+  <sru:record>
+    <sru:recordXMLEscaping>XML</sru:recordXMLEscaping>
+    <sru:recordSchema>http://explain.z3950.org/dtd/2.1/</sru:recordSchema>
+    <sru:recordData>
+
+      <zr:explain xmlns:zr="http://explain.z3950.org/dtd/2.1/">
+        <zr:serverInfo protocol="SRU" version="2.0" transport="http">
+          <zr:host>https://test.com/sru20</zr:host>
+          <zr:port>80</zr:port>
+          <zr:database>sru20</zr:database>
+        </zr:serverInfo>
+        <zr:databaseInfo>
+          <title lang="de" primary="true">Testarchiv SRU 2.0</title>
+          <description lang="de" primary="true">SRU 2.0 Test Endpoint.</description>
+          <contact>test@test.com</contact>
+        </zr:databaseInfo>
+        <zr:indexInfo>
+          <zr:set name="isad" identifier="info:srw/cql-context-set/1/dc-v1.1"/>
+          <zr:index>
+            <title lang="de">Title</title>
+            <zr:map>
+              <zr:name set="isad">title</zr:name>
+            </zr:map>
+          </zr:index>
+          <zr:index>
+            <title lang="de">Reference Code</title>
+            <zr:map>
+              <zr:name set="isad">reference</zr:name>
+            </zr:map>
+          </zr:index>
+        </zr:indexInfo>
+        <zr:schemaInfo>
+          <zr:schema name="isad" identifier="http://www.expertisecentrumdavid.be/xmlschemas/isad.xsd">
+            <zr:title>ISAD(G)</zr:title>
+          </zr:schema>
+        </zr:schemaInfo>
+        <zr:configInfo>
+          <zr:default type="numberOfRecords">10</zr:default>
+          <zr:setting type="maximumRecords">50</zr:setting>
+        </zr:configInfo>
+      </zr:explain>
+
+    </sru:recordData>
+  </sru:record>
+</sru:explainResponse>
